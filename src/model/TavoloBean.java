@@ -2,31 +2,38 @@ package model;
 
 public class TavoloBean {
 	
-	private int num_tavolo,num_posti;
-	private boolean stato_tavolo;
+	private int numTavolo,numPosti;
+	private boolean stato;
 	
 	public TavoloBean(int num_tavolo,int num_posti,boolean stato)
 	{
-		this.num_tavolo=num_tavolo;
-		this.num_posti=num_posti;
-		this.stato_tavolo=stato;
+		this.numTavolo=num_tavolo;
+		this.numPosti=num_posti;
+		this.stato=stato;
 	}
-	public int getNum_tavolo() {
-		return num_tavolo;
+
+	public int getNumTavolo() {
+		return numTavolo;
 	}
-	public void setNum_tavolo(int num_tavolo) {
-		this.num_tavolo = num_tavolo;
+
+	public void setNumTavolo(int numTavolo) {
+		this.numTavolo = numTavolo;
 	}
-	public int getNum_posti() {
-		return num_posti;
+
+	public int getNumPosti() {
+		return numPosti;
 	}
-	public void setNum_posti(int num_posti) {
-		this.num_posti = num_posti;
+
+	public void setNumPosti(int numPosti) {
+		this.numPosti = numPosti;
 	}
-	public boolean isStato_tavolo() {
-		return stato_tavolo;
+
+	public boolean isStato() {
+		return stato;
 	}
-	public void setStato_tavolo(boolean stato_tavolo) {
-		this.stato_tavolo = stato_tavolo;
+
+	public void setStato(boolean stato) {
+		this.stato = stato;
 	}
+	
 }

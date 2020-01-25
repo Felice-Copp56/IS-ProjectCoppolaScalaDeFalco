@@ -2,16 +2,25 @@ package model;
 
 public class ClienteBean {
 
-	private String nome,cognome,username,password;
+	private String nome,cognome,username,email,password;
 	
-	public ClienteBean(String n,String c,String u,String p)
+	public ClienteBean(String n,String c,String u,String e,String p)
 	{
 		this.nome=n;
 		this.cognome=c;
 		this.username=u;
 		this.password=p;
+		this.email = e;
 	}
 	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public String getNome() {
 		return nome;
 	}
