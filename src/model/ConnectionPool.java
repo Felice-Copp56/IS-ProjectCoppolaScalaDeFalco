@@ -3,14 +3,13 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.TimeZone;
 
-
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.apache.tomcat.jdbc.pool.PoolProperties;
 
 
 
 public class ConnectionPool {
-	private static DataSource datasource;
+	private static DataSource datasource;hhh
 
 	public static Connection getConnection() throws SQLException {
 		if (datasource == null) {
