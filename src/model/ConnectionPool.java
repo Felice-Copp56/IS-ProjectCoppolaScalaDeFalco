@@ -6,10 +6,6 @@ import java.util.TimeZone;
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.apache.tomcat.jdbc.pool.PoolProperties;
 
-
-
-
-
 public class ConnectionPool {
 	private static DataSource datasource;
 
