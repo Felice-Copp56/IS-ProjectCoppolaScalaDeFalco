@@ -21,6 +21,11 @@ create table tavolo
     
     stato_tavolo bool
 );
+INSERT INTO `eltanque`.`tavolo` (`num_tavolo`, `num_posti`, `stato_tavolo`) VALUES ('1', '2', false);
+INSERT INTO `eltanque`.`tavolo` (`num_tavolo`, `num_posti`, `stato_tavolo`) VALUES ('2', '2', false);
+INSERT INTO `eltanque`.`tavolo` (`num_tavolo`, `num_posti`, `stato_tavolo`) VALUES ('3', '3', false);
+INSERT INTO `eltanque`.`tavolo` (`num_tavolo`, `num_posti`, `stato_tavolo`) VALUES ('4', '5', false);
+
 create table gestore_tavoli
 (
 	codice_gestore_tavoli int primary key not null
@@ -45,9 +50,9 @@ create table prenotazione
     
     primary key(num_tavolo,data,ora_fine,ora_inizio)
 );
+select c.nome from cliente c,prenotazione p where c.username = p.username group by c.nome order by count(*) desc ;
 INSERT INTO `eltanque`.`gestore_tavoli` (`codice_gestore_tavoli`) VALUES ('1000');
 INSERT INTO `eltanque`.`gestore_tavoli` (`codice_gestore_tavoli`) VALUES ('1001');
 INSERT INTO `eltanque`.`titolare` (`codice_titolare`) VALUES (0001);
 
 
-#select t.num_tavolo,t.num_posti from tavolo t where t.num_posti = 5 and  t.num_tavolo not in (select p.num_tavolo from prenotazione p where p.data = "2020-11-01" and p.ora_inizio = "17:00" and p.ora_fine = "18:00")

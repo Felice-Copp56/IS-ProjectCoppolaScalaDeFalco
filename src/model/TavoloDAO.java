@@ -31,7 +31,7 @@ public class TavoloDAO {
 		stm.setBoolean(3,statoTavolo);
 		stm.execute();
 	}
-
+	
 	public void removeTavolo(int numTavolo) throws SQLException
 	{
 		Connection con = ConnectionPool.getConnection();
