@@ -12,7 +12,7 @@ public class ConnectionPool {
 	public static Connection getConnection() throws SQLException {
 		if (datasource == null) {
 			PoolProperties p = new PoolProperties();
-			p.setUrl("jdbc:mysql://localhost:3306/NOMEDATABASE?serverTimezone=" + TimeZone.getDefault().getID());
+			p.setUrl("jdbc:mysql://localhost:3306/eltanque?serverTimezone=" + TimeZone.getDefault().getID());
 			p.setDriverClassName("com.mysql.jdbc.Driver");
 			p.setUsername("root");
 			p.setPassword("Eltanqu3");
