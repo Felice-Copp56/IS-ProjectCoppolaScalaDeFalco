@@ -7,6 +7,7 @@ public class PrenotazioneBean {
 	private Date data;
 	private Time oraInizio,oraFine;
 	private int numTavolo;
+
 	private String username;
 	public PrenotazioneBean() {
 		

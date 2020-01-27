@@ -50,7 +50,8 @@ create table prenotazione
     
     primary key(num_tavolo,data,ora_fine,ora_inizio)
 );
-select c.nome from cliente c,prenotazione p where c.username = p.username group by c.nome order by count(*) desc ;
+select p.num_tavolo,p.username,p.data,p.ora_inizio,p.ora_fine from prenotazione p where p.data between "2020-01-01" and "2020-03-01";
+
 INSERT INTO `eltanque`.`gestore_tavoli` (`codice_gestore_tavoli`) VALUES ('1000');
 INSERT INTO `eltanque`.`gestore_tavoli` (`codice_gestore_tavoli`) VALUES ('1001');
 INSERT INTO `eltanque`.`titolare` (`codice_titolare`) VALUES (0001);

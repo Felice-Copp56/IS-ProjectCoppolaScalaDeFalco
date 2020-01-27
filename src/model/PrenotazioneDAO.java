@@ -108,17 +108,30 @@ public class PrenotazioneDAO {
 		ps.execute();
 	}
 
-	public ArrayList<PrenotazioneBean> doRetrieveByDates(Date d1, Date d2) throws SQLException {
-		Connection con = ConnectionPool.getConnection();
-		PreparedStatement ps = con.prepareStatement(
-				"select p.num_tavolo,p.username,p.num_posti,p.data,p.ora_inizio,p.ora_fine from prenotazione p where p.data in ? and ?;");
+	public ArrayList<PrenotazioneBean> doRetrieveByDates(Date d1, Date d2) {
+		Connection con;
 		ArrayList<PrenotazioneBean> prenotazioni = new ArrayList<PrenotazioneBean>();
-		ps.setDate(1, d1);
-		ps.setDate(2, d2);
-		ResultSet rs = ps.getResultSet();
-		while (rs.next()) {
-			prenotazioni.add(
-					new PrenotazioneBean(rs.getDate(4), rs.getTime(5), rs.getTime(6), rs.getInt(1), rs.getString(2)));
+
+		try {
+			con = ConnectionPool.getConnection();
+
+			PreparedStatement ps = con.prepareStatement(
+					"select p.num_tavolo,p.username,p.data,p.ora_inizio,p.ora_fine from prenotazione p where p.data between ? and ?;");
+			ps.setDate(1, d1);
+			ps.setDate(2, d2);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				PrenotazioneBean p = new PrenotazioneBean();
+				p.setNumTavolo(rs.getInt("num_tavolo"));
+				p.setUsername(rs.getString("username"));
+				p.setData(rs.getDate("data"));
+				p.setOraInizio(rs.getTime("ora_inizio"));
+				p.setOraFine(rs.getTime("ora_fine"));
+				prenotazioni.add(p);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		return prenotazioni;
 	}
