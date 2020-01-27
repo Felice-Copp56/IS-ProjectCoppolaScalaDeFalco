@@ -8,7 +8,9 @@ public class PrenotazioneBean {
 	private Time oraInizio,oraFine;
 	private int numTavolo;
 	private String username;
-	
+	public PrenotazioneBean() {
+		
+	}
 	public PrenotazioneBean(Date data, Time oraInizio, Time oraFine, int numTavolo, String username) {
 		super();
 		this.data = data;

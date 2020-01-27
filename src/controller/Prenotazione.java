@@ -35,14 +35,9 @@ public class Prenotazione extends HttpServlet {
 		// TODO Auto-generated method stub
 		PrenotazioneDAO prenDAO = new PrenotazioneDAO();
 		ArrayList<PrenotazioneBean> prenotazioni = new ArrayList<PrenotazioneBean>();
-		try {
-			prenotazioni = prenDAO.doRetrieveByUsername("u1");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		prenotazioni = prenDAO.doRetrieveByUsername("u1");
 		for(PrenotazioneBean p : prenotazioni) {
-			System.out.println(p.getNumTavolo());
+			System.out.println(p.getUsername());
 		}
 	}
 
