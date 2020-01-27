@@ -8,6 +8,8 @@ create table cliente
     cognome varchar(25) not null,
     
     username varchar(25) primary key not null,
+    
+    email varchar(25) not null,
 	
     passwo varchar(25) not null
 );
