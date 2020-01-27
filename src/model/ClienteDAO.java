@@ -26,28 +26,60 @@ public class ClienteDAO {
 		}
 	}
 	
-	public ClienteBean doRetrieveByUsernamePassword(ClienteBean c){
+	public ClienteBean doRetrieveByUsernamePassword(String email, String password) throws SQLException{
 		
 		Connection conn = ConnectionPool.getConnection();
 		PreparedStatement ps = conn.prepareStatement(""
 				+ "SELECT NOME, COGNOME, PASSWORD, EMAIL "
 				+ "FROM CLIENTE "
-				+ "WHERE EMAIL= ? AND PASSWORD= ?");
+				+ "WHERE EMAIL= ? AND PASSWO= ?");
 		ps.setString(1, email);
+		ps.setString(2, password);
 		ResultSet res = ps.executeQuery();
-		if(rs.next()) {
-			ClienteBean c=new ClienteBean(res.getString("nome"),res.getString("cognome"),res.getString("username"),res.getString("passwo")))
-			u.setId(rs.getInt(1));
-			u.setNome(rs.getString(2));
-			u.setCognome(rs.getString(3));
-			u.setPass(rs.getString(4));
-			u.setEmail(rs.getString(5));
-			u.setRuolo(rs.getInt(6));
+		if(res.next()) {
+			ClienteBean cb=new ClienteBean(res.getString("nome"),res.getString("cognome"),res.getString("username"),res.getString("email"),res.getString("passwo"));
+			cb.setNome(res.getString(1));
+			cb.setCognome(res.getString(2));
+			cb.setEmail(res.getString(3));
+			cb.setEmail(res.getString(4));
+			cb.setPassword(res.getString(5));
 			
-			
-			
-			return u;
-		return c;
+		return cb;
 		
+		}
+		return null;
+	}
+	
+	public void updatePersonalDetails(String nome, String cognome, String email) throws SQLException {
+		Connection conn=ConnectionPool.getConnection();
+		PreparedStatement ps=conn.prepareStatement(""
+				+"UPDATE CLIENTE "
+				+"SET NOME= ?, COGNOME= ?, EMAIL= ?");
+			ps.setString(1, nome);
+			ps.setString(2, cognome);
+			ps.setString(3, email);
+			ps.executeUpdate();
+			ps.close();
+	}
+	
+	public void updateLoginData(String username, String password) throws SQLException{
+		Connection conn=ConnectionPool.getConnection();
+		PreparedStatement ps=conn.prepareStatement(""
+				+"UPDATE CLIENTE "
+				+"SET USERNAME= ?, PASSWO= ?");
+			ps.setString(1, username);
+			ps.setString(2, password);
+			ps.executeUpdate();
+			ps.close();
+	}
+	
+	public void updatePassword(String password) throws SQLException{
+		Connection conn=ConnectionPool.getConnection();
+		PreparedStatement ps=conn.prepareStatement(""
+				+"UPDATE CLIENTE "
+				+"SET PASSWO= ?");
+			ps.setString(1, password);
+			ps.executeUpdate();
+			ps.close();
 	}
 }
