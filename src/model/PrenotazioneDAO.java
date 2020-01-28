@@ -60,7 +60,7 @@ public class PrenotazioneDAO {
 	public void update(PrenotazioneBean p, Date data, Time t1, Time t2) throws SQLException {
 		Connection con = ConnectionPool.getConnection();
 		PreparedStatement ps = con.prepareStatement(
-				"update prenotazione set data = ?,ora_inizio = ?,ora_fine = ? where prenotazione.numero_tavolo = ? and prenotazione.data = ?  and prenotazione.ora_inizio = ? and prenotazione.ora_fine = ?;");
+				"update prenotazione set data = ?,ora_inizio = ?,ora_fine = ? where num_tavolo = ? and data = ?  and ora_inizio = ? and ora_fine = ?;");
 		ps.setDate(1, data);
 		ps.setTime(2, t1);
 		ps.setTime(3, t2);
@@ -74,7 +74,7 @@ public class PrenotazioneDAO {
 	public void updateTimes(PrenotazioneBean p, Time t1, Time t2) throws SQLException {
 		Connection con = ConnectionPool.getConnection();
 		PreparedStatement ps = con.prepareStatement(
-				"update prenotazione set ora_inizio = ?,ora_fine = ? where prenotazione.numero_tavolo = ? and prenotazione.data = ?  and prenotazione.ora_inizio = ? and prenotazione.ora_fine = ?;");
+				"update prenotazione set ora_inizio = ?,ora_fine = ? where prenotazione.num_tavolo = ? and prenotazione.data = ?  and prenotazione.ora_inizio = ? and prenotazione.ora_fine = ?;");
 		ps.setTime(1, t1);
 		ps.setTime(2, t2);
 		ps.setInt(3, p.getNumTavolo());
@@ -87,7 +87,7 @@ public class PrenotazioneDAO {
 	public void updateDate(PrenotazioneBean p, Date d) throws SQLException {
 		Connection con = ConnectionPool.getConnection();
 		PreparedStatement ps = con.prepareStatement(
-				"update prenotazione set data = ? where prenotazione.numero_tavolo = ? and prenotazione.data = ?  and prenotazione.ora_inizio = ? and prenotazione.ora_fine = ?;");
+				"update prenotazione set data = ? where prenotazione.num_tavolo = ? and prenotazione.data = ?  and prenotazione.ora_inizio = ? and prenotazione.ora_fine = ?;");
 		ps.setDate(1, d);
 		ps.setInt(2, p.getNumTavolo());
 		ps.setDate(3, p.getData());

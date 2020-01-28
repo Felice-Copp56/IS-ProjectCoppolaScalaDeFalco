@@ -19,7 +19,7 @@ import model.PrenotazioneDAO;
 /**
  * Servlet implementation class Prenotazione
  */
-@WebServlet("")
+@WebServlet(".")
 public class Prenotazione extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -71,16 +71,16 @@ public class Prenotazione extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}*/
-		PrenotazioneBean p = new
-		  PrenotazioneBean(Date.valueOf("2010-05-05"), Time.valueOf("18:00:00"),
-				  Time.valueOf("19:00:00"), 3, "u2");
-		
-			/*	try {
-					prenDAO.update(p, Date.valueOf("2000-01-01"), Time.valueOf("17:00:00"), Time.valueOf("18:00:00"));
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
+		ArrayList<PrenotazioneBean> prova  =prenDAO.doRetrieveByDates(Date.valueOf("2020-05-05"), Date.valueOf("2020-05-05"));
+		for(PrenotazioneBean p: prova) {
+			System.out.println(p.getData());
+		}
+			/*try {
+		prenDAO.update(p, Date.valueOf("2000-01-01"), Time.valueOf("17:00:00"), Time.valueOf("18:00:00"));
+} catch (SQLException e) {
+// TODO Auto-generated catch block
+e.printStackTrace();
+}*/
 	}
 
 	/**
