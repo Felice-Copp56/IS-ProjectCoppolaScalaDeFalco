@@ -17,7 +17,7 @@ import model.TavoloDAO;
 /**
  * Servlet implementation class TavoloServlet
  */
-@WebServlet("TavoloServlet")
+@WebServlet("/TavoloServlet")
 
 public class TavoloServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
