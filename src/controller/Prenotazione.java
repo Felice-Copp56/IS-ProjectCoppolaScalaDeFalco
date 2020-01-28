@@ -19,7 +19,7 @@ import model.PrenotazioneDAO;
 /**
  * Servlet implementation class Prenotazione
  */
-@WebServlet(".")
+@WebServlet("")
 public class Prenotazione extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
