@@ -11,7 +11,7 @@ public class TavoloDAO {
 	public ArrayList<TavoloBean> doRetrieveByAll() throws SQLException {
 		
 		Connection con = ConnectionPool.getConnection();
-		PreparedStatement stm = con.prepareStatement("Select * from tavolo t");
+		PreparedStatement stm = con.prepareStatement("SELECT * FROM tavolo t;");
 		ResultSet res = stm.executeQuery();
 		ArrayList<TavoloBean> arrayListTavolo = new ArrayList<>();
 		while(res.next()) {
@@ -25,7 +25,7 @@ public class TavoloDAO {
 	public void addTavolo(int numTavolo,int numPosti,boolean statoTavolo) throws SQLException
 	{
 		Connection con = ConnectionPool.getConnection();
-		PreparedStatement stm = con.prepareStatement("insert into tavolo(num_tavolo,num_posti,stato_tavolo) values(?,?,?);");
+		PreparedStatement stm = con.prepareStatement("INSERT INTO tavolo(num_tavolo,num_posti,stato_tavolo) VALUES(?,?,?);");
 		stm.setInt(1,numTavolo);
 		stm.setInt(2,numPosti);
 		stm.setBoolean(3,statoTavolo);
@@ -35,6 +35,9 @@ public class TavoloDAO {
 	public void removeTavolo(int numTavolo) throws SQLException
 	{
 		Connection con = ConnectionPool.getConnection();
+		PreparedStatement stm = con.prepareStatement("DELETE FROM tavolo WHERE num_tavolo=?;");
+		stm.setInt(1,numTavolo);
+		stm.execute();
 		
 	}
 }
