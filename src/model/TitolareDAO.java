@@ -1,16 +1,17 @@
 package model;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.mysql.jdbc.Connection;
+
 
 public class TitolareDAO {
 	
 	public TitolareBean doRetrieveByCode() throws SQLException{
 		
-		Connection con = (Connection) ConnectionPool.getConnection();
+		Connection con = ConnectionPool.getConnection();
 		PreparedStatement stm = con.prepareStatement("SELECT codice_titolare from titolare where codice_titolare=?");
 		ResultSet res = stm.executeQuery();
 		TitolareBean titolare;
