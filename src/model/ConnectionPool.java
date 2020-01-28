@@ -15,7 +15,7 @@ public class ConnectionPool {
 			p.setUrl("jdbc:mysql://localhost/eltanque?serverTimezone=" + TimeZone.getDefault().getID()+"&useSSL=false");
 			p.setDriverClassName("com.mysql.cj.jdbc.Driver");
 			p.setUsername("root");
-			p.setPassword("root");
+			p.setPassword("Eltanqu3");
 			p.setMaxActive(100);
 			p.setInitialSize(10);
 			p.setMinIdle(10);
