@@ -1,0 +1,497 @@
+<%@ page import="java.util.*,model.*"%>
+
+<jsp:include page="header.jsp">
+	<jsp:param value="" name="" />
+</jsp:include>
+
+<!-- inserire sidebar e content-->
+<div id="layoutSidenav">
+	<!--navbar di sinistra-->
+	<div id="layoutSidenav_nav">
+		<nav class="sb-sidenav accordion sb-sidenav-dark"
+			id="sidenavAccordion">
+			<div class="sb-sidenav-menu">
+				<div class="nav">
+					<div class="sb-sidenav-menu-heading">Core</div>
+					<a class="nav-link active"
+						href="file:///C:/Users/Computer/Desktop/startbootstrap-sb-admin-gh-pages/dist/index.html">
+						<div class="sb-nav-link-icon">
+							<svg class="svg-inline--fa fa-tachometer-alt fa-w-18"
+								aria-hidden="true" focusable="false" data-prefix="fas"
+								data-icon="tachometer-alt" role="img"
+								xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+								data-fa-i2svg="">
+                                    <path fill="currentColor"
+									d="M288 32C128.94 32 0 160.94 0 320c0 52.8 14.25 102.26 39.06 144.8 5.61 9.62 16.3 15.2 27.44 15.2h443c11.14 0 21.83-5.58 27.44-15.2C561.75 422.26 576 372.8 576 320c0-159.06-128.94-288-288-288zm0 64c14.71 0 26.58 10.13 30.32 23.65-1.11 2.26-2.64 4.23-3.45 6.67l-9.22 27.67c-5.13 3.49-10.97 6.01-17.64 6.01-17.67 0-32-14.33-32-32S270.33 96 288 96zM96 384c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32zm48-160c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32zm246.77-72.41l-61.33 184C343.13 347.33 352 364.54 352 384c0 11.72-3.38 22.55-8.88 32H232.88c-5.5-9.45-8.88-20.28-8.88-32 0-33.94 26.5-61.43 59.9-63.59l61.34-184.01c4.17-12.56 17.73-19.45 30.36-15.17 12.57 4.19 19.35 17.79 15.17 30.36zm14.66 57.2l15.52-46.55c3.47-1.29 7.13-2.23 11.05-2.23 17.67 0 32 14.33 32 32s-14.33 32-32 32c-11.38-.01-20.89-6.28-26.57-15.22zM480 384c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32z">
+                                    </path>
+                                </svg>
+							<!-- <i class="fas fa-tachometer-alt"></i> -->
+						</div> Dashboard
+					</a>
+					<div class="sb-sidenav-menu-heading">Interface</div>
+					<a class="nav-link collapsed"
+						href="file:///C:/Users/Computer/Desktop/startbootstrap-sb-admin-gh-pages/dist/index.html#"
+						data-toggle="collapse" data-target="#collapseLayouts"
+						aria-expanded="false" aria-controls="collapseLayouts">
+						<div class="sb-nav-link-icon">
+							<svg class="svg-inline--fa fa-columns fa-w-16" aria-hidden="true"
+								focusable="false" data-prefix="fas" data-icon="columns"
+								role="img" xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 512 512" data-fa-i2svg="">
+                                    <path fill="currentColor"
+									d="M464 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zM224 416H64V160h160v256zm224 0H288V160h160v256z">
+                                    </path>
+                                </svg>
+							<!-- <i class="fas fa-columns"></i> -->
+						</div> Layouts
+						<div class="sb-sidenav-collapse-arrow">
+							<svg class="svg-inline--fa fa-angle-down fa-w-10"
+								aria-hidden="true" focusable="false" data-prefix="fas"
+								data-icon="angle-down" role="img"
+								xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+								data-fa-i2svg="">
+                                    <path fill="currentColor"
+									d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z">
+                                    </path>
+                                </svg>
+							<!-- <i class="fas fa-angle-down"></i> -->
+						</div>
+					</a>
+					<div class="collapse" id="collapseLayouts"
+						aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+						<nav class="sb-sidenav-menu-nested nav">
+							<a class="nav-link"
+								href="file:///C:/Users/Computer/Desktop/startbootstrap-sb-admin-gh-pages/dist/layout-static.html">Static
+								Navigation</a><a class="nav-link"
+								href="file:///C:/Users/Computer/Desktop/startbootstrap-sb-admin-gh-pages/dist/layout-sidenav-light.html">Light
+								Sidenav</a>
+						</nav>
+					</div>
+					<a class="nav-link collapsed"
+						href="file:///C:/Users/Computer/Desktop/startbootstrap-sb-admin-gh-pages/dist/index.html#"
+						data-toggle="collapse" data-target="#collapsePages"
+						aria-expanded="false" aria-controls="collapsePages">
+						<div class="sb-nav-link-icon">
+							<svg class="svg-inline--fa fa-book-open fa-w-18"
+								aria-hidden="true" focusable="false" data-prefix="fas"
+								data-icon="book-open" role="img"
+								xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+								data-fa-i2svg="">
+                                    <path fill="currentColor"
+									d="M542.22 32.05c-54.8 3.11-163.72 14.43-230.96 55.59-4.64 2.84-7.27 7.89-7.27 13.17v363.87c0 11.55 12.63 18.85 23.28 13.49 69.18-34.82 169.23-44.32 218.7-46.92 16.89-.89 30.02-14.43 30.02-30.66V62.75c.01-17.71-15.35-31.74-33.77-30.7zM264.73 87.64C197.5 46.48 88.58 35.17 33.78 32.05 15.36 31.01 0 45.04 0 62.75V400.6c0 16.24 13.13 29.78 30.02 30.66 49.49 2.6 149.59 12.11 218.77 46.95 10.62 5.35 23.21-1.94 23.21-13.46V100.63c0-5.29-2.62-10.14-7.27-12.99z">
+                                    </path>
+                                </svg>
+							<!-- <i class="fas fa-book-open"></i> -->
+						</div> Pages
+						<div class="sb-sidenav-collapse-arrow">
+							<svg class="svg-inline--fa fa-angle-down fa-w-10"
+								aria-hidden="true" focusable="false" data-prefix="fas"
+								data-icon="angle-down" role="img"
+								xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+								data-fa-i2svg="">
+                                    <path fill="currentColor"
+									d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z">
+                                    </path>
+                                </svg>
+							<!-- <i class="fas fa-angle-down"></i> -->
+						</div>
+					</a>
+					<div class="collapse" id="collapsePages"
+						aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
+						<nav class="sb-sidenav-menu-nested nav accordion"
+							id="sidenavAccordionPages">
+							<a class="nav-link collapsed"
+								href="file:///C:/Users/Computer/Desktop/startbootstrap-sb-admin-gh-pages/dist/index.html#"
+								data-toggle="collapse" data-target="#pagesCollapseAuth"
+								aria-expanded="false" aria-controls="pagesCollapseAuth">Authentication
+								<div class="sb-sidenav-collapse-arrow">
+									<svg class="svg-inline--fa fa-angle-down fa-w-10"
+										aria-hidden="true" focusable="false" data-prefix="fas"
+										data-icon="angle-down" role="img"
+										xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+										data-fa-i2svg="">
+                                            <path fill="currentColor"
+											d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z">
+                                            </path>
+                                        </svg>
+									<!-- <i class="fas fa-angle-down"></i> -->
+								</div>
+							</a>
+							<div class="collapse" id="pagesCollapseAuth"
+								aria-labelledby="headingOne"
+								data-parent="#sidenavAccordionPages">
+								<nav class="sb-sidenav-menu-nested nav">
+									<a class="nav-link"
+										href="file:///C:/Users/Computer/Desktop/startbootstrap-sb-admin-gh-pages/dist/login.html">Login</a><a
+										class="nav-link"
+										href="file:///C:/Users/Computer/Desktop/startbootstrap-sb-admin-gh-pages/dist/register.html">Register</a><a
+										class="nav-link"
+										href="file:///C:/Users/Computer/Desktop/startbootstrap-sb-admin-gh-pages/dist/password.html">Forgot
+										Password</a>
+								</nav>
+							</div>
+							<a class="nav-link collapsed"
+								href="file:///C:/Users/Computer/Desktop/startbootstrap-sb-admin-gh-pages/dist/index.html#"
+								data-toggle="collapse" data-target="#pagesCollapseError"
+								aria-expanded="false" aria-controls="pagesCollapseError">Error
+								<div class="sb-sidenav-collapse-arrow">
+									<svg class="svg-inline--fa fa-angle-down fa-w-10"
+										aria-hidden="true" focusable="false" data-prefix="fas"
+										data-icon="angle-down" role="img"
+										xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+										data-fa-i2svg="">
+                                            <path fill="currentColor"
+											d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z">
+                                            </path>
+                                        </svg>
+									<!-- <i class="fas fa-angle-down"></i> -->
+								</div>
+							</a>
+							<div class="collapse" id="pagesCollapseError"
+								aria-labelledby="headingOne"
+								data-parent="#sidenavAccordionPages">
+								<nav class="sb-sidenav-menu-nested nav">
+									<a class="nav-link"
+										href="file:///C:/Users/Computer/Desktop/startbootstrap-sb-admin-gh-pages/dist/401.html">401
+										Page</a><a class="nav-link"
+										href="file:///C:/Users/Computer/Desktop/startbootstrap-sb-admin-gh-pages/dist/404.html">404
+										Page</a><a class="nav-link"
+										href="file:///C:/Users/Computer/Desktop/startbootstrap-sb-admin-gh-pages/dist/500.html">500
+										Page</a>
+								</nav>
+							</div>
+						</nav>
+					</div>
+					<div class="sb-sidenav-menu-heading">Addons</div>
+					<a class="nav-link"
+						href="file:///C:/Users/Computer/Desktop/startbootstrap-sb-admin-gh-pages/dist/charts.html">
+						<div class="sb-nav-link-icon">
+							<svg class="svg-inline--fa fa-chart-area fa-w-16"
+								aria-hidden="true" focusable="false" data-prefix="fas"
+								data-icon="chart-area" role="img"
+								xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+								data-fa-i2svg="">
+                                    <path fill="currentColor"
+									d="M500 384c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H12c-6.6 0-12-5.4-12-12V76c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v308h436zM372.7 159.5L288 216l-85.3-113.7c-5.1-6.8-15.5-6.3-19.9 1L96 248v104h384l-89.9-187.8c-3.2-6.5-11.4-8.7-17.4-4.7z">
+                                    </path>
+                                </svg>
+							<!-- <i class="fas fa-chart-area"></i> -->
+						</div> Charts
+					</a><a class="nav-link"
+						href="file:///C:/Users/Computer/Desktop/startbootstrap-sb-admin-gh-pages/dist/tables.html">
+						<div class="sb-nav-link-icon">
+							<svg class="svg-inline--fa fa-table fa-w-16" aria-hidden="true"
+								focusable="false" data-prefix="fas" data-icon="table" role="img"
+								xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+								data-fa-i2svg="">
+                                    <path fill="currentColor"
+									d="M464 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zM224 416H64v-96h160v96zm0-160H64v-96h160v96zm224 160H288v-96h160v96zm0-160H288v-96h160v96z">
+                                    </path>
+                                </svg>
+							<!-- <i class="fas fa-table"></i> -->
+						</div> Tables
+					</a>
+				</div>
+			</div>
+
+		</nav>
+	</div>
+	<!-- inizio content principale-->
+	<div id="layoutSidenav_content">
+		<main>
+		<div class="container-fluid">
+			<h1 class="mt-4">Dashboard</h1>
+
+
+			<div class="row">
+				<div class="col-xl-6">
+					<div class="card mb-4">
+						<div class="card-header">
+							<svg class="svg-inline--fa fa-chart-area fa-w-16 mr-1"
+								aria-hidden="true" focusable="false" data-prefix="fas"
+								data-icon="chart-area" role="img"
+								xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+								data-fa-i2svg="">
+                                        <path fill="currentColor"
+									d="M500 384c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H12c-6.6 0-12-5.4-12-12V76c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v308h436zM372.7 159.5L288 216l-85.3-113.7c-5.1-6.8-15.5-6.3-19.9 1L96 248v104h384l-89.9-187.8c-3.2-6.5-11.4-8.7-17.4-4.7z">
+                                        </path>
+                                    </svg>
+							<!-- <i class="fas fa-chart-area mr-1"></i> -->
+							Area Chart Example
+						</div>
+						<div class="card-body">
+							<div class="chartjs-size-monitor">
+								<div class="chartjs-size-monitor-expand">
+									<div class=""></div>
+								</div>
+								<div class="chartjs-size-monitor-shrink">
+									<div class=""></div>
+								</div>
+							</div>
+							<canvas id="myAreaChart" width="484" height="193"
+								style="display: block; width: 484px; height: 193px;"
+								class="chartjs-render-monitor"></canvas>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-6">
+					<div class="card mb-4">
+						<div class="card-header">
+							<svg class="svg-inline--fa fa-chart-bar fa-w-16 mr-1"
+								aria-hidden="true" focusable="false" data-prefix="fas"
+								data-icon="chart-bar" role="img"
+								xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+								data-fa-i2svg="">
+                                        <path fill="currentColor"
+									d="M332.8 320h38.4c6.4 0 12.8-6.4 12.8-12.8V172.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v134.4c0 6.4 6.4 12.8 12.8 12.8zm96 0h38.4c6.4 0 12.8-6.4 12.8-12.8V76.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v230.4c0 6.4 6.4 12.8 12.8 12.8zm-288 0h38.4c6.4 0 12.8-6.4 12.8-12.8v-70.4c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v70.4c0 6.4 6.4 12.8 12.8 12.8zm96 0h38.4c6.4 0 12.8-6.4 12.8-12.8V108.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v198.4c0 6.4 6.4 12.8 12.8 12.8zM496 384H64V80c0-8.84-7.16-16-16-16H16C7.16 64 0 71.16 0 80v336c0 17.67 14.33 32 32 32h464c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z">
+                                        </path>
+                                    </svg>
+							<!-- <i class="fas fa-chart-bar mr-1"></i> -->
+							Bar Chart Example
+						</div>
+						<div class="card-body">
+							<div class="chartjs-size-monitor">
+								<div class="chartjs-size-monitor-expand">
+									<div class=""></div>
+								</div>
+								<div class="chartjs-size-monitor-shrink">
+									<div class=""></div>
+								</div>
+							</div>
+							<canvas id="myBarChart" width="484" height="193"
+								class="chartjs-render-monitor"
+								style="display: block; width: 484px; height: 193px;"></canvas>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="card mb-4">
+				<div class="card-header">
+					<svg class="svg-inline--fa fa-table fa-w-16 mr-1"
+						aria-hidden="true" focusable="false" data-prefix="fas"
+						data-icon="table" role="img" xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 512 512" data-fa-i2svg="">
+                                <path fill="currentColor"
+							d="M464 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zM224 416H64v-96h160v96zm0-160H64v-96h160v96zm224 160H288v-96h160v96zm0-160H288v-96h160v96z">
+                                </path>
+                            </svg>
+					<!-- <i class="fas fa-table mr-1"></i> -->
+					DataTable Example
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<div id="dataTable_wrapper"
+							class="dataTables_wrapper dt-bootstrap4">
+							<div class="row">
+								<div class="col-sm-12 col-md-6">
+									<div class="dataTables_length" id="dataTable_length">
+										<label>Show <select name="dataTable_length"
+											aria-controls="dataTable"
+											class="custom-select custom-select-sm form-control form-control-sm">
+												<option value="10">10</option>
+												<option value="25">25</option>
+												<option value="50">50</option>
+												<option value="100">100</option>
+										</select> entries
+										</label>
+									</div>
+								</div>
+								<div class="col-sm-12 col-md-6">
+									<div id="dataTable_filter" class="dataTables_filter">
+										<label>Search:<input type="search"
+											class="form-control form-control-sm" placeholder=""
+											aria-controls="dataTable"></label>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-12">
+									<table class="table table-bordered dataTable" id="dataTable"
+										width="100%" cellspacing="0" role="grid"
+										aria-describedby="dataTable_info" style="width: 100%;">
+										<thead>
+											<tr role="row">
+												<th class="sorting_asc" tabindex="0"
+													aria-controls="dataTable" rowspan="1" colspan="1"
+													aria-sort="ascending"
+													aria-label="Name: activate to sort column descending"
+													style="width: 159px;">Name</th>
+												<th class="sorting" tabindex="0" aria-controls="dataTable"
+													rowspan="1" colspan="1"
+													aria-label="Position: activate to sort column ascending"
+													style="width: 249px;">Position</th>
+												<th class="sorting" tabindex="0" aria-controls="dataTable"
+													rowspan="1" colspan="1"
+													aria-label="Office: activate to sort column ascending"
+													style="width: 115px;">Office</th>
+												<th class="sorting" tabindex="0" aria-controls="dataTable"
+													rowspan="1" colspan="1"
+													aria-label="Age: activate to sort column ascending"
+													style="width: 52px;">Age</th>
+												<th class="sorting" tabindex="0" aria-controls="dataTable"
+													rowspan="1" colspan="1"
+													aria-label="Start date: activate to sort column ascending"
+													style="width: 112px;">Start date</th>
+												<th class="sorting" tabindex="0" aria-controls="dataTable"
+													rowspan="1" colspan="1"
+													aria-label="Salary: activate to sort column ascending"
+													style="width: 90px;">Salary</th>
+											</tr>
+										</thead>
+										<tbody>
+										<tfoot>
+											<tr>
+												<th rowspan="1" colspan="1">Name</th>
+												<th rowspan="1" colspan="1">Position</th>
+												<th rowspan="1" colspan="1">Office</th>
+												<th rowspan="1" colspan="1">Age</th>
+												<th rowspan="1" colspan="1">Start date</th>
+												<th rowspan="1" colspan="1">Salary</th>
+											</tr>
+										</tfoot>
+										
+											<tr role="row" class="odd">
+												<td class="sorting_1">Airi Satou</td>
+												<td>Accountant</td>
+												<td>Tokyo</td>
+												<td>33</td>
+												<td>2008/11/28</td>
+												<td>$162,700</td>
+											</tr>
+											<tr role="row" class="even">
+												<td class="sorting_1">Angelica Ramos</td>
+												<td>Chief Executive Officer (CEO)</td>
+												<td>London</td>
+												<td>47</td>
+												<td>2009/10/09</td>
+												<td>$1,200,000</td>
+											</tr>
+											<tr role="row" class="odd">
+												<td class="sorting_1">Ashton Cox</td>
+												<td>Junior Technical Author</td>
+												<td>San Francisco</td>
+												<td>66</td>
+												<td>2009/01/12</td>
+												<td>$86,000</td>
+											</tr>
+											<tr role="row" class="even">
+												<td class="sorting_1">Bradley Greer</td>
+												<td>Software Engineer</td>
+												<td>London</td>
+												<td>41</td>
+												<td>2012/10/13</td>
+												<td>$132,000</td>
+											</tr>
+											<tr role="row" class="odd">
+												<td class="sorting_1">Brenden Wagner</td>
+												<td>Software Engineer</td>
+												<td>San Francisco</td>
+												<td>28</td>
+												<td>2011/06/07</td>
+												<td>$206,850</td>
+											</tr>
+											<tr role="row" class="even">
+												<td class="sorting_1">Brielle Williamson</td>
+												<td>Integration Specialist</td>
+												<td>New York</td>
+												<td>61</td>
+												<td>2012/12/02</td>
+												<td>$372,000</td>
+											</tr>
+											<tr role="row" class="odd">
+												<td class="sorting_1">Bruno Nash</td>
+												<td>Software Engineer</td>
+												<td>London</td>
+												<td>38</td>
+												<td>2011/05/03</td>
+												<td>$163,500</td>
+											</tr>
+											<tr role="row" class="even">
+												<td class="sorting_1">Caesar Vance</td>
+												<td>Pre-Sales Support</td>
+												<td>New York</td>
+												<td>21</td>
+												<td>2011/12/12</td>
+												<td>$106,450</td>
+											</tr>
+											<tr role="row" class="odd">
+												<td class="sorting_1">Cara Stevens</td>
+												<td>Sales Assistant</td>
+												<td>New York</td>
+												<td>46</td>
+												<td>2011/12/06</td>
+												<td>$145,600</td>
+											</tr>
+											<tr role="row" class="even">
+												<td class="sorting_1">Cedric Kelly</td>
+												<td>Senior Javascript Developer</td>
+												<td>Edinburgh</td>
+												<td>22</td>
+												<td>2012/03/29</td>
+												<td>$433,060</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-12 col-md-5">
+									<div class="dataTables_info" id="dataTable_info" role="status"
+										aria-live="polite">Showing 1 to 10 of 57 entries</div>
+								</div>
+								<div class="col-sm-12 col-md-7">
+									<div class="dataTables_paginate paging_simple_numbers"
+										id="dataTable_paginate">
+										<ul class="pagination">
+											<li class="paginate_button page-item previous disabled"
+												id="dataTable_previous"><a
+												href="file:///C:/Users/Computer/Desktop/startbootstrap-sb-admin-gh-pages/dist/index.html#"
+												aria-controls="dataTable" data-dt-idx="0" tabindex="0"
+												class="page-link">Previous</a></li>
+											<li class="paginate_button page-item active"><a
+												href="file:///C:/Users/Computer/Desktop/startbootstrap-sb-admin-gh-pages/dist/index.html#"
+												aria-controls="dataTable" data-dt-idx="1" tabindex="0"
+												class="page-link">1</a></li>
+											<li class="paginate_button page-item "><a
+												href="file:///C:/Users/Computer/Desktop/startbootstrap-sb-admin-gh-pages/dist/index.html#"
+												aria-controls="dataTable" data-dt-idx="2" tabindex="0"
+												class="page-link">2</a></li>
+											<li class="paginate_button page-item "><a
+												href="file:///C:/Users/Computer/Desktop/startbootstrap-sb-admin-gh-pages/dist/index.html#"
+												aria-controls="dataTable" data-dt-idx="3" tabindex="0"
+												class="page-link">3</a></li>
+											<li class="paginate_button page-item "><a
+												href="file:///C:/Users/Computer/Desktop/startbootstrap-sb-admin-gh-pages/dist/index.html#"
+												aria-controls="dataTable" data-dt-idx="4" tabindex="0"
+												class="page-link">4</a></li>
+											<li class="paginate_button page-item "><a
+												href="file:///C:/Users/Computer/Desktop/startbootstrap-sb-admin-gh-pages/dist/index.html#"
+												aria-controls="dataTable" data-dt-idx="5" tabindex="0"
+												class="page-link">5</a></li>
+											<li class="paginate_button page-item "><a
+												href="file:///C:/Users/Computer/Desktop/startbootstrap-sb-admin-gh-pages/dist/index.html#"
+												aria-controls="dataTable" data-dt-idx="6" tabindex="0"
+												class="page-link">6</a></li>
+											<li class="paginate_button page-item next"
+												id="dataTable_next"><a
+												href="file:///C:/Users/Computer/Desktop/startbootstrap-sb-admin-gh-pages/dist/index.html#"
+												aria-controls="dataTable" data-dt-idx="7" tabindex="0"
+												class="page-link">Next</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</main>
+
+	</div>
+
+</div>
+
+<jsp:include page="footer.jsp">
+	<jsp:param value="" name="" />
+</jsp:include>
