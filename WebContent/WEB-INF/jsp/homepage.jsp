@@ -1,0 +1,117 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<title>ElTanqueWineBar</title>
+<meta charset="utf-8">
+<link rel="icon" href="resources/images/favicon.ico">
+<link rel="shortcut icon" href="resources/images/favicon.ico">
+<link rel="stylesheet" href="resources/style.css">
+<link rel="stylesheet" href="resources/TMGPrototype2.css">
+<script src="resources/jquery.js"></script>
+<script src="resources/jquery-migrate-1.1.1.js"></script>
+<script src="resourcessuperfish.js"></script>
+<script src="resources/TMGPrototype2.js"></script>
+<script src="resources/jquery.equalheights.js"></script>
+<script src="resources/jquery.easing.1.3.js"></script>
+<script>
+$(window).load(function () {
+    $('#TMGPrototype2').TMGPrototype2({});
+});
+</script>
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<link rel="stylesheet" media="screen" href="css/ie.css">
+<![endif]-->
+</head>
+<body class="page1">
+<header>
+  <div class="menu_block">
+    <div class="container_12">
+      
+        <nav>
+          <ul class="sf-menu">
+            <li class="current"><a href="index.html">Home</a></li>
+            <li><a href="our-story.html">Our Story</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="clear"></div>
+      </div>
+      <div class="clear"></div>
+    </div>
+</header>
+<div id="TMGPrototype2">
+  <h1><a href="index.html"><img src="resources/images/logo3.png" alt=""></a></h1>
+  <ul class='sets'>
+    <li data-setName="Cliente">
+      <ul>
+        <li data-srcPreview="resources/images/red1.jpg">
+          <div>
+            <div class="content"> <img src="resources/images/users.png" alt="">
+              <ul>
+                <li><span>Username: </span><input type=text name=textuser></li>
+                <li><span>Password: </span><input type=password name=textpass></li>
+              </ul>
+                <div class="alright"><a href="#" class="btn">Login</a></div>
+            </div>
+          </div>
+        </li>
+          <li data-srcPreview="resources/images/red1.jpg">
+          <div>
+            <div class="content"> <img src="resources/images/register1.png" alt="">
+              <ul>
+                <li><span>Nome:</span><input type=text name=textnome></li>
+                <li><span>Cognome:</span><input type=text name=textnome></li>
+                <li><span>Email: </span> <input type=email name=textemail></li>
+                <li><span>Username: </span><input type=text name=textuser></li>
+                <li><span>Password: </span><input type=password name=textpass></li>
+              </ul>
+                <div class="alright"><a href="#" class="btn">Registrati</a></div>
+            </div>
+          </div>
+        </li>
+    <ul class='sets'>
+    <li data-setName="Sei dello staff?">
+      <ul>
+        <li data-srcPreview="resources/images/white1.jpg">
+          <div>
+            <div class="content"> <img src="resources/images/boss1.png" alt="">
+              <h3>Titolare</h3>
+              <ul>
+                <li><span>Codice titolare:</span> <input type="password" name="textitolare"></li>
+              </ul>
+                <div class="alright"><a href="#" class="btn">Login</a></div>
+            </div>
+          </div>
+        </li>
+        <li data-srcPreview="resources/images/white2.jpg">
+          <div>
+            <div class="content"> <img src="resources/images/tavolo1.png" alt="">
+              <h3>Gestore Tavoli</h3>
+              <ul>
+                <li><span>Codice gestore:</span> <input type=password name=textgestore></li>
+              </ul>
+                <div class="alright"><a href="#" class="btn">Login</a></div>
+            </div>
+          </div>
+        </li>
+        </ul>
+        
+    
+<footer>
+  <div class="container_12">
+    <div class="grid_12">
+      <div class="copy"> Decanter 1800 &copy; 2045 | <a href="#">Privacy Policy</a> | Design by: <a href="http://www.templatemonster.com/">TemplateMonster.com</a> </div>
+    </div>
+  </div>
+</footer>
+        </li>
+          </ul>
+        </ul>
+      </li>
+    </ul>
+    </div>
+</body>
+</html>
