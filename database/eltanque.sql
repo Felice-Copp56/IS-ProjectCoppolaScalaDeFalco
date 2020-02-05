@@ -57,3 +57,6 @@ INSERT INTO `eltanque`.`gestore_tavoli` (`codice_gestore_tavoli`) VALUES ('1001'
 INSERT INTO `eltanque`.`titolare` (`codice_titolare`) VALUES (0001);
 
 
+select * from tavolo t where not exists ( select * from prenotazione p where p.num_tavolo = t.num_tavolo and p.data = "2010-01-01" and ora_inizio = "12:00" and ora_fine = "13:00" );
+select * from tavolo;
+select * from tavolo t where not exists ( select * from prenotazione p where p.num_tavolo = t.num_tavolo and p.data = "2010-01-01" and ora_inizio = "12:00" and ora_fine = "13:00" ) or exists ( select * from prenotazione p where p.num_tavolo = t.num_tavolo and p.data = "2010-01-01" and ora_inizio = "12:00" and ora_fine = "13:00" );
