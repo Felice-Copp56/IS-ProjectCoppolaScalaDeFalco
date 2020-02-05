@@ -30,7 +30,7 @@ public class ServletProvaJsp extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		System.out.println("d");
-		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/homepage.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/tavoliPiuGettonati.jsp");
 
 		rd.forward(request, response);
 		
