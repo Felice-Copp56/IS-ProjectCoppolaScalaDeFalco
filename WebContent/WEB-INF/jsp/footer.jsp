@@ -10,7 +10,8 @@
     </div>
 </footer>
 <script src="resources/jquery-3.4.1.min.js.download" crossorigin="anonymous"></script>
-<script src="resources/bootstrap.bundle.min.js.download" crossorigin="anonymous"></script>
+<script src="resources/bootstrap.bundle.min.js.download"
+	crossorigin="anonymous"></script>
 <script src="resources/scripts.js.download"></script>
 <script src="resources/Chart.min.js.download" crossorigin="anonymous"></script>
 <script src="resources/chart-area-demo.js.download"></script>
