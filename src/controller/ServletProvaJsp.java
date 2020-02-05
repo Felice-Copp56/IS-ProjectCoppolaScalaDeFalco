@@ -31,6 +31,7 @@ public class ServletProvaJsp extends HttpServlet {
 		// TODO Auto-generated method stub
 		System.out.println("d");
 		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/homePageTitolare.jsp");
+
 		rd.forward(request, response);
 		
 	}
