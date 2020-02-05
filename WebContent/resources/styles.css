@@ -44,6 +44,11 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+button.btn.btn-primary.justify-content-center {
+    background-color: #b71540!important;
+    border: none;
+}
+
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
 }
@@ -67,6 +72,7 @@ hr {
   box-sizing: content-box;
   height: 0;
   overflow: visible;
+
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -2446,21 +2452,17 @@ fieldset:disabled a.btn {
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+   background-color: #b71540!important;
+    border: none;
+    color:white;
 }
 .btn-primary:hover {
-  color: #fff;
-  background-color: #0069d9;
-  border-color: #0062cc;
+   background-color: #b71540!important;
+    border: none;
+    color:white;
 }
-.btn-primary:focus, .btn-primary.focus {
-  color: #fff;
-  background-color: #0069d9;
-  border-color: #0062cc;
-  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
-}
+
+
 .btn-primary.disabled, .btn-primary:disabled {
   color: #fff;
   background-color: #007bff;

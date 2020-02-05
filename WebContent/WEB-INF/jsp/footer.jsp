@@ -1,22 +1,23 @@
 <%@ page import="java.util.*,model.*"%>
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <footer class="py-4 bg-light mt-auto fixed-bottom">
     <div class="container-fluid">
-        <div class="d-flex align-items-center justify-content-between small">
-            <div class="text-muted">Copyright Â© ElTanque</div>
+        <div class="d-flex align-items-center justify-content-between small float-right">
+            <div class="text-muted"><h6 class="copyright">Copyright © ElTanque</h6></div>
 
         </div>
     </div>
 </footer>
-<script src="./index_files/jquery-3.4.1.min.js.download" crossorigin="anonymous"></script>
-<script src="./index_files/bootstrap.bundle.min.js.download" crossorigin="anonymous"></script>
-<script src="./index_files/scripts.js.download"></script>
-<script src="./index_files/Chart.min.js.download" crossorigin="anonymous"></script>
-<script src="./index_files/chart-area-demo.js.download"></script>
-<script src="./index_files/chart-bar-demo.js.download"></script>
-<script src="./index_files/jquery.dataTables.min.js.download" crossorigin="anonymous"></script>
-<script src="./index_files/dataTables.bootstrap4.min.js.download" crossorigin="anonymous"></script>
-<script src="./index_files/datatables-demo.js.download"></script>
+<script src="resources/jquery-3.4.1.min.js.download" crossorigin="anonymous"></script>
+<script src="resources/bootstrap.bundle.min.js.download" crossorigin="anonymous"></script>
+<script src="resources/scripts.js.download"></script>
+<script src="resources/Chart.min.js.download" crossorigin="anonymous"></script>
+<script src="resources/chart-area-demo.js.download"></script>
+<script src="resources/chart-bar-demo.js.download"></script>
+<script src="resources/jquery.dataTables.min.js.download" crossorigin="anonymous"></script>
+<script src="resources/dataTables.bootstrap4.min.js.download" crossorigin="anonymous"></script>
+<script src="resources/datatables-demo.js.download"></script>
 
 
 </body>
