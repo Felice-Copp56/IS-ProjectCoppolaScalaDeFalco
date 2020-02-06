@@ -1,13 +1,13 @@
 <%@ page import="java.util.*,model.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<jsp:include page="headerTitolare.jsp">
+<jsp:include page="headerUtente.jsp">
 	<jsp:param value="" name="" />
 </jsp:include>
 
 <div id="layoutSidenav_content">
 	<div class="container-fluid">
-		<h1 class="mt-4">Tavoli più gettonati</h1>
+		<h1 class="mt-4">Le mie prenotazioni</h1>
 		<div class="card mb-4">
 
 			<div class="card-body">
@@ -34,39 +34,31 @@
 																	<th class="sorting_asc" tabindex="0"
 																		aria-controls="dataTable" rowspan="1" colspan="1"
 																		aria-label="Name: activate to sort column descending"
-																		style="width: 110.006px;" aria-sort="ascending">Name</th>
+																		style="width: 110.006px;" aria-sort="ascending">Numero tavolo</th>
 																	<th class="sorting" tabindex="0"
 																		aria-controls="dataTable" rowspan="1" colspan="1"
 																		aria-label="Position: activate to sort column ascending"
-																		style="width: 132.006px;">Position</th>
+																		style="width: 132.006px;">Data</th>
 																	<th class="sorting" tabindex="0"
 																		aria-controls="dataTable" rowspan="1" colspan="1"
 																		aria-label="Office: activate to sort column ascending"
-																		style="width: 104.006px;">Office</th>
+																		style="width: 104.006px;">Ora inizio</th>
 																	<th class="sorting" tabindex="0"
 																		aria-controls="dataTable" rowspan="1" colspan="1"
 																		aria-label="Age: activate to sort column ascending"
-																		style="width: 78.0057px;">Age</th>
-																	<th class="sorting" tabindex="0"
-																		aria-controls="dataTable" rowspan="1" colspan="1"
-																		aria-label="Start date: activate to sort column ascending"
-																		style="width: 150.006px;">Start date</th>
-																	<th class="sorting" tabindex="0"
-																		aria-controls="dataTable" rowspan="1" colspan="1"
-																		aria-label="Salary: activate to sort column ascending"
-																		style="width: 82px;">Salary</th>
+																		style="width: 78.0057px;">Ora fine</th>
 																</tr>
 															</thead>
 															<tbody>
-															ripetere per ogni entry
+															<%ArrayList<PrenotazioneBean> prenotazioni = (ArrayList<PrenotazioneBean>)request.getAttribute("prenotazioni");
+															for(PrenotazioneBean p : prenotazioni) {%>
 																<tr role="row" class="odd">
-																	<td class="sorting_1">Airi Satou</td>
-																	<td>Accountant</td>
-																	<td>Tokyo</td>
-																	<td>33</td>
-																	<td>2008/11/28</td>
-																	<td>$162,700</td>
+																	<td class="sorting_1"><%=p.getNumTavolo() %></td>
+																	<td><%=p.getData() %></td>
+																	<td><%=p.getOraInizio() %></td>
+																	<td><%=p.getOraFine() %></td>
 																</tr>
+																<%} %>
 															</tbody>
 														</table>
 													</div>
