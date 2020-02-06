@@ -30,16 +30,15 @@ public class PrenotazioneDAO {
 			con = ConnectionPool.getConnection();
 
 			PreparedStatement ps = con.prepareStatement(
-					"select p.num_tavolo,p.username,p.data,p.ora_inizio,p.ora_fine from prenotazione p where p.username = ?;");
+					"select p.num_tavolo,p.data,p.ora_inizio,p.ora_fine from prenotazione p where p.username = ?;");
 			ps.setString(1, username);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				PrenotazioneBean p = new PrenotazioneBean();
-				p.setData(rs.getDate(4));
+				p.setData(rs.getDate(2));
 				p.setNumTavolo(rs.getInt(1));
-				p.setOraFine(rs.getTime(5));
-				p.setOraInizio(rs.getTime(4));
-				p.setUsername(rs.getString("username"));
+				p.setOraFine(rs.getTime(4));
+				p.setOraInizio(rs.getTime(3));
 				prenotazioni.add(p);
 			}
 		} catch (SQLException e) {

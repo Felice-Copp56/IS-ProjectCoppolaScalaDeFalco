@@ -19,6 +19,7 @@ public class TavoloDAO {
 		ArrayList<TavoloBean> arrayListTavolo = new ArrayList<TavoloBean>();
 		while(res.next()) {
 			TavoloBean t = new TavoloBean(res.getInt("t.num_tavolo"),res.getInt("t.num_posti"),res.getBoolean("t.stato_tavolo"));
+			System.out.println(t.getNumTavolo()+" " +t.getNumPosti());
 			arrayListTavolo.add(t);
 		}
 		return arrayListTavolo;

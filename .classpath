@@ -39,5 +39,6 @@
 	<classpathentry kind="lib" path="C:/Users/Computer/Desktop/Università/Programmi Università/apache-tomcat-9.0.21/lib/tomcat-util-scan.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Computer/Desktop/Università/Programmi Università/apache-tomcat-9.0.21/lib/tomcat-websocket.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Computer/Desktop/Università/Programmi Università/apache-tomcat-9.0.21/lib/websocket-api.jar"/>
+	<classpathentry kind="lib" path="WebContent/lib/mysql-connector-java-8.0.19.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

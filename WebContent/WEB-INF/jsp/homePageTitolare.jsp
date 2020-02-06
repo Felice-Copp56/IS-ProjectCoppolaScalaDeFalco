@@ -8,7 +8,7 @@
 
 <div id="layoutSidenav_content">
 	<div class="container-fluid">
-		<h1 class="mt-4 display-1">Benvenuto Titolare</h1>
+		<h1 class="mt-4 display-1">Benvenuto titolare</h1>
 	</div>
 </div>
 

@@ -1,6 +1,4 @@
-<%@ page import="java.util.*,model.*"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html lang="en"
 	class="fontawesome-i2svg-active fontawesome-i2svg-complete">
@@ -14,7 +12,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>El Tanque Admin</title>
+<title>El Tanque Cliente</title>
 <style type="text/css">
 svg:not (:root ).svg-inline--fa {
 	overflow: visible
@@ -359,15 +357,11 @@ svg:not (:root ).svg-inline--fa {
 
 
 
-
-
 :
 
 
 
-
  
-
 
 
 
@@ -378,12 +372,8 @@ rotate
 
 
 
-
-
 (360
 deg
-
-
 
 
 
@@ -396,15 +386,11 @@ transform
 
 
 
-
-
 :
 
 
 
-
  
-
 
 
 
@@ -415,12 +401,8 @@ rotate
 
 
 
-
-
 (360
 deg
-
-
 
 
 
@@ -443,15 +425,11 @@ keyframes fa-spin { 0% {
 
 
 
-
-
 :
 
 
 
-
  
-
 
 
 
@@ -462,12 +440,8 @@ rotate
 
 
 
-
-
 (360
 deg
-
-
 
 
 
@@ -480,15 +454,11 @@ transform
 
 
 
-
-
 :
 
 
 
-
  
-
 
 
 
@@ -499,12 +469,8 @@ rotate
 
 
 
-
-
 (360
 deg
-
-
 
 
 
@@ -629,7 +595,8 @@ deg
 }
 </style>
 
-
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
 <link href="resources/dataTables.bootstrap4.min.css" rel="stylesheet"
 	crossorigin="anonymous">
 <link
@@ -696,7 +663,7 @@ to {
 }
 </style>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+	rel="stylesheet">
 <link href="resources/styles.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -724,7 +691,22 @@ to {
 
 		</form>
 		<!-- Navbar-->
-		
+		<ul class="navbar-nav ml-auto ml-md-0">
+			<li class="nav-item"><span>Utente</span></li>
+			<li class="nav-item dropdown"><a
+				class="nav-link dropdown-toggle" id="userDropdown"
+				href="file:///C:/Users/Computer/Desktop/startbootstrap-sb-admin-gh-pages/dist/index.html#"
+				role="button" data-toggle="dropdown" aria-haspopup="true"
+				aria-expanded="false"><svg
+						class="svg-inline--fa fa-user fa-w-14 fa-fw" aria-hidden="true"
+						focusable="false" data-prefix="fas" data-icon="user" role="img"
+						xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+						data-fa-i2svg="">
+                        <path fill="currentColor"
+							d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z">
+                        </path>
+                    </svg> <!-- <i class="fas fa-user fa-fw"></i> --></a></li>
+		</ul>
 	</nav>
 	<!-- inserire sidebar e content-->
 	<div id="layoutSidenav">
@@ -734,45 +716,88 @@ to {
 				id="sidenavAccordion">
 				<div class="sb-sidenav-menu">
 					<div class="nav">
-						<div class="sb-sidenav-menu-heading text-light">Funzioni</div>
-						<a class="nav-link "
-							href="ClientiAbituali">
+						<div class="sb-sidenav-menu-heading text-light">Prenotazioni</div>
+						<a class="nav-link" href="ListaPrenotazioniUtente">
 							<div class="sb-nav-link-icon">
-								<i class="material-icons text-light">face</i> 
-								<!-- <i class="fas fa-tachometer-alt"></i> -->
-							</div> 
-							<span></span>
-							Clienti abituali
+								<i class="material-icons"> menu_book </i>
+								<!-- <i class="fas fa-chart-area"></i> -->
+							</div> Le mie prenotazioni
 						</a>
-						<a class="nav-link "
-							href="TavoliPiuGettonati">
-							<div class="sb-nav-link-icon ">
-								<i class="material-icons text-light">
-table_chart
-</i>
-								<!-- <i class="fas fa-tachometer-alt"></i> -->
-							</div> Tavoli più gettonati
-						</a>
-						<a class="nav-link"
-							href="PrenotazioniXTitolare">
+						<div class="sb-sidenav-menu-heading text-light">Account</div>
+						<a class="nav-link" href="modificaInformazioniPersonali.html">
 							<div class="sb-nav-link-icon">
-								<i class="material-icons text-light">calendar_today</i>
-								<!-- <i class="fas fa-tachometer-alt"></i> -->
-							</div> Prenotazioni
-						</a>
-		<div class="sb-sidenav-menu-heading">Account</div>
-						<a class="nav-link "
-							href="ClientiAbituali">
+								<i class="material-icons text-light"> person </i>
+							</div> Informazioni personali
+
+						</a> <a class="nav-link "
+							href="modificaDatiDiAccesso.html"
+							>
 							<div class="sb-nav-link-icon">
-								<i class="material-icons">
-keyboard_backspace
-</i>
-								<!-- <i class="fas fa-tachometer-alt"></i> -->
+								<i class="material-icons"> arrow_forward </i>
+								<!-- <i class="fas fa-book-open"></i> -->
+							</div> Dati di accesso
+
+						</a> <a class="nav-link"
+							href="file:///C:/Users/Computer/Desktop/startbootstrap-sb-admin-gh-pages/dist/charts.html">
+							<div class="sb-nav-link-icon">
+								<i class="material-icons"> arrow_back </i>
+								<!-- <i class="fas fa-chart-area"></i> -->
 							</div> Esci
+						</a> <a class="nav-link"
+							href="file:///C:/Users/Computer/Desktop/startbootstrap-sb-admin-gh-pages/dist/charts.html">
+
 						</a>
+
 					</div>
 				</div>
 
 			</nav>
 		</div>
+
 		<!-- inizio content principale-->
+		<div id="layoutSidenav_content">
+			<form class="p-5">
+				<h1>Modifica informazioni personali</h1>
+				<div class="form-row mt-4">
+					<div class="col-md-4 mb-3">
+						<label for="validationServer01">Nome</label> <input type="text"
+							class="form-control " id="validationServer01" placeholder="Nome"
+							value="" required>
+					</div>
+					<div class="col-md-4 mb-3">
+						<label for="validationServer02">Cognome</label> <input type="text"
+							class="form-control " id="validationServer02"
+							placeholder="Cognome" value="" required>
+					</div>
+				</div>
+				<button class="btn btn-primary is-valid" type="submit">Modifica</button>
+				
+			</form>
+		</div>
+		<footer class="py-4 bg-light mt-auto fixed-bottom">
+			<div class="container-fluid">
+				<div
+					class="d-flex align-items-center justify-content-between small float-right">
+					<div class="text-muted">
+						<h6 class="copyright">Copyright © ElTanque</h6>
+					</div>
+
+				</div>
+			</div>
+		</footer>
+		<script src="resources/jquery-3.4.1.min.js.download"
+			crossorigin="anonymous"></script>
+		<script src="resources/bootstrap.bundle.min.js.download"
+			crossorigin="anonymous"></script>
+		<script src="resources/scripts.js.download"></script>
+		<script src="resources/Chart.min.js.download" crossorigin="anonymous"></script>
+		<script src="resources/chart-area-demo.js.download"></script>
+		<script src="resources/chart-bar-demo.js.download"></script>
+		<script src="resources/jquery.dataTables.min.js.download"
+			crossorigin="anonymous"></script>
+		<script src="resources/dataTables.bootstrap4.min.js.download"
+			crossorigin="anonymous"></script>
+		<script src="resources/datatables-demo.js.download"></script>
+</body>
+
+</html>

@@ -1,7 +1,7 @@
 <%@ page import="java.util.*,model.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<jsp:include page="headerTitolare.jsp">
+<jsp:include page="headerGestoreTavoli.jsp">
 	<jsp:param value="" name="" />
 </jsp:include>
 
