@@ -1,6 +1,8 @@
 package model;
 
 import java.sql.Connection;
+
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,31 +12,25 @@ public class ClienteDAO {
 	
 	public void doSave(ClienteBean c) throws SQLException {
 		
-		try (Connection conn = ConnectionPool.getConnection()) {
 			
-			PreparedStatement ps = conn.prepareStatement(""
-					+ "INSERT INTO CLIENTE"
-					+ "(NOME, COGNOME, USERNAME, PASSWO, EMAIL) "
-					+ "VALUES (?, ?, ?, ?, ?)");
+			Connection conn = ConnectionPool.getConnection();
+			PreparedStatement ps = conn.prepareStatement("INSERT INTO CLIENTE (NOME, COGNOME, USERNAME, EMAIL, PASSWO) VALUES (?, ?, ?, ?, ?)");
 			ps.setString(1, c.getNome());
 			ps.setString(2, c.getCognome());
 			ps.setString(3, c.getUsername());
-			ps.setString(4, c.getPassword());
-			ps.setString(5, c.getEmail());
+			ps.setString(4, c.getEmail());
+			ps.setString(5, c.getPassword());
 			
 			ps.executeUpdate();
+			//Commento casuale
 			
-		}
 	}
 	
-	public ClienteBean doRetrieveByUsernamePassword(String email, String password) throws SQLException{
+	public ClienteBean doRetrieveByUsernamePassword(String username, String password) throws SQLException{
 		
 		Connection conn = ConnectionPool.getConnection();
-		PreparedStatement ps = conn.prepareStatement(""
-				+ "SELECT NOME, COGNOME, PASSWORD, EMAIL "
-				+ "FROM CLIENTE "
-				+ "WHERE EMAIL= ? AND PASSWO= ?");
-		ps.setString(1, email);
+		PreparedStatement ps = conn.prepareStatement("SELECT NOME, COGNOME, PASSWO, EMAIL, USERNAME FROM CLIENTE WHERE USERNAME= ? AND PASSWO= ?");
+		ps.setString(1, username);
 		ps.setString(2, password);
 		ResultSet res = ps.executeQuery();
 		if(res.next()) {
@@ -51,35 +47,34 @@ public class ClienteDAO {
 		return null;
 	}
 	
-	public void updatePersonalDetails(String nome, String cognome, String email) throws SQLException {
+	public void updatePersonalDetails(ClienteBean c, String nome, String cognome, String email) throws SQLException {
 		Connection conn=ConnectionPool.getConnection();
-		PreparedStatement ps=conn.prepareStatement(""
-				+"UPDATE CLIENTE "
-				+"SET NOME= ?, COGNOME= ?, EMAIL= ?");
+		PreparedStatement ps=conn.prepareStatement("UPDATE CLIENTE SET NOME= ?, COGNOME= ?, EMAIL= ? WHERE USERNAME= ?");
 			ps.setString(1, nome);
 			ps.setString(2, cognome);
 			ps.setString(3, email);
+			ps.setString(4, c.getUsername());
 			ps.executeUpdate();
 			ps.close();
 	}
 	
-	public void updateLoginData(String username, String password) throws SQLException{
+	public void updateLoginData(ClienteBean c, String username, String password) throws SQLException{
 		Connection conn=ConnectionPool.getConnection();
-		PreparedStatement ps=conn.prepareStatement(""
-				+"UPDATE CLIENTE "
-				+"SET USERNAME= ?, PASSWO= ?");
+		PreparedStatement ps=conn.prepareStatement("UPDATE CLIENTE SET USERNAME= ?, PASSWO= ? WHERE NOME= ? AND COGNOME= ? AND EMAIL= ?");
 			ps.setString(1, username);
 			ps.setString(2, password);
+			ps.setString(3, c.getNome());
+			ps.setString(4, c.getCognome());
+			ps.setString(5, c.getEmail());
 			ps.executeUpdate();
 			ps.close();
 	}
 	
-	public void updatePassword(String password) throws SQLException{
+	public void updatePassword(ClienteBean c, String password) throws SQLException{
 		Connection conn=ConnectionPool.getConnection();
-		PreparedStatement ps=conn.prepareStatement(""
-				+"UPDATE CLIENTE "
-				+"SET PASSWO= ?");
+		PreparedStatement ps=conn.prepareStatement("UPDATE CLIENTE SET PASSWO = ? WHERE USERNAME= ?");
 			ps.setString(1, password);
+			ps.setString(2, c.getUsername());
 			ps.executeUpdate();
 			ps.close();
 	}
@@ -88,7 +83,7 @@ public class ClienteDAO {
 		Connection conn = ConnectionPool.getConnection();
 		PreparedStatement ps = conn.prepareStatement("select c.nome,c.cognome,c.username from cliente c,prenotazione p where c.username = p.username group by c.nome order by count(*) desc limit 5;");
 		ResultSet rs = ps.executeQuery();
-		ArrayList<String> clienti = new ArrayList<String>();
+		ArrayList<String> clienti = new ArrayList<>();
 		while(rs.next()) {
 			clienti.add(rs.getString(1)+" "+rs.getString(2)+" "+rs.getString(3));
 		}
