@@ -48,15 +48,17 @@ $(window).load(function () {
   <ul class='sets'>
     <li data-setName="Cliente">
       <ul>
+      
         <li data-srcPreview="src/images/red1.jpg">
           <div>
             <div class="content"> <img src="src/images/users.png" alt="">
+            <form action="LoginServlet" method="POST">
               <ul>
                 <li><span>Username: </span><input type=text name="textuser"></li>
                 <li><span>Password: </span><input type=password name="textpass"></li>
               </ul>
-            
-                <div class="alright"><a href="LoginServlet" class="btn">Login</a></div>
+               <div class="alright"><button type="submit" class="btn">Login</button></div>
+            </form>
             </div>
           </div>
         </li>
