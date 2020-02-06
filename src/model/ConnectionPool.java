@@ -13,7 +13,7 @@ public class ConnectionPool {
 		if (datasource == null) {
 			PoolProperties p = new PoolProperties();
 			p.setUrl("jdbc:mysql://localhost/eltanque?serverTimezone=" + TimeZone.getDefault().getID()+"&useSSL=false");
-			p.setDriverClassName("com.mysql.cj.jdbc.Driver");
+			p.setDriverClassName("com.mysql.jdbc.Driver");
 			p.setUsername("root");
 			p.setPassword("root");
 			p.setMaxActive(100);

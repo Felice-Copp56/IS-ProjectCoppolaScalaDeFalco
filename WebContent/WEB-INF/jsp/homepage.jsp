@@ -26,6 +26,7 @@ $(window).load(function () {
 <![endif]-->
 </head>
 <body class="page1">
+
 <header>
   <div class="menu_block">
     <div class="container_12">
@@ -51,10 +52,11 @@ $(window).load(function () {
           <div>
             <div class="content"> <img src="src/images/users.png" alt="">
               <ul>
-                <li><span>Username: </span><input type=text name=textuser></li>
-                <li><span>Password: </span><input type=password name=textpass></li>
+                <li><span>Username: </span><input type=text name="textuser"></li>
+                <li><span>Password: </span><input type=password name="textpass"></li>
               </ul>
-                <div class="alright"><a href="#" class="btn">Login</a></div>
+            
+                <div class="alright"><a href="LoginServlet" class="btn">Login</a></div>
             </div>
           </div>
         </li>
@@ -62,13 +64,13 @@ $(window).load(function () {
           <div>
             <div class="content"> <img src="src/images/register1.png" alt="">
               <ul>
-                <li><span>Nome:</span><input type=text name=textnome></li>
-                <li><span>Cognome:</span><input type=text name=textnome></li>
-                <li><span>Email: </span> <input type=email name=textemail></li>
-                <li><span>Username: </span><input type=text name=textuser></li>
-                <li><span>Password: </span><input type=password name=textpass></li>
+                <li><span>Nome:</span><input type=text name="textnome" id="nomereg"></li>
+                <li><span>Cognome:</span><input type=text name="textcognome" id="cogreg"></li>
+                <li><span>Email: </span> <input type=email name="textemail" id="regmail"></li>
+                <li><span>Username: </span><input type=text name="textuser" id = "reguser"></li>
+                <li><span>Password: </span><input type=password name="textpass" id="regpass"></li>
               </ul>
-                <div class="alright"><a href="#" class="btn">Registrati</a></div>
+                <div class="alright"><a href="LoginServlet" class="btn">Registrati</a></div>
             </div>
           </div>
         </li>
@@ -99,7 +101,7 @@ $(window).load(function () {
         </li>
         </ul>
         
-    
+ 
 <footer>
   <div class="container_12">
     <div class="grid_12">
