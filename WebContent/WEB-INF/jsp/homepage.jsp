@@ -100,20 +100,19 @@ $(window).load(function () {
           </div>
         </li>
         </ul>
-        
- 
-<footer>
-  <div class="container_12">
-    <div class="grid_12">
-      <div class="copy"> Decanter 1800 &copy; 2045 | <a href="#">Privacy Policy</a> | Design by: <a href="http://www.templatemonster.com/">TemplateMonster.com</a> </div>
-    </div>
-  </div>
-</footer>
+      
         </li>
           </ul>
         </ul>
       </li>
     </ul>
     </div>
+    <footer>
+  <div class="container_12">
+    <div class="grid_12">
+      <div class="copy"> Copyright © ElTanque </div>
+    </div>
+  </div>
+</footer>
 </body>
 </html>

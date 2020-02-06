@@ -1,6 +1,4 @@
-<%@ page import="java.util.*,model.*"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html lang="en"
 	class="fontawesome-i2svg-active fontawesome-i2svg-complete">
@@ -357,10 +355,14 @@ svg:not (:root ).svg-inline--fa {
 
 
 
+
+
 :
 
 
+
  
+
 
 
 rotate
@@ -368,8 +370,12 @@ rotate
 
 
 
+
+
 (360
 deg
+
+
 
 
 );
@@ -378,10 +384,14 @@ transform
 
 
 
+
+
 :
 
 
+
  
+
 
 
 rotate
@@ -389,8 +399,12 @@ rotate
 
 
 
+
+
 (360
 deg
+
+
 
 
 )
@@ -409,10 +423,14 @@ keyframes fa-spin { 0% {
 
 
 
+
+
 :
 
 
+
  
+
 
 
 rotate
@@ -420,8 +438,12 @@ rotate
 
 
 
+
+
 (360
 deg
+
+
 
 
 );
@@ -430,10 +452,14 @@ transform
 
 
 
+
+
 :
 
 
+
  
+
 
 
 rotate
@@ -441,8 +467,12 @@ rotate
 
 
 
+
+
 (360
 deg
+
+
 
 
 )
@@ -565,7 +595,8 @@ deg
 }
 </style>
 
-
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
 <link href="resources/dataTables.bootstrap4.min.css" rel="stylesheet"
 	crossorigin="anonymous">
 <link
@@ -632,7 +663,7 @@ to {
 }
 </style>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+	rel="stylesheet">
 <link href="resources/styles.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -686,48 +717,36 @@ to {
 				<div class="sb-sidenav-menu">
 					<div class="nav">
 						<div class="sb-sidenav-menu-heading text-light">Prenotazioni</div>
-						<a class="nav-link"
-							href="ListaPrenotazioniUtente">
+						<a class="nav-link" href="ListaPrenotazioniUtente">
 							<div class="sb-nav-link-icon">
-								<i class="material-icons">
-menu_book
-</i>
+								<i class="material-icons"> menu_book </i>
 								<!-- <i class="fas fa-chart-area"></i> -->
 							</div> Le mie prenotazioni
 						</a>
 						<div class="sb-sidenav-menu-heading text-light">Account</div>
-						<a class="nav-link"
-							href="modificaInformazioniPersonali.html">
+						<a class="nav-link" href="modificaInformazioniPersonali.html">
 							<div class="sb-nav-link-icon">
-								<i class="material-icons text-light">
-person
-</i>
+								<i class="material-icons text-light"> person </i>
 							</div> Informazioni personali
-							
-						</a>
-						
-						<a class="nav-link "
+
+						</a> <a class="nav-link "
 							href="modificaDatiDiAccesso.html"
-							>
+							data-toggle="collapse" data-target="#collapsePages"
+							aria-expanded="false" aria-controls="collapsePages">
 							<div class="sb-nav-link-icon">
-								<i class="material-icons">
-arrow_forward
-</i>
+								<i class="material-icons"> arrow_forward </i>
 								<!-- <i class="fas fa-book-open"></i> -->
 							</div> Dati di accesso
-							
+
 						</a> <a class="nav-link"
 							href="file:///C:/Users/Computer/Desktop/startbootstrap-sb-admin-gh-pages/dist/charts.html">
 							<div class="sb-nav-link-icon">
-								<i class="material-icons">
-arrow_back
-</i>
+								<i class="material-icons"> arrow_back </i>
 								<!-- <i class="fas fa-chart-area"></i> -->
 							</div> Esci
-						</a>
-						<a class="nav-link"
+						</a> <a class="nav-link"
 							href="file:///C:/Users/Computer/Desktop/startbootstrap-sb-admin-gh-pages/dist/charts.html">
-							
+
 						</a>
 
 					</div>
@@ -735,4 +754,58 @@ arrow_back
 
 			</nav>
 		</div>
+
 		<!-- inizio content principale-->
+		<div id="layoutSidenav_content">
+			<form class="p-5">
+				<h1>Modifica informazioni di accesso</h1>
+				<div class="form-row mt-4">
+					<div class="col-md-4 mb-3">
+						<label for="validationServer01">Username</label> <input type="text"
+							class="form-control " id="validationServer01" placeholder="Username"
+							value="" required>
+					</div>
+					<div class="col-md-4 mb-3">
+						<label for="validationServer02">Email</label> <input type="email"
+							class="form-control " id="validationServer02"
+							placeholder="Email" value="" required>
+					</div>
+				</div>
+				<div class="form-row mt-4">
+					<div class="col-md-4 mb-3">
+						<label for="validationServer02">Password</label> <input type="password"
+							class="form-control " id="validationServer02"
+							placeholder="Password" value="" required>
+					</div>
+					
+				</div>
+				<button class="btn btn-primary is-valid" type="submit">Modifica</button>
+			</form>
+		</div>
+		<footer class="py-4 bg-light mt-auto fixed-bottom">
+			<div class="container-fluid">
+				<div
+					class="d-flex align-items-center justify-content-between small float-right">
+					<div class="text-muted">
+						<h6 class="copyright">Copyright © ElTanque</h6>
+					</div>
+
+				</div>
+			</div>
+		</footer>
+		<script src="resources/jquery-3.4.1.min.js.download"
+			crossorigin="anonymous"></script>
+		<script src="resources/bootstrap.bundle.min.js.download"
+			crossorigin="anonymous"></script>
+		<script src="resources/scripts.js.download"></script>
+		<script src="resources/Chart.min.js.download" crossorigin="anonymous"></script>
+		<script src="resources/chart-area-demo.js.download"></script>
+		<script src="resources/chart-bar-demo.js.download"></script>
+		<script src="resources/jquery.dataTables.min.js.download"
+			crossorigin="anonymous"></script>
+		<script src="resources/dataTables.bootstrap4.min.js.download"
+			crossorigin="anonymous"></script>
+		<script src="resources/datatables-demo.js.download"></script>
+</body>
+
+</html>

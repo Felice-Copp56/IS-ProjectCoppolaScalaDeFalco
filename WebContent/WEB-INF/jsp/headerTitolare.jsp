@@ -14,7 +14,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>El Tanque Cliente</title>
+<title>El Tanque Admin</title>
 <style type="text/css">
 svg:not (:root ).svg-inline--fa {
 	overflow: visible
@@ -357,10 +357,18 @@ svg:not (:root ).svg-inline--fa {
 
 
 
+
+
+
+
 :
 
 
+
+
  
+
+
 
 
 rotate
@@ -368,8 +376,16 @@ rotate
 
 
 
+
+
+
+
 (360
 deg
+
+
+
+
 
 
 );
@@ -378,10 +394,18 @@ transform
 
 
 
+
+
+
+
 :
 
 
+
+
  
+
+
 
 
 rotate
@@ -389,8 +413,16 @@ rotate
 
 
 
+
+
+
+
 (360
 deg
+
+
+
+
 
 
 )
@@ -409,10 +441,18 @@ keyframes fa-spin { 0% {
 
 
 
+
+
+
+
 :
 
 
+
+
  
+
+
 
 
 rotate
@@ -420,8 +460,16 @@ rotate
 
 
 
+
+
+
+
 (360
 deg
+
+
+
+
 
 
 );
@@ -430,10 +478,18 @@ transform
 
 
 
+
+
+
+
 :
 
 
+
+
  
+
+
 
 
 rotate
@@ -441,8 +497,16 @@ rotate
 
 
 
+
+
+
+
 (360
 deg
+
+
+
+
 
 
 )
@@ -660,22 +724,7 @@ to {
 
 		</form>
 		<!-- Navbar-->
-		<ul class="navbar-nav ml-auto ml-md-0">
-			<li class="nav-item"><span>Utente</span></li>
-			<li class="nav-item dropdown"><a
-				class="nav-link dropdown-toggle" id="userDropdown"
-				href="file:///C:/Users/Computer/Desktop/startbootstrap-sb-admin-gh-pages/dist/index.html#"
-				role="button" data-toggle="dropdown" aria-haspopup="true"
-				aria-expanded="false"><svg
-						class="svg-inline--fa fa-user fa-w-14 fa-fw" aria-hidden="true"
-						focusable="false" data-prefix="fas" data-icon="user" role="img"
-						xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
-						data-fa-i2svg="">
-                        <path fill="currentColor"
-							d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z">
-                        </path>
-                    </svg> <!-- <i class="fas fa-user fa-fw"></i> --></a></li>
-		</ul>
+		
 	</nav>
 	<!-- inserire sidebar e content-->
 	<div id="layoutSidenav">
@@ -685,51 +734,42 @@ to {
 				id="sidenavAccordion">
 				<div class="sb-sidenav-menu">
 					<div class="nav">
-						<div class="sb-sidenav-menu-heading text-light">Prenotazioni</div>
-						<a class="nav-link"
-							href="ListaPrenotazioniUtente">
-							<div class="sb-nav-link-icon">
-								<i class="material-icons">
-menu_book
-</i>
-								<!-- <i class="fas fa-chart-area"></i> -->
-							</div> Le mie prenotazioni
-						</a>
-						<div class="sb-sidenav-menu-heading text-light">Account</div>
-						<a class="nav-link"
-							href="modificaInformazioniPersonali.html">
-							<div class="sb-nav-link-icon">
-								<i class="material-icons text-light">
-person
-</i>
-							</div> Informazioni personali
-							
-						</a>
-						
+						<div class="sb-sidenav-menu-heading text-light">Funzioni</div>
 						<a class="nav-link "
-							href="modificaDatiDiAccesso.html"
-							>
+							href="ClientiAbituali">
+							<div class="sb-nav-link-icon">
+								<i class="material-icons text-light">face</i> 
+								<!-- <i class="fas fa-tachometer-alt"></i> -->
+							</div> 
+							<span></span>
+							Clienti abituali
+						</a>
+						<a class="nav-link "
+							href="TavoliPiuGettonati">
+							<div class="sb-nav-link-icon ">
+								<i class="material-icons text-light">
+table_chart
+</i>
+								<!-- <i class="fas fa-tachometer-alt"></i> -->
+							</div> Tavoli più gettonati
+						</a>
+						<a class="nav-link"
+							href="PrenotazioniXTitolare">
+							<div class="sb-nav-link-icon">
+								<i class="material-icons text-light">calendar_today</i>
+								<!-- <i class="fas fa-tachometer-alt"></i> -->
+							</div> Prenotazioni
+						</a>
+		<div class="sb-sidenav-menu-heading">Account</div>
+						<a class="nav-link "
+							href="ClientiAbituali">
 							<div class="sb-nav-link-icon">
 								<i class="material-icons">
-arrow_forward
+keyboard_backspace
 </i>
-								<!-- <i class="fas fa-book-open"></i> -->
-							</div> Dati di accesso
-							
-						</a> <a class="nav-link"
-							href="file:///C:/Users/Computer/Desktop/startbootstrap-sb-admin-gh-pages/dist/charts.html">
-							<div class="sb-nav-link-icon">
-								<i class="material-icons">
-arrow_back
-</i>
-								<!-- <i class="fas fa-chart-area"></i> -->
+								<!-- <i class="fas fa-tachometer-alt"></i> -->
 							</div> Esci
 						</a>
-						<a class="nav-link"
-							href="file:///C:/Users/Computer/Desktop/startbootstrap-sb-admin-gh-pages/dist/charts.html">
-							
-						</a>
-
 					</div>
 				</div>
 

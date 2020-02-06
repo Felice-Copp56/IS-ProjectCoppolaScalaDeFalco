@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ServletProvaJsp
+ * Servlet implementation class ClientiAbituali
  */
-@WebServlet("")
-public class ServletProvaJsp extends HttpServlet {
+@WebServlet("/ClientiAbituali")
+public class ClientiAbituali extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletProvaJsp() {
+    public ClientiAbituali() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,10 +29,9 @@ public class ServletProvaJsp extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("d");
-		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/homepage.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/clientiAbituali.jsp");
+
 		rd.forward(request, response);
-		
 	}
 
 	/**
