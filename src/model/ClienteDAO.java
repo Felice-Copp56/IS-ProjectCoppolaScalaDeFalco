@@ -22,6 +22,7 @@ public class ClienteDAO {
 			ps.setString(5, c.getPassword());
 			
 			ps.executeUpdate();
+			//Commento casuale
 			
 	}
 	

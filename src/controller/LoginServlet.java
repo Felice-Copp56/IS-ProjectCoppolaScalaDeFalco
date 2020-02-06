@@ -51,6 +51,7 @@ public class LoginServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}*/
+		//Anche qui come prima
 		String nome = request.getParameter("textnome");
 		String cognome = request.getParameter("textcognome");
 		String email = request.getParameter("textemail");

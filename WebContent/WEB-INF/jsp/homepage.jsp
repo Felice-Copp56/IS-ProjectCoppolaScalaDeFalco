@@ -26,7 +26,7 @@ $(window).load(function () {
 <![endif]-->
 </head>
 <body class="page1">
-
+<!-- Commento a caso per committare -->
 <header>
   <div class="menu_block">
     <div class="container_12">
