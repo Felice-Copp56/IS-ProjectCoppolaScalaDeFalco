@@ -34,7 +34,7 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 			
-			/*try {
+			try {
 				ClienteDAO dao = new ClienteDAO();
 				String user = request.getParameter("textuser");
 				String password = request.getParameter("textpass");
@@ -50,9 +50,9 @@ public class LoginServlet extends HttpServlet {
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}*/
+			}
 		//Anche qui come prima
-		String nome = request.getParameter("textnome");
+		/*String nome = request.getParameter("textnome");
 		String cognome = request.getParameter("textcognome");
 		String email = request.getParameter("textemail");
 		String  user = request.getParameter("textuser");
@@ -68,7 +68,7 @@ public class LoginServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		
+		*/
 	}
 
 	/**

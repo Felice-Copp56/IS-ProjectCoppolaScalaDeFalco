@@ -12,14 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class ServletProvaJsp
  */
-@WebServlet("/HomeTitolare")
-public class HomeTitolare extends HttpServlet {
+@WebServlet("/HomeCliente")
+public class HomeCliente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public HomeTitolare() {
+    public HomeCliente() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,7 +30,7 @@ public class HomeTitolare extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		System.out.println("d");
-		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/homePageTitolare.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/formFiltraTavoli.jsp");
 
 		rd.forward(request, response);
 		

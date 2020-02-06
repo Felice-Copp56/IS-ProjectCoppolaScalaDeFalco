@@ -631,6 +631,7 @@ to {
 	top: 0
 }
 </style>
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
 <link href="resources/styles.css" rel="stylesheet" type="text/css">
@@ -686,6 +687,14 @@ to {
 				<div class="sb-sidenav-menu">
 					<div class="nav">
 						<div class="sb-sidenav-menu-heading text-light">Prenotazioni</div>
+						<a class="nav-link"
+							href="HomeCliente">
+							<div class="sb-nav-link-icon">
+								<i class="material-icons">
+table_chart
+</i>	<!-- <i class="fas fa-chart-area"></i> -->
+							</div> Cerca tavoli
+						</a>
 						<a class="nav-link"
 							href="ListaPrenotazioniUtente">
 							<div class="sb-nav-link-icon">
