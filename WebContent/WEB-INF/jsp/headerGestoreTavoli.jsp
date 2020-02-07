@@ -804,7 +804,7 @@ to {
 							</nav>
 						</div>
 						<div class="sb-sidenav-menu-heading text-light">Funzioni</div>
-						<a class="nav-link" href="HomeGestoreTavoli">
+						<a class="nav-link" href="StartFiltraTavoliXGT">
 							<div class="sb-nav-link-icon">
 								<i class="material-icons text-light"> add </i>
 							</div> Stato tavoli
