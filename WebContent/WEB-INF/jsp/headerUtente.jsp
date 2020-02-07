@@ -15,6 +15,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <title>El Tanque Cliente</title>
+<link rel="icon" href="src/images/logoicona.ico">
 <style type="text/css">
 svg:not (:root ).svg-inline--fa {
 	overflow: visible
@@ -744,19 +745,17 @@ arrow_back
 						
 					</div>
 				</div>
-
 <footer class=" bg-trasparent text-light text-center">
 					<div class="container-fluid">
 						<div
 							class="d-flex align-items-center justify-content-between small ">
 							<div class="text-muted">
-								<h6 class="copyright">Copyright ï¿½ ElTanque</h6>
+								<h6 class="copyright">Copyright © ElTanque</h6>
 							</div>
 
 						</div>
 					</div>
 				</footer>
-
 			</nav>
 		</div>
 		
