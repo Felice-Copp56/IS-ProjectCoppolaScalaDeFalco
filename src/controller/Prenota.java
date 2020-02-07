@@ -4,9 +4,6 @@ import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Time;
-import java.util.ArrayList;
-
-import model.TavoloBean;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,19 +12,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.TavoloDAO;
+import model.PrenotazioneBean;
+import model.PrenotazioneDAO;
 
 /**
- * Servlet implementation class FiltraTavoli
+ * Servlet implementation class Prenota
  */
-@WebServlet("/FiltraTavoli")
-public class FiltraTavoli extends HttpServlet {
+@WebServlet("/Prenota")
+public class Prenota extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-     private TavoloDAO tDao = new TavoloDAO();  
+     PrenotazioneDAO dao = new PrenotazioneDAO();  
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FiltraTavoli() {
+    public Prenota() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,25 +35,19 @@ public class FiltraTavoli extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String data = request.getParameter("Data");
-		String fasciaOraria = request.getParameter("fasciaOraria");
-		int numeroPersone = Integer.parseInt(request.getParameter("numeroPersone"));
-		ArrayList<TavoloBean> tavoli = new ArrayList<>();
-		String t1 = fasciaOraria.split("/")[0]+":00";
-		String t2 = fasciaOraria.split("/")[1]+":00";
+		System.out.println(Date.valueOf(request.getParameter("d"))+" "+Time.valueOf(request.getParameter("t1"))+" "+Time.valueOf(request.getParameter("t2"))+" "+Integer.valueOf(request.getParameter("nt"))+" "+String.valueOf(request.getSession().getAttribute("user")));
 		try {
-			tavoli = tDao.filtraTavoliXCliente(Date.valueOf(data), Time.valueOf(t1), Time.valueOf(t2),numeroPersone);
+			dao.doSave(Date.valueOf(request.getParameter("d")),Time.valueOf(request.getParameter("t1")),Time.valueOf(request.getParameter("t2")),Integer.valueOf(request.getParameter("nt")),String.valueOf(request.getSession().getAttribute("user")));
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		request.setAttribute("tavoli", tavoli);
-		request.setAttribute("data", data);
-		request.setAttribute("t1", t1);
-		request.setAttribute("t2", t2);
-		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/tavoliXUtente.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/formFiltraTavoli.jsp");
+
 		rd.forward(request, response);
-		
 	}
 
 	/**

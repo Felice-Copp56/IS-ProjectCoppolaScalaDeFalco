@@ -822,7 +822,7 @@ to {
 						
 					<div class="sb-sidenav-menu-heading text-light">Account</div>
 						<a class="nav-link "
-							href=LogoutGestoreTavoli>
+							href=LogoutAdmin>
 							<div class="sb-nav-link-icon">
 								<i class="material-icons text-light">
 keyboard_backspace

@@ -1,6 +1,9 @@
 package controller;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.sql.SQLException;
+import java.sql.Time;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,19 +11,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
+import model.PrenotazioneBean;
+import model.PrenotazioneDAO;
 
 /**
- * Servlet implementation class LogoutGestoreTavoli
+ * Servlet implementation class RimuoviPrenotazione
  */
-@WebServlet("/LogoutGestoreTavoli")
-public class LogoutGestoreTavoli extends HttpServlet {
+@WebServlet("/RimuoviPrenotazione")
+public class RimuoviPrenotazione extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    PrenotazioneDAO dao = new PrenotazioneDAO();
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LogoutGestoreTavoli() {
+    public RimuoviPrenotazione() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,11 +34,20 @@ public class LogoutGestoreTavoli extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String user = (String) request.getSession().getAttribute("user");
 		// TODO Auto-generated method stub
-		HttpSession session = request.getSession();
-		session.invalidate();
-		RequestDispatcher rq = request.getRequestDispatcher("WEB-INF/jsp/homepage.jsp");
-		rq.forward(request, response);
+		int nt =  Integer.valueOf(request.getParameter("nt"));
+		Date d = Date.valueOf((String) request.getParameter("d"));
+		Time t1 = Time.valueOf((String) request.getParameter("t1"));
+		Time t2 = Time.valueOf((String) request.getParameter("t2"));
+		try {
+			dao.remove(nt,d,t1,t2,user);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/formFiltraTavoli.jsp");
+		rd.forward(request, response);
 	}
 
 	/**

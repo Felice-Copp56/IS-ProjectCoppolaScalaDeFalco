@@ -21,44 +21,42 @@
 									<div class="row">
 										<div class="col-sm-12">
 
-											
+
 											<div id="dataTable_wrapper"
 												class="dataTables_wrapper dt-bootstrap4 no-footer">
 												<div class="row">
 													<div class="col-sm-12">
-														<table class="table table-bordered dataTable no-footer"
-															id="dataTable" width="100%" cellspacing="0" role="grid"
-															aria-describedby="dataTable_info" style="width: 100%;">
+														<table class="table table-borderless">
 															<thead>
-																<tr role="row">
-																	<th class="sorting_asc" tabindex="0"
-																		aria-controls="dataTable" rowspan="1" colspan="1"
-																		aria-label="Name: activate to sort column descending"
-																		style="width: 110.006px;" aria-sort="ascending">Numero tavolo</th>
-																	<th class="sorting" tabindex="0"
-																		aria-controls="dataTable" rowspan="1" colspan="1"
-																		aria-label="Position: activate to sort column ascending"
-																		style="width: 132.006px;">Data</th>
-																	<th class="sorting" tabindex="0"
-																		aria-controls="dataTable" rowspan="1" colspan="1"
-																		aria-label="Office: activate to sort column ascending"
-																		style="width: 104.006px;">Ora inizio</th>
-																	<th class="sorting" tabindex="0"
-																		aria-controls="dataTable" rowspan="1" colspan="1"
-																		aria-label="Age: activate to sort column ascending"
-																		style="width: 78.0057px;">Ora fine</th>
+																<tr>
+																	<th scope="col">Numero
+																		tavolo</th>
+																	<th scope="col">Data</th>
+																	<th scope="col">Ora inizio</th>
+																	<th scope="col">Ora fine</th>
+																	<th scope="col"></th>
+																	<th scope="col"></th>
 																</tr>
 															</thead>
 															<tbody>
-															<%ArrayList<PrenotazioneBean> prenotazioni = (ArrayList<PrenotazioneBean>)request.getAttribute("prenotazioni");
-															for(PrenotazioneBean p : prenotazioni) {%>
-																<tr role="row" class="odd">
-																	<td class="sorting_1"><%=p.getNumTavolo() %></td>
-																	<td><%=p.getData() %></td>
-																	<td><%=p.getOraInizio() %></td>
-																	<td><%=p.getOraFine() %></td>
+																<%
+																	ArrayList<PrenotazioneBean> prenotazioni = (ArrayList<PrenotazioneBean>) request
+																			.getAttribute("prenotazioni");
+																	for (PrenotazioneBean p : prenotazioni) {
+																%>
+																<tr >
+																	<td c><%=p.getNumTavolo()%></td>
+																	<td><%=p.getData()%></td>
+																	<td><%=p.getOraInizio()%></td>
+																	<td><%=p.getOraFine()%></td>
+																	<td><a href="ModificaPrenotazione" class="text-decoration-none text-danger"><i class="material-icons"> edit </i></a>
+																	</button></td>
+																	<td><a href="RimuoviPrenotazione?nt=<%=p.getNumTavolo() %>&d=<%=p.getData() %>&t1=<%=p.getOraInizio().toString() %>&t2=<%=p.getOraFine().toString() %>" class="text-decoration-none text-danger" ><i class="material-icons"> cancel </i></a>
+																	</button></td>
 																</tr>
-																<%} %>
+																<%
+																	}
+																%>
 															</tbody>
 														</table>
 													</div>
