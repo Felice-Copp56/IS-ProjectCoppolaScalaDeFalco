@@ -26,7 +26,7 @@
 												class="dataTables_wrapper dt-bootstrap4 no-footer">
 												<div class="row">
 													<div class="col-sm-12">
-													<table class="table">
+													<table class="table table-borderless">
 															<thead>
 																<tr>
 																	<th scope="col">Username</th>

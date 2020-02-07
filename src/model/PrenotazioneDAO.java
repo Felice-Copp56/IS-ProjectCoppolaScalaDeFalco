@@ -10,15 +10,16 @@ import java.util.ArrayList;
 
 public class PrenotazioneDAO {
 
-	public void doSave(PrenotazioneBean p) throws SQLException {
+	public void doSave(Date d,Time t1,Time t2,int nt,String u) throws SQLException {
 		Connection con = ConnectionPool.getConnection();
+		System.out.println(d+""+t1+""+t2+""+nt+""+u);
 		PreparedStatement ps = con.prepareStatement(
 				"insert into prenotazione(num_tavolo,username,data,ora_inizio,ora_fine) values (?,?,?,?,?);");
-		ps.setInt(1, p.getNumTavolo());
-		ps.setString(2, p.getUsername());
-		ps.setDate(3, p.getData());
-		ps.setTime(4, p.getOraInizio());
-		ps.setTime(5, p.getOraFine());
+		ps.setInt(1, nt);
+		ps.setString(2, u);
+		ps.setDate(3, d);
+		ps.setTime(4, t1);
+		ps.setTime(5, t2);
 		ps.execute();
 	}
 
@@ -95,15 +96,22 @@ public class PrenotazioneDAO {
 		ps.execute();
 	}
 
-	public void remove(PrenotazioneBean p) throws SQLException {
+	public void remove(int nt,Date d,Time t1,Time t2,String u) throws SQLException {
 		Connection con = ConnectionPool.getConnection();
 		PreparedStatement ps = con.prepareStatement(
 				"delete from prenotazione where num_tavolo = ? and username = ? and data = ? and ora_inizio = ? and ora_fine = ?;");
-		ps.setInt(1, p.getNumTavolo());
-		ps.setString(2, p.getUsername());
-		ps.setDate(3, p.getData());
-		ps.setTime(4, p.getOraInizio());
-		ps.setTime(5, p.getOraFine());
+		ps.setInt(1, nt);
+		ps.setString(2, u);
+		ps.setDate(3, d);
+		ps.setTime(4, t1);
+		ps.setTime(5, t2);
+		ps.execute();
+	}
+	public void removeByNumTavolo(int nt) throws SQLException {
+		Connection con = ConnectionPool.getConnection();
+		PreparedStatement ps = con.prepareStatement(
+				"delete from prenotazione where num_tavolo = ? ;");
+		ps.setInt(1, nt);
 		ps.execute();
 	}
 

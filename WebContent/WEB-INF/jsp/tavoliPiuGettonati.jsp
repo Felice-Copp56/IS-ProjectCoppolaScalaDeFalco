@@ -26,7 +26,7 @@
 												class="dataTables_wrapper dt-bootstrap4 no-footer">
 												<div class="row p-4">
 													<div class="col-sm-12">
-													<table class="table p-4">
+													<table class="table p-4 table-borderless">
 															<thead>
 																<tr>
 																	<th scope="col">Numero</th>

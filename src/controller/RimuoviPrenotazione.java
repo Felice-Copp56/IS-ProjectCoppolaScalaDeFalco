@@ -4,9 +4,6 @@ import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Time;
-import java.util.ArrayList;
-
-import model.TavoloBean;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,19 +12,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.TavoloDAO;
+import model.PrenotazioneBean;
+import model.PrenotazioneDAO;
 
 /**
- * Servlet implementation class FiltraTavoli
+ * Servlet implementation class RimuoviPrenotazione
  */
-@WebServlet("/FiltraTavoli")
-public class FiltraTavoli extends HttpServlet {
+@WebServlet("/RimuoviPrenotazione")
+public class RimuoviPrenotazione extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-     private TavoloDAO tDao = new TavoloDAO();  
+    PrenotazioneDAO dao = new PrenotazioneDAO();
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FiltraTavoli() {
+    public RimuoviPrenotazione() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,26 +34,20 @@ public class FiltraTavoli extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String user = (String) request.getSession().getAttribute("user");
 		// TODO Auto-generated method stub
-		String data = request.getParameter("Data");
-		String fasciaOraria = request.getParameter("fasciaOraria");
-		int numeroPersone = Integer.parseInt(request.getParameter("numeroPersone"));
-		ArrayList<TavoloBean> tavoli = new ArrayList<>();
-		String t1 = fasciaOraria.split("/")[0]+":00";
-		String t2 = fasciaOraria.split("/")[1]+":00";
+		int nt =  Integer.valueOf(request.getParameter("nt"));
+		Date d = Date.valueOf((String) request.getParameter("d"));
+		Time t1 = Time.valueOf((String) request.getParameter("t1"));
+		Time t2 = Time.valueOf((String) request.getParameter("t2"));
 		try {
-			tavoli = tDao.filtraTavoliXCliente(Date.valueOf(data), Time.valueOf(t1), Time.valueOf(t2),numeroPersone);
+			dao.remove(nt,d,t1,t2,user);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		request.setAttribute("tavoli", tavoli);
-		request.setAttribute("data", data);
-		request.setAttribute("t1", t1);
-		request.setAttribute("t2", t2);
-		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/tavoliXUtente.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/formFiltraTavoli.jsp");
 		rd.forward(request, response);
-		
 	}
 
 	/**
