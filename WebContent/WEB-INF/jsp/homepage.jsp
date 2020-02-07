@@ -44,7 +44,7 @@ $(window).load(function () {
     </div>
 </header>
 <div id="TMGPrototype2">
-  <h1><a href="index.html"><img src="src/images/logo3.png" alt=""></a></h1>
+  <h1><a href="."><img src="src/images/logo3.png" alt=""></a></h1>
   <ul class='sets'>
     <li data-setName="Cliente">
       <ul>

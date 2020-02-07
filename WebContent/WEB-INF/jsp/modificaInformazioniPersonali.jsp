@@ -12,12 +12,12 @@
 				<div class="form-row mt-4">
 					<div class="col-md-4 mb-3">
 						<label for="validationServer01">Nome</label> <input type="text" name="nome"
-							class="form-control " id="validationServer01" placeholder="Nome"
+							class="form-control " id="nome" placeholder="Nome"
 							value="" required>
 					</div>
 					<div class="col-md-4 mb-3">
 						<label for="validationServer02">Cognome</label> <input type="text" name="cognome"
-							class="form-control " id="validationServer02"
+							class="form-control " id="cognome"
 							placeholder="Cognome" value="" required>
 					</div>
 				</div>
