@@ -5,8 +5,8 @@
 <head>
 <title>ElTanqueWineBar</title>
 <meta charset="utf-8">
-<link rel="icon" href="src/images/favicon.ico">
-<link rel="shortcut icon" href="src/images/favicon.ico">
+<link rel="icon" href="src/images/logoicona.ico">
+<link rel="shortcut icon" href="src/images/logoicona.ico">
 <link rel="stylesheet" href="src/scss/style.css">
 <link rel="stylesheet" href="src/scss/TMGPrototype2.css">
 <script src="src/js/jquery.js"></script>

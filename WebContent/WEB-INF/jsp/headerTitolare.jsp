@@ -15,6 +15,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <title>El Tanque Admin</title>
+<link rel="icon" href="src/images/logoicona.ico">
 <style type="text/css">
 svg:not (:root ).svg-inline--fa {
 	overflow: visible
@@ -762,7 +763,7 @@ table_chart
 						</a>
 		<div class="sb-sidenav-menu-heading text-light">Account</div>
 						<a class="nav-link "
-							href="ClientiAbituali">
+							href=LogoutTitolare>
 							<div class="sb-nav-link-icon">
 								<i class="material-icons text-light">
 keyboard_backspace
