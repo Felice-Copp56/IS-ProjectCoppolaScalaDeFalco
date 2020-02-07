@@ -13,16 +13,16 @@ import javax.servlet.http.HttpServletResponse;
 import model.TavoloDAO;
 
 /**
- * Servlet implementation class AggiungiTavolo
+ * Servlet implementation class RimuoviTavolo
  */
-@WebServlet("/AggiungiTavolo")
-public class AggiungiTavolo extends HttpServlet {
+@WebServlet("/RimuoviTavolo")
+public class RimuoviTavolo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       private TavoloDAO dao = new TavoloDAO();
+    TavoloDAO dao = new TavoloDAO();
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AggiungiTavolo() {
+    public RimuoviTavolo() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,10 +32,9 @@ public class AggiungiTavolo extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int numeroT = Integer.valueOf(request.getParameter("numeroT"));
-		int numeroP = Integer.valueOf(request.getParameter("numeroP"));
+		int nt = Integer.valueOf(request.getParameter("nt"));
 		try {
-			dao.addTavolo(numeroT, numeroP, false);
+			dao.removeTavolo(nt);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

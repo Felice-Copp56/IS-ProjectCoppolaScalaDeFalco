@@ -33,21 +33,21 @@ public class HomeTitolare extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		String codiceTitolare = request.getParameter("textitolare");
+		/*String codiceTitolare = request.getParameter("textitolare");
 		TitolareDAO dao = new TitolareDAO();
 		try {
 			if(dao.doRetrieveByCode(codiceTitolare)!=null)
-			{
+			{*/
 				RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/homePageTitolare.jsp");
 				rd.forward(request, response);
-			}
+		/*	}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 
-		
+		*/
 	}
 
 	/**

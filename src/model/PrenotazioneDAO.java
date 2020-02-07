@@ -107,11 +107,11 @@ public class PrenotazioneDAO {
 		ps.execute();
 	}
 
-	public ArrayList<PrenotazioneBean> doRetrieveByDates(Date d1, Date d2) {
+	public ArrayList<PrenotazioneBean> doRetrieveByDates(Date d1, Date d2) throws SQLException {
 		Connection con;
 		ArrayList<PrenotazioneBean> prenotazioni = new ArrayList<PrenotazioneBean>();
 
-		try {
+		
 			con = ConnectionPool.getConnection();
 
 			PreparedStatement ps = con.prepareStatement(
@@ -128,10 +128,7 @@ public class PrenotazioneDAO {
 				p.setOraFine(rs.getTime("ora_fine"));
 				prenotazioni.add(p);
 			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 		return prenotazioni;
 	}
 	
