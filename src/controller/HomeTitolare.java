@@ -15,7 +15,7 @@ import model.TitolareDAO;
 /**
  * Servlet implementation class ServletProvaJsp
  */
-@WebServlet("/HomeTitolare")
+@WebServlet("")
 public class HomeTitolare extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -32,6 +32,7 @@ public class HomeTitolare extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
 		String codiceTitolare = request.getParameter("textitolare");
 		TitolareDAO dao = new TitolareDAO();
 		try {
@@ -45,6 +46,7 @@ public class HomeTitolare extends HttpServlet {
 			e.printStackTrace();
 		}
 		
+
 		
 	}
 

@@ -13,14 +13,7 @@
 <script src="resources/dataTables.bootstrap4.min.js.download" crossorigin="anonymous"></script>
 <script src="resources/datatables-demo.js.download"></script>
 
-<footer class="py-2 bg-light mt-auto fixed-bottom border-top">
-    <div class="container-fluid">
-        <div class="d-flex align-items-center justify-content-between small float-right">
-            <div class="text-muted"><h6 class="copyright">Copyright © ElTanque</h6></div>
 
-        </div>
-    </div>
-</footer>
 </body>
 
 </html>

@@ -53,4 +53,3 @@ select p.num_tavolo,p.username,p.data,p.ora_inizio,p.ora_fine from prenotazione 
 
 
 
-

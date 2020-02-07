@@ -134,4 +134,16 @@ public class PrenotazioneDAO {
 		}
 		return prenotazioni;
 	}
+	
+	public ArrayList<PrenotazioneBean> doRetrieveAll() throws SQLException {	
+		Connection con = ConnectionPool.getConnection();
+		PreparedStatement stm = con.prepareStatement("SELECT data,ora_inizio,ora_fine,num_tavolo,username FROM eltanque.prenotazione;");
+		ResultSet rs = stm.executeQuery();
+		ArrayList<PrenotazioneBean> ps = new ArrayList<>();
+		while(rs.next()) {
+			PrenotazioneBean p = new PrenotazioneBean(rs.getDate(1),rs.getTime(2),rs.getTime(3),rs.getInt(4),rs.getString(5));
+			ps.add(p);
+		}
+		return ps;
+	}
 }

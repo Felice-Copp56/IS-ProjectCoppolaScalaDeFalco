@@ -21,54 +21,36 @@
 									<div class="row">
 										<div class="col-sm-12">
 
-											
-											<div id="dataTable_wrapper"
+
+											<div id="dataTable_wrapper p-4"
 												class="dataTables_wrapper dt-bootstrap4 no-footer">
-												<div class="row">
+												<div class="row p-4">
 													<div class="col-sm-12">
-														<table class="table table-bordered dataTable no-footer"
-															id="dataTable" width="100%" cellspacing="0" role="grid"
-															aria-describedby="dataTable_info" style="width: 100%;">
+													<table class="table p-4">
 															<thead>
-																<tr role="row">
-																	<th class="sorting_asc" tabindex="0"
-																		aria-controls="dataTable" rowspan="1" colspan="1"
-																		aria-label="Name: activate to sort column descending"
-																		style="width: 110.006px;" aria-sort="ascending">Name</th>
-																	<th class="sorting" tabindex="0"
-																		aria-controls="dataTable" rowspan="1" colspan="1"
-																		aria-label="Position: activate to sort column ascending"
-																		style="width: 132.006px;">Position</th>
-																	<th class="sorting" tabindex="0"
-																		aria-controls="dataTable" rowspan="1" colspan="1"
-																		aria-label="Office: activate to sort column ascending"
-																		style="width: 104.006px;">Office</th>
-																	<th class="sorting" tabindex="0"
-																		aria-controls="dataTable" rowspan="1" colspan="1"
-																		aria-label="Age: activate to sort column ascending"
-																		style="width: 78.0057px;">Age</th>
-																	<th class="sorting" tabindex="0"
-																		aria-controls="dataTable" rowspan="1" colspan="1"
-																		aria-label="Start date: activate to sort column ascending"
-																		style="width: 150.006px;">Start date</th>
-																	<th class="sorting" tabindex="0"
-																		aria-controls="dataTable" rowspan="1" colspan="1"
-																		aria-label="Salary: activate to sort column ascending"
-																		style="width: 82px;">Salary</th>
+																<tr>
+																	<th scope="col">Numero</th>
+																	<th scope="col">Numero posti</th>
+																	<th scope="col">Numero prenotazioni</th>
 																</tr>
 															</thead>
 															<tbody>
-															ripetere per ogni entry
-																<tr role="row" class="odd">
-																	<td class="sorting_1">Airi Satou</td>
-																	<td>Accountant</td>
-																	<td>Tokyo</td>
-																	<td>33</td>
-																	<td>2008/11/28</td>
-																	<td>$162,700</td>
+																<%
+																HashMap<TavoloBean, Integer> tavoli = (HashMap<TavoloBean, Integer>)request.getAttribute("tavoli");
+																for (Map.Entry<TavoloBean, Integer> entry : tavoli.entrySet()) {
+																	TavoloBean t = entry.getKey();
+																	int np = entry.getValue();%>
+																<tr>
+																	<td class="sorting_1"><%=t.getNumTavolo() %></td>
+																	<td><%=t.getNumPosti()%></td>
+																	<td><%=np %></td>
 																</tr>
+																<%
+																	}
+																%>
 															</tbody>
 														</table>
+														
 													</div>
 												</div>
 											</div>

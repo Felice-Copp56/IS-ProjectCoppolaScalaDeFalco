@@ -5,8 +5,7 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Time;
 import java.util.ArrayList;
-
-import model.TavoloBean;
+import java.util.HashMap;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,19 +14,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.TavoloBean;
 import model.TavoloDAO;
 
 /**
- * Servlet implementation class FiltraTavoli
+ * Servlet implementation class FiltraTavoliXGT
  */
-@WebServlet("/FiltraTavoli")
-public class FiltraTavoli extends HttpServlet {
+@WebServlet("/FiltraTavoliXGT")
+public class FiltraTavoliXGT extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-     private TavoloDAO tDao = new TavoloDAO();  
+	 private TavoloDAO tDao = new TavoloDAO();    
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FiltraTavoli() {
+    public FiltraTavoliXGT() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,20 +39,24 @@ public class FiltraTavoli extends HttpServlet {
 		// TODO Auto-generated method stub
 		String data = request.getParameter("Data");
 		String fasciaOraria = request.getParameter("fasciaOraria");
-		int numeroPersone = Integer.parseInt(request.getParameter("numeroPersone"));
 		ArrayList<TavoloBean> tavoli = new ArrayList<>();
+		HashMap<TavoloBean,Integer> map = new HashMap<>();
 		String t1 = fasciaOraria.split("/")[0]+":00";
 		String t2 = fasciaOraria.split("/")[1]+":00";
 		try {
-			tavoli = tDao.filtraTavoliXCliente(Date.valueOf(data), Time.valueOf(t1), Time.valueOf(t2),numeroPersone);
+			tavoli = tDao.doRetrieveAll();
+			for(TavoloBean t:tavoli) {
+				if(tDao.checkPrenotazione(t.getNumTavolo(), Date.valueOf(data), Time.valueOf(t1), Time.valueOf(t2)))
+					map.put(t, 1);
+				else map.put(t,0);
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		request.setAttribute("tavoli", tavoli);
-		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/tavoliXUtente.jsp");
+		request.setAttribute("map", map);
+		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/tavoliXGT.jsp");
 		rd.forward(request, response);
-		
 	}
 
 	/**
