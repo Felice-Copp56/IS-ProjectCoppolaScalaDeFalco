@@ -57,6 +57,12 @@
 																	<td><%=p.getData() %></td>
 																	<td><%=p.getOraInizio() %></td>
 																	<td><%=p.getOraFine() %></td>
+																	<td><button type="button" class="btn btn-dark"><i class="material-icons">
+edit
+</i></button></td>
+																	<td><button type="button" class="btn btn-dark"><i class="material-icons">
+cancel
+</i></button></td>
 																</tr>
 																<%} %>
 															</tbody>
