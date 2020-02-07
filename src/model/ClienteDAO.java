@@ -70,20 +70,20 @@ public class ClienteDAO {
 		PreparedStatement ps=conn.prepareStatement("UPDATE CLIENTE SET NOME= ?, COGNOME= ? WHERE USERNAME= ?;");
 			ps.setString(1, nome);
 			ps.setString(2, cognome);
-			ps.setString(3, c.getEmail());
-			ps.setString(4, c.getUsername());
+			ps.setString(3, c.getUsername());
 			ps.executeUpdate();
 			ps.close();
 	}
 	
-	public void updateLoginData(ClienteBean c, String username, String password) throws SQLException{
+	public void updateLoginData(ClienteBean c, String username, String password,String email) throws SQLException{
 		Connection conn=ConnectionPool.getConnection();
-		PreparedStatement ps=conn.prepareStatement("UPDATE CLIENTE SET USERNAME= ?, PASSWO= ? WHERE NOME= ? AND COGNOME= ? AND EMAIL= ?;");
+		PreparedStatement ps=conn.prepareStatement("UPDATE CLIENTE SET USERNAME= ?, PASSWO= ?, EMAIL=? WHERE NOME= ? AND COGNOME= ? ;");
 			ps.setString(1, username);
 			ps.setString(2, password);
-			ps.setString(3, c.getNome());
-			ps.setString(4, c.getCognome());
-			ps.setString(5, c.getEmail());
+			ps.setString(3, email);
+			ps.setString(4, c.getNome());
+			ps.setString(5, c.getCognome());
+			
 			ps.executeUpdate();
 			ps.close();
 	}
