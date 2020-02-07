@@ -7,8 +7,9 @@ public class PrenotazioneBean {
 	private Date data;
 	private Time oraInizio,oraFine;
 	private int numTavolo;
-
 	private String username;
+	
+	
 	public PrenotazioneBean() {
 		
 	}
@@ -19,6 +20,7 @@ public class PrenotazioneBean {
 		this.oraFine = oraFine;
 		this.numTavolo = numTavolo;
 		this.username = username;
+		
 	}
 	public int getNumTavolo() {
 		return numTavolo;
@@ -50,6 +52,7 @@ public class PrenotazioneBean {
 	public void setOraFine(Time oraFine) {
 		this.oraFine = oraFine;
 	}
+	
 	
 	
 }
