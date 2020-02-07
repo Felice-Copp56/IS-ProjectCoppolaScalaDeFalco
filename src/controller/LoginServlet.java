@@ -44,7 +44,7 @@ public class LoginServlet extends HttpServlet {
 				{
 					ClienteBean bean = dao.doRetrieveByUsernamePassword(user, password);
 					System.out.println("Benvenuto "+bean.getNome()+" "+bean.getCognome());
-					RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/headerUtente.jsp");
+					RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/formFiltraTavoli.jsp");
 					request.getSession().setAttribute("user", bean.getUsername());
 					rd.forward(request, response);
 				}
