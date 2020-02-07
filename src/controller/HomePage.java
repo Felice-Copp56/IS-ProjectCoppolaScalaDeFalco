@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class HomePage
  */
-@WebServlet("/hp")
+@WebServlet("")
 public class HomePage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -31,18 +31,16 @@ public class HomePage extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		HttpSession session = request.getSession(false);
-		if(session!=null)
-		{
-			String user = (String) session.getAttribute("user");
-			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/headerUtente.jsp");
-			rd.forward(request, response);
+		String utente = (String)request.getSession().getAttribute("user");
+		RequestDispatcher rd = null;
+		if(utente!=null){
+			request.setAttribute("user", utente);
+			 rd = request.getRequestDispatcher("WEB-INF/jsp/formFiltraTavoli.jsp");
 		}
 		else
-		{
-			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/homepage.jsp");
-			rd.forward(request, response);
-		}
+			rd = request.getRequestDispatcher("WEB-INF/jsp/homepage.jsp");
+		
+		rd.forward(request, response);
 	}
 
 	/**
