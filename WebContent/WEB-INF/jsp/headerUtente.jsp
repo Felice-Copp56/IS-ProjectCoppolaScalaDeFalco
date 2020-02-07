@@ -662,7 +662,7 @@ to {
 		</form>
 		<!-- Navbar-->
 		<ul class="navbar-nav ml-auto ml-md-0">
-			<li class="nav-item"><span>Utente</span></li>
+			<li class="nav-item"><p>Ciao, ${user}</p></li>
 			<li class="nav-item dropdown"><a
 				class="nav-link dropdown-toggle" id="userDropdown"
 				href="file:///C:/Users/Computer/Desktop/startbootstrap-sb-admin-gh-pages/dist/index.html#"
@@ -726,32 +726,38 @@ arrow_forward
 							</div> Dati di accesso
 							
 						</a> <a class="nav-link"
-							href="file:///C:/Users/Computer/Desktop/startbootstrap-sb-admin-gh-pages/dist/charts.html">
+							href="LogoutServlet">
 							<div class="sb-nav-link-icon">
 								<i class="material-icons">
 arrow_back
 </i>
 								<!-- <i class="fas fa-chart-area"></i> -->
-							</div> Esci
+							</div> 
+							Esci
 						</a>
 						<a class="nav-link"
+
 							href="">
 							
-						</a>
 
+						</a>
+						
 					</div>
 				</div>
+
 <footer class=" bg-trasparent text-light text-center">
 					<div class="container-fluid">
 						<div
 							class="d-flex align-items-center justify-content-between small ">
 							<div class="text-muted">
-								<h6 class="copyright">Copyright © ElTanque</h6>
+								<h6 class="copyright">Copyright ï¿½ ElTanque</h6>
 							</div>
 
 						</div>
 					</div>
 				</footer>
+
 			</nav>
 		</div>
+		
 		<!-- inizio content principale-->

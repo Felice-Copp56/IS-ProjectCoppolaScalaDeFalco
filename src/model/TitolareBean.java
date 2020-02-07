@@ -1,18 +1,18 @@
 package model;
 
 public class TitolareBean {
-	private int codiceTitolare;
+	private String codiceTitolare;
 	//felice gay
-	public TitolareBean(int codiceTitolare) {
+	public TitolareBean(String codiceTitolare) {
 		super();
 		this.codiceTitolare = codiceTitolare;
 	}
 
-	public int getCodiceTitolare() {
+	public String getCodiceTitolare() {
 		return codiceTitolare;
 	}
 
-	public void setCodiceTitolare(int codiceTitolare) {
+	public void setCodiceTitolare(String codiceTitolare) {
 		this.codiceTitolare = codiceTitolare;
 	}
 	

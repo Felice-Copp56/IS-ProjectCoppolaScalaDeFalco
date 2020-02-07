@@ -65,13 +65,14 @@ public class TavoloDAO {
 		return arrayListTavolo;
 	}
 	
-	public void addTavolo(int numTavolo,int numPosti,boolean statoTavolo) throws SQLException
+	public void addTavolo(int numTavolo,int numPosti,boolean statoTavolo,String gestoreTavoli) throws SQLException
 	{
 		Connection con = ConnectionPool.getConnection();
 		PreparedStatement stm = con.prepareStatement("INSERT INTO tavolo(num_tavolo,num_posti,stato_tavolo) VALUES(?,?,?);");
 		stm.setInt(1,numTavolo);
 		stm.setInt(2,numPosti);
 		stm.setBoolean(3,statoTavolo);
+		
 		stm.execute();
 	}
 	

@@ -1,6 +1,7 @@
-
 create database eltanque;
 use eltanque;
+
+#drop database eltanque;
 
 create table cliente
 (
@@ -14,6 +15,10 @@ create table cliente
 	
     passwo varchar(25) not null
 );
+create table gestore_tavoli
+(
+	codice_gestore_tavoli varchar(25) primary key not null
+);
 create table tavolo
 (
 	num_tavolo int primary key not null,
@@ -22,18 +27,10 @@ create table tavolo
     
     stato_tavolo bool
 );
-INSERT INTO `eltanque`.`tavolo` (`num_tavolo`, `num_posti`, `stato_tavolo`) VALUES ('1', '2', false);
-INSERT INTO `eltanque`.`tavolo` (`num_tavolo`, `num_posti`, `stato_tavolo`) VALUES ('2', '2', false);
-INSERT INTO `eltanque`.`tavolo` (`num_tavolo`, `num_posti`, `stato_tavolo`) VALUES ('3', '3', false);
-INSERT INTO `eltanque`.`tavolo` (`num_tavolo`, `num_posti`, `stato_tavolo`) VALUES ('4', '5', false);
 
-create table gestore_tavoli
-(
-	codice_gestore_tavoli int primary key not null
-);
 create table titolare
 (
-	codice_titolare int primary key not null
+	codice_titolare varchar(25) primary key not null
 );
 create table prenotazione
 (
@@ -42,6 +39,7 @@ create table prenotazione
     
     username varchar(25) not null,
     foreign key(username) references cliente(username),
+    
     
     data date,
     
@@ -53,13 +51,5 @@ create table prenotazione
 );
 select p.num_tavolo,p.username,p.data,p.ora_inizio,p.ora_fine from prenotazione p where p.data between "2020-01-01" and "2020-03-01";
 
-INSERT INTO `eltanque`.`gestore_tavoli` (`codice_gestore_tavoli`) VALUES ('1000');
-INSERT INTO `eltanque`.`gestore_tavoli` (`codice_gestore_tavoli`) VALUES ('1001');
-INSERT INTO `eltanque`.`titolare` (`codice_titolare`) VALUES (0001);
 
-select p.num_tavolo,p.data,p.ora_inizio,p.ora_fine from prenotazione p where p.username = "u1";
-select t.num_tavolo, count(*) as numeroPrenotazioni from tavolo t, prenotazione p  where p.num_tavolo = t.num_tavolo group by t.num_tavolo order by numeroPrenotazioni desc;
-select * from tavolo t where not exists ( select * from prenotazione p where p.num_tavolo = t.num_tavolo and p.data = "2010-01-01" and ora_inizio = "18:00" and ora_fine = "19:00" ) ;
-select * from tavolo;
-select count(*) as numeroPre from prenotazione p where p.num_tavolo = 1 and p.data = "2010-01-01" and ora_inizio = "18:00" and ora_fine = "19:00"  ;
-select * from tavolo t where not exists ( select * from prenotazione p where p.num_tavolo = t.num_tavolo and p.data = "2010-01-01" and ora_inizio = "12:00" and ora_fine = "13:00" ) or exists ( select * from prenotazione p where p.num_tavolo = t.num_tavolo and p.data = "2010-01-01" and ora_inizio = "12:00" and ora_fine = "13:00" );
+

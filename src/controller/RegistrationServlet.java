@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
@@ -15,16 +14,16 @@ import model.ClienteBean;
 import model.ClienteDAO;
 
 /**
- * Servlet implementation class LoginServlet
+ * Servlet implementation class RegistrationServlet
  */
-@WebServlet("/LoginServlet")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/RegistrationServlet")
+public class RegistrationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginServlet() {
+    public RegistrationServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,32 +33,30 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.setContentType("text/html");  
-        PrintWriter out=response.getWriter();
-			try {
-				ClienteDAO dao = new ClienteDAO();
-				String user = request.getParameter("textuser");
-				String password = request.getParameter("textpass");
-				if(dao.doRetrieveByUsernamePassword(user, password)!=null)
-				{
-					ClienteBean bean = dao.doRetrieveByUsernamePassword(user, password);
-					System.out.println("Benvenuto "+bean.getNome()+" "+bean.getCognome());
-					RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/headerUtente.jsp");
-					request.getSession().setAttribute("user", bean.getUsername());
-					rd.forward(request, response);
-				}
-				else {
-					
-					RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/homepage.jsp");
-					rd.forward(request, response);
-				}
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		String nome = request.getParameter("textnome");
+		String cognome = request.getParameter("textcognome");
+		String email = request.getParameter("textemail");
+		String  user = request.getParameter("textuser");
+		String pasw = request.getParameter("textpass");
+		ClienteDAO dao = new ClienteDAO();
+		try {
+			if(dao.doRetrieveByUsernamePassword(user, pasw)==null)
+			{
+				dao.doSave(new ClienteBean(nome,cognome,user,email,pasw));
+				RequestDispatcher rq = request.getRequestDispatcher("WEB-INF/jsp/homepageRegistrazione.jsp");
+				rq.forward(request, response);
+				System.out.println("Creato "+nome);
 			}
-	
-		
-		
+			else
+			{
+				
+				RequestDispatcher rq = request.getRequestDispatcher("WEB-INF/jsp/homepage.jsp");
+				rq.forward(request, response);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**
