@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,19 +11,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.TavoloDAO;
+import model.PrenotazioneBean;
+import model.PrenotazioneDAO;
 
 /**
- * Servlet implementation class AggiungiTavolo
+ * Servlet implementation class FiltraPrenotazioni
  */
-@WebServlet("/AggiungiTavolo")
-public class AggiungiTavolo extends HttpServlet {
+@WebServlet("/FiltraPrenotazioni")
+public class FiltraPrenotazioni extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       private TavoloDAO dao = new TavoloDAO();
+ 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AggiungiTavolo() {
+    public FiltraPrenotazioni() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,16 +34,9 @@ public class AggiungiTavolo extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int numeroT = Integer.valueOf(request.getParameter("numeroT"));
-		int numeroP = Integer.valueOf(request.getParameter("numeroP"));
-		try {
-			dao.addTavolo(numeroT, numeroP, false);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("WEB-INF/jsp/formFiltraTavoliGestoreTavoli.jsp");
-		requestDispatcher.forward(request, response);
+		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/formFiltraPrenotazioni.jsp");
+
+		rd.forward(request, response);
 	}
 
 	/**

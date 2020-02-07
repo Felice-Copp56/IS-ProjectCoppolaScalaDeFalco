@@ -38,8 +38,10 @@
 															<tbody>
 																
 																<%ArrayList<PrenotazioneBean> ps = (ArrayList<PrenotazioneBean>)request.getAttribute("ps");
-																for(PrenotazioneBean p:ps){%>
-																
+																for(PrenotazioneBean p:ps){
+																if(p==null){%>
+																	<h1> Non ci sono prenotazioni nelle date specificate.</h1>
+																<%}else{ %>
 																<tr>
 																	<td class="sorting_1"><%=p.getUsername() %></td>
 																	<td><%=p.getNumTavolo()%></td>
@@ -47,7 +49,7 @@
 																	<td><%=p.getOraInizio().toString()+"/"+p.getOraFine().toString()%></td>
 																</tr>
 																<%
-																	}
+																}	}
 																%>
 															</tbody>
 														</table>

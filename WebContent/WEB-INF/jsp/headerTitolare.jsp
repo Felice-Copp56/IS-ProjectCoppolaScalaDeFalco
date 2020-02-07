@@ -754,17 +754,17 @@ table_chart
 							</div> Tavoli più gettonati
 						</a>
 						<a class="nav-link"
-							href="PrenotazioniXTitolare">
+							href="FiltraPrenotazioni">
 							<div class="sb-nav-link-icon">
 								<i class="material-icons text-light">calendar_today</i>
 								<!-- <i class="fas fa-tachometer-alt"></i> -->
 							</div> Prenotazioni
 						</a>
-		<div class="sb-sidenav-menu-heading">Account</div>
+		<div class="sb-sidenav-menu-heading text-light">Account</div>
 						<a class="nav-link "
 							href="ClientiAbituali">
 							<div class="sb-nav-link-icon">
-								<i class="material-icons">
+								<i class="material-icons text-light">
 keyboard_backspace
 </i>
 								<!-- <i class="fas fa-tachometer-alt"></i> -->

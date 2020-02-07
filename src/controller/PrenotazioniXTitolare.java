@@ -1,7 +1,9 @@
 package controller;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -34,13 +36,18 @@ public class PrenotazioniXTitolare extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		Date d1 = Date.valueOf(request.getParameter("Data1"));
+		Date d2 = Date.valueOf(request.getParameter("Data2"));
+
+		ArrayList<PrenotazioneBean> prenotazioni;
 		try {
-			ArrayList<PrenotazioneBean> prenotazioni = dao.doRetrieveAll();
+			prenotazioni = dao.doRetrieveByDates(d1, d2);
 			request.setAttribute("ps", prenotazioni);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/prenotazioniXTitolare.jsp");
 
 		rd.forward(request, response);

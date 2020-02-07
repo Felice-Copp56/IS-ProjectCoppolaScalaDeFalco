@@ -804,6 +804,11 @@ to {
 							</nav>
 						</div>
 						<div class="sb-sidenav-menu-heading text-light">Funzioni</div>
+						<a class="nav-link" href="HomeGestoreTavoli">
+							<div class="sb-nav-link-icon">
+								<i class="material-icons text-light"> add </i>
+							</div> Stato tavoli
+						</a>
 						<a class="nav-link" href="StartAddTavolo">
 							<div class="sb-nav-link-icon">
 								<i class="material-icons text-light"> add </i>
