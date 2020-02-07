@@ -9,40 +9,36 @@
 <div id="layoutSidenav_content">
 	<main>
 	<div class="container-fluid">
-		<h1 class="mt-4">Cerca tavoli</h1>
+		<h1 class="mt-4">Aggiungi tavolo</h1>
 
 
 		<div class="row">
 			<div class="col">
-				<form method="get" action="FiltraTavoliXGT">
+				<form method="get" action="AggiungiTavolo">
 					<div class="w-100"></div>
 					<div class="form-row m-6 mx-auto" method="get"
-						onsubmit="/FiltraTavoli">
+						onsubmit="">
 						<div class="form-group col-md-6 m-3" method="get"
 							onsubmit="/FiltraTavoli">
-							<label for="inputEmail4">Data</label> <input type="date"
-								class="form-control" id="Data" name="Data" placeholder="Data"
-								min="2020-01-01" max="2020-12-31">
+							<%int n = (int)request.getAttribute("n"); %>
+							<label for="inputEmail4">Numero</label> <input type="number"
+								class="form-control" id="numeroT" name="numeroT" placeholder="# tavolo"
+								min="<%=n+1 %>">
 						</div>
 					</div>
 					<div class="w-100"></div>
 					<div class="form-row m-3">
 						<div class="form-group col-md-3">
-							<label for="inputEmail4">Fascia oraria</label> <select
-								id="fasciaOraria" name="fasciaOraria" class="form-control">
-								<option selected>Scegli...</option>
-								<option>18:00/19:00</option>
-								<option>19:00/20:00</option>
-								<option>20:00/21:00</option>
-							</select>
+							<label for="inputEmail4">Numero posti</label> <input type="number"
+								class="form-control" id="numeroP" name="numeroP" placeholder="# posti" min="1"
+								>
 						</div>
 					</div>
 					<div class="w-100"></div>
 					<div class="row m-3">
 						<div class="col justify-content-center mx-auto">
 							<button type="submit"
-								class="btn btn-primary justify-content-center">Cerca
-								tavoli</button>
+								class="btn btn-primary justify-content-center">Aggiungi</button>
 						</div>
 					</div>
 				</form>

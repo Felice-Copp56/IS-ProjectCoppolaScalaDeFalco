@@ -79,13 +79,13 @@ public class ClienteDAO {
 			ps.close();
 	}
 	
-	public ArrayList<String> getClientiAbituali() throws SQLException{
+	public ArrayList<ClienteBean> getClientiAbituali() throws SQLException{
 		Connection conn = ConnectionPool.getConnection();
 		PreparedStatement ps = conn.prepareStatement("select c.nome,c.cognome,c.username from cliente c,prenotazione p where c.username = p.username group by c.nome order by count(*) desc limit 5;");
 		ResultSet rs = ps.executeQuery();
-		ArrayList<String> clienti = new ArrayList<>();
+		ArrayList<ClienteBean> clienti = new ArrayList<>();
 		while(rs.next()) {
-			clienti.add(rs.getString(1)+" "+rs.getString(2)+" "+rs.getString(3));
+			clienti.add(new ClienteBean(rs.getString(1), rs.getString(2), rs.getString(3), " ", " "));
 		}
 		return clienti;
 	}

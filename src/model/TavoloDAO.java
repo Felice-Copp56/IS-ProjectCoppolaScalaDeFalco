@@ -8,14 +8,26 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class TavoloDAO {
-	public ArrayList<TavoloBean> filtraTavoliXCliente(Date d,Time t1,Time t2 ) throws SQLException{
+	
+	public int getMaxTableNumber() throws SQLException {
 		Connection con = ConnectionPool.getConnection();
-		PreparedStatement stm = con.prepareStatement("select * from tavolo t where not exists ( select * from prenotazione p where p.num_tavolo = t.num_tavolo and p.data = ? and ora_inizio = ? and ora_fine = ?);");
-		stm.setDate(1, d);
-		stm.setTime(2, t1);
-		stm.setTime(3,t2);
+		PreparedStatement stm = con.prepareStatement("SELECT num_tavolo from tavolo order by num_tavolo desc limit 1;");
+		ResultSet res = stm.executeQuery();
+		if(res.next())
+			return res.getInt(1);
+		return 1;
+		
+	}
+	public ArrayList<TavoloBean> filtraTavoliXCliente(Date d,Time t1,Time t2,int np) throws SQLException{
+		Connection con = ConnectionPool.getConnection();
+		PreparedStatement stm = con.prepareStatement("select * from tavolo t where t.num_posti = ? and not exists ( select * from prenotazione p where p.num_tavolo = t.num_tavolo and p.data = ? and ora_inizio = ? and ora_fine = ? );");
+		stm.setInt(1, np);
+		stm.setDate(2, d);
+		stm.setTime(3, t1);
+		stm.setTime(4,t2);
 		ResultSet res = stm.executeQuery();
 		ArrayList<TavoloBean> arrayListTavolo = new ArrayList<TavoloBean>();
 		while(res.next()) {
@@ -27,19 +39,20 @@ public class TavoloDAO {
 	}
 	public Boolean checkPrenotazione(int numTavolo,Date d,Time t1,Time t2) throws SQLException {
 		Connection con = ConnectionPool.getConnection();
-		PreparedStatement stm = con.prepareStatement("select * from tavolo t where not exists ( select * from prenotazione p where p.num_tavolo = ? and p.data = ? and ora_inizio = ? and ora_fine = ?);");
+		PreparedStatement stm = con.prepareStatement("select count(*) as numeroPre from prenotazione p where p.num_tavolo = ? and p.data = ? and ora_inizio = ?  and ora_fine = ?;");
 		stm.setInt(1, numTavolo);
 		stm.setDate(2, d);
 		stm.setTime(3,t1);
 		stm.setTime(4, t2);
 		ResultSet res = stm.executeQuery();
 		if(res.next()) {
-			return true;
+			if(res.getInt(1)==0)
+				return true;
 		}
 		return false;
 	}
 	
-	public ArrayList<TavoloBean> doRetrieveByAll() throws SQLException {	
+	public ArrayList<TavoloBean> doRetrieveAll() throws SQLException {	
 		Connection con = ConnectionPool.getConnection();
 		PreparedStatement stm = con.prepareStatement("SELECT * FROM tavolo t;");
 		ResultSet res = stm.executeQuery();
@@ -69,5 +82,17 @@ public class TavoloDAO {
 		stm.setInt(1,numTavolo);
 		stm.execute();
 		
+	}
+	
+	public HashMap<TavoloBean, Integer> tavoliPiuGettonati() throws SQLException{
+		Connection con = ConnectionPool.getConnection();
+		PreparedStatement stm = con.prepareStatement("select t.num_tavolo,t.num_posti, count(*) as numeroPrenotazioni from tavolo t, prenotazione p  where p.num_tavolo = t.num_tavolo group by t.num_tavolo order by numeroPrenotazioni desc;");
+		ResultSet rs = stm.executeQuery();
+		HashMap<TavoloBean,Integer> tavoli = new HashMap<TavoloBean, Integer>();
+		while(rs.next()) {
+			TavoloBean t = new TavoloBean(rs.getInt(1),rs.getInt(2),false);
+			tavoli.put(t,rs.getInt(3));
+		}
+		return tavoli;
 	}
 }

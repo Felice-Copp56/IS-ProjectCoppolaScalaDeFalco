@@ -772,7 +772,17 @@ keyboard_backspace
 						</a>
 					</div>
 				</div>
+<footer class=" bg-trasparent text-light text-center">
+					<div class="container-fluid">
+						<div
+							class="d-flex align-items-center justify-content-between small ">
+							<div class="text-muted">
+								<h6 class="copyright">Copyright © ElTanque</h6>
+							</div>
 
+						</div>
+					</div>
+				</footer>
 			</nav>
 		</div>
 		<!-- inizio content principale-->

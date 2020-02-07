@@ -20,53 +20,31 @@
 									class="dataTables_wrapper dt-bootstrap4">
 									<div class="row">
 										<div class="col-sm-12">
-
-											
 											<div id="dataTable_wrapper"
 												class="dataTables_wrapper dt-bootstrap4 no-footer">
-												<div class="row">
+												<div class="row p-4">
 													<div class="col-sm-12">
-														<table class="table table-bordered dataTable no-footer"
-															id="dataTable" width="100%" cellspacing="0" role="grid"
-															aria-describedby="dataTable_info" style="width: 100%;">
+														<table class="table">
 															<thead>
-																<tr role="row">
-																	<th class="sorting_asc" tabindex="0"
-																		aria-controls="dataTable" rowspan="1" colspan="1"
-																		aria-label="Name: activate to sort column descending"
-																		style="width: 110.006px;" aria-sort="ascending">Name</th>
-																	<th class="sorting" tabindex="0"
-																		aria-controls="dataTable" rowspan="1" colspan="1"
-																		aria-label="Position: activate to sort column ascending"
-																		style="width: 132.006px;">Position</th>
-																	<th class="sorting" tabindex="0"
-																		aria-controls="dataTable" rowspan="1" colspan="1"
-																		aria-label="Office: activate to sort column ascending"
-																		style="width: 104.006px;">Office</th>
-																	<th class="sorting" tabindex="0"
-																		aria-controls="dataTable" rowspan="1" colspan="1"
-																		aria-label="Age: activate to sort column ascending"
-																		style="width: 78.0057px;">Age</th>
-																	<th class="sorting" tabindex="0"
-																		aria-controls="dataTable" rowspan="1" colspan="1"
-																		aria-label="Start date: activate to sort column ascending"
-																		style="width: 150.006px;">Start date</th>
-																	<th class="sorting" tabindex="0"
-																		aria-controls="dataTable" rowspan="1" colspan="1"
-																		aria-label="Salary: activate to sort column ascending"
-																		style="width: 82px;">Salary</th>
+																<tr>
+																	<th scope="col">Nome</th>
+																	<th scope="col">Cognome</th>
+																	<th scope="col">Username</th>
 																</tr>
 															</thead>
 															<tbody>
-															ripetere per ogni entry
-																<tr role="row" class="odd">
-																	<td class="sorting_1">Airi Satou</td>
-																	<td>Accountant</td>
-																	<td>Tokyo</td>
-																	<td>33</td>
-																	<td>2008/11/28</td>
-																	<td>$162,700</td>
+																<%
+																	ArrayList<ClienteBean> clientiA = (ArrayList<ClienteBean>) request.getAttribute("clientiA");
+																	for (ClienteBean c : clientiA) {
+																%>
+																<tr>
+																	<td><%=c.getNome()%></td>
+																	<td><%=c.getCognome()%></td>
+																	<td><%=c.getUsername()%></td>
 																</tr>
+																<%
+																	}
+																%>
 															</tbody>
 														</table>
 													</div>
