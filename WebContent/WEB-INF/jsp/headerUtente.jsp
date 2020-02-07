@@ -706,7 +706,7 @@ menu_book
 						</a>
 						<div class="sb-sidenav-menu-heading text-light">Account</div>
 						<a class="nav-link"
-							href="modificaInformazioniPersonali.html">
+							href="StartModificaInfoPersonali">
 							<div class="sb-nav-link-icon">
 								<i class="material-icons text-light">
 person
@@ -716,7 +716,7 @@ person
 						</a>
 						
 						<a class="nav-link "
-							href="modificaDatiDiAccesso.html"
+							href="StartModificaDatiAccesso"
 							>
 							<div class="sb-nav-link-icon">
 								<i class="material-icons">
