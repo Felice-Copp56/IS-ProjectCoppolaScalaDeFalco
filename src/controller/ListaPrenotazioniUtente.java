@@ -34,7 +34,8 @@ public class ListaPrenotazioniUtente extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		ArrayList<PrenotazioneBean> prenotazioni = dao.doRetrieveByUsername("u1");
+		String user = (String) request.getSession().getAttribute("user");
+		ArrayList<PrenotazioneBean> prenotazioni = dao.doRetrieveByUsername(user);
 		request.setAttribute("prenotazioni", prenotazioni);
 		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/prenotazioniUtente.jsp");
 

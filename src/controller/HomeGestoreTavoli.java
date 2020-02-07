@@ -32,18 +32,18 @@ public class HomeGestoreTavoli extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		/*String codiceGestore = request.getParameter("textgestore");
+		String codiceGestore = request.getParameter("textgestore");
 		GestoreTavoliDAO dao = new GestoreTavoliDAO();
 		try {
 			if(dao.doRetrieveByCode(codiceGestore)!=null)
-			{*/
+			{
 				RequestDispatcher requestDispatcher = request.getRequestDispatcher("WEB-INF/jsp/homeGestoreTavoli.jsp");
 				requestDispatcher.forward(request, response);
-			/*}
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 	}
 
 	/**
