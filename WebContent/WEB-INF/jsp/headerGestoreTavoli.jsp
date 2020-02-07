@@ -15,6 +15,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <title>El Tanque Admin</title>
+<link rel="icon" href="src/images/logoicona.ico">
 <style type="text/css">
 svg:not (:root ).svg-inline--fa {
 	overflow: visible
@@ -817,6 +818,17 @@ to {
 							<div class="sb-nav-link-icon">
 								<i class="material-icons text-light"> clear </i>
 							</div> Rimuovi tavolo
+						</a>
+						
+					<div class="sb-sidenav-menu-heading text-light">Account</div>
+						<a class="nav-link "
+							href=LogoutGestoreTavoli>
+							<div class="sb-nav-link-icon">
+								<i class="material-icons text-light">
+keyboard_backspace
+</i>
+								<!-- <i class="fas fa-tachometer-alt"></i> -->
+							</div> Esci
 						</a>
 					</div>
 				</div>

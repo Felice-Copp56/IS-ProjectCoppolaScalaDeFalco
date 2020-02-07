@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,22 +8,19 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import model.PrenotazioneBean;
-import model.PrenotazioneDAO;
+import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class ListaPrenotazioniUtente
+ * Servlet implementation class LogoutTitolare
  */
-@WebServlet("/ListaPrenotazioniUtente")
-public class ListaPrenotazioniUtente extends HttpServlet {
+@WebServlet("/LogoutTitolare")
+public class LogoutTitolare extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private PrenotazioneDAO dao = new PrenotazioneDAO();
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ListaPrenotazioniUtente() {
+    public LogoutTitolare() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,12 +30,10 @@ public class ListaPrenotazioniUtente extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String user = (String) request.getSession().getAttribute("user");
-		ArrayList<PrenotazioneBean> prenotazioni = dao.doRetrieveByUsername(user);
-		request.setAttribute("prenotazioni", prenotazioni);
-		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/prenotazioniUtente.jsp");
-
-		rd.forward(request, response);
+		HttpSession session = request.getSession();
+		session.invalidate();
+		RequestDispatcher rq = request.getRequestDispatcher("WEB-INF/jsp/homepage.jsp");
+		rq.forward(request, response);
 	}
 
 	/**
