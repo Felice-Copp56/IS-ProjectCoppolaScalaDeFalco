@@ -5,11 +5,13 @@ public class TavoloBean {
 	private int numTavolo,numPosti;
 	private boolean stato;
 	
-	public TavoloBean(int num_tavolo,int num_posti,boolean stato)
+	
+	public TavoloBean(int numTavolo,int numPosti,boolean stato)
 	{
-		this.numTavolo=num_tavolo;
-		this.numPosti=num_posti;
+		this.numTavolo=numTavolo;
+		this.numPosti=numPosti;
 		this.stato=stato;
+		
 	}
 
 	public int getNumTavolo() {
@@ -35,5 +37,6 @@ public class TavoloBean {
 	public void setStato(boolean stato) {
 		this.stato = stato;
 	}
+	
 	
 }

@@ -65,6 +65,7 @@ $(window).load(function () {
           <li data-srcPreview="src/images/red1.jpg">
           <div>
             <div class="content"> <img src="src/images/register1.png" alt="">
+            <form action="RegistrationServlet" method="POST">
               <ul>
                 <li><span>Nome:</span><input type=text name="textnome" id="nomereg"></li>
                 <li><span>Cognome:</span><input type=text name="textcognome" id="cogreg"></li>
@@ -72,7 +73,8 @@ $(window).load(function () {
                 <li><span>Username: </span><input type=text name="textuser" id = "reguser"></li>
                 <li><span>Password: </span><input type=password name="textpass" id="regpass"></li>
               </ul>
-                <div class="alright"><a href="LoginServlet" class="btn">Registrati</a></div>
+                <div class="alright"><button type="submit" class="btn">Registrati</button></div>
+                </form>
             </div>
           </div>
         </li>
@@ -82,22 +84,27 @@ $(window).load(function () {
         <li data-srcPreview="src/images/white1.jpg">
           <div>
             <div class="content"> <img src="src/images/boss1.png" alt="">
+            <form action="HomeTitolare" method="POST">
               <h3>Titolare</h3>
               <ul>
                 <li><span>Codice titolare:</span> <input type="password" name="textitolare"></li>
               </ul>
-                <div class="alright"><a href="#" class="btn">Login</a></div>
+                 <div class="alright"><button type="submit" class="btn">Login</button></div>
+                </form>
             </div>
           </div>
+          
         </li>
         <li data-srcPreview="src/images/white2.jpg">
           <div>
             <div class="content"> <img src="src/images/tavolo1.png" alt="">
+            <form action="HomeGestoreTavoli" method="POST">
               <h3>Gestore Tavoli</h3>
               <ul>
                 <li><span>Codice gestore:</span> <input type=password name=textgestore></li>
               </ul>
-                <div class="alright"><a href="#" class="btn">Login</a></div>
+                 <div class="alright"><button type="submit" class="btn">Login</button></div>
+                </form>
             </div>
           </div>
         </li>

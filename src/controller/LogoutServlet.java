@@ -11,16 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class HomePage
+ * Servlet implementation class LogoutServlet
  */
-@WebServlet("")
-public class HomePage extends HttpServlet {
+@WebServlet("/LogoutServlet")
+public class LogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public HomePage() {
+    public LogoutServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,19 +30,12 @@ public class HomePage extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		HttpSession session = request.getSession();
+		request.removeAttribute("user");
+		session.invalidate();
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("WEB-INF/jsp/homepage.jsp");
+		requestDispatcher.forward(request, response);
 		
-		HttpSession session = request.getSession(false);
-		if(session!=null)
-		{
-			String user = (String) session.getAttribute("user");
-			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/headerUtente.jsp");
-			rd.forward(request, response);
-		}
-		else
-		{
-			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/homepage.jsp");
-			rd.forward(request, response);
-		}
 	}
 
 	/**
