@@ -797,29 +797,31 @@ to {
 
 		<!-- inizio content principale-->
 		<div id="layoutSidenav_content">
+		<form action="ModificaDatiAccesso" method="post">
 			<form class="p-5">
 				<h1>Modifica informazioni di accesso</h1>
 				<div class="form-row mt-4">
 					<div class="col-md-4 mb-3">
 						<label for="validationServer01">Username</label> <input
-							type="text" class="form-control " id="validationServer01"
+							type="text" class="form-control " name="username" id="username"
 							placeholder="Username" value="" required>
 					</div>
 					<div class="col-md-4 mb-3">
-						<label for="validationServer02">Email</label> <input type="email"
-							class="form-control " id="validationServer02" placeholder="Email"
+						<label for="validationServer02">Email</label> <input type="email" name="email"
+							class="form-control " id="email" placeholder="Email"
 							value="" required>
 					</div>
 				</div>
 				<div class="form-row mt-4">
 					<div class="col-md-4 mb-3">
 						<label for="validationServer02">Password</label> <input
-							type="password" class="form-control " id="validationServer02"
+							type="password" class="form-control " name="password" id="password" 
 							placeholder="Password" value="" required>
 					</div>
 
 				</div>
 				<button class="btn btn-primary is-valid" type="submit">Modifica</button>
+				</form>
 			</form>
 		</div>
 		<jsp:include page="footer.jsp">

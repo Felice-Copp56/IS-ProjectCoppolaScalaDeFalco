@@ -14,16 +14,16 @@ import model.ClienteBean;
 import model.ClienteDAO;
 
 /**
- * Servlet implementation class ModificaInfoPersonali
+ * Servlet implementation class ModificaDatiAccesso
  */
-@WebServlet("/ModificaInfoPersonali")
-public class ModificaInfoPersonali extends HttpServlet {
+@WebServlet("/ModificaDatiAccesso")
+public class ModificaDatiAccesso extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ModificaInfoPersonali() {
+    public ModificaDatiAccesso() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,28 +34,43 @@ public class ModificaInfoPersonali extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String user = (String) request.getSession().getAttribute("user");
-		String nome = request.getParameter("nome");
-		String cognome = request.getParameter("cognome");
+		String username = request.getParameter("username");
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
 		ClienteDAO dao = new ClienteDAO();
-		try {
-			ClienteBean bean = dao.doRetrieveByUsername(user);
-			
-			if(bean!=null)
-			{
-				dao.updatePersonalDetails(bean, nome, cognome);
-				RequestDispatcher rq = request.getRequestDispatcher("WEB-INF/jsp/formFiltraTavoli.jsp");
-				rq.forward(request, response);
-				System.out.println(bean.getNome()+bean.getCognome());
+		
+		if(user.equals(username))
+		{
+			ClienteBean c;
+			try {
+				c = dao.doRetrieveByUsername(username);
+				if(c!=null)
+				{
+					dao.updateLoginData(c, username, password, email);
+					RequestDispatcher rq = request.getRequestDispatcher("WEB-INF/jsp/formFiltraTavoli.jsp");
+					rq.forward(request, response);
+				}
+		if(!user.equals(username))
+		{
+					ClienteBean bean = dao.doRetrieveByUsername(username);
+					if(bean==null)
+					{
+						ClienteBean BeanUpdato = dao.doRetrieveByUsername(user);
+						dao.updateLoginData(BeanUpdato, username, password, email);
+						RequestDispatcher rq = request.getRequestDispatcher("WEB-INF/jsp/formFiltraTavoli.jsp");
+						request.getSession().setAttribute("user", username);
+						rq.forward(request, response);
+					}
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-			else
-				System.out.println(bean.getCognome());
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
 		}
 		
 	}
-
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
