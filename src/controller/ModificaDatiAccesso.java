@@ -61,6 +61,8 @@ public class ModificaDatiAccesso extends HttpServlet {
 						request.getSession().setAttribute("user", username);
 						rq.forward(request, response);
 					}
+					else
+						System.out.println("ciao");
 				}
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
