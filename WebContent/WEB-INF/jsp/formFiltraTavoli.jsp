@@ -22,14 +22,14 @@
 							onsubmit="/FiltraTavoli">
 							<label for="inputEmail4">Data</label> <input type="date"
 								class="form-control" id="Data" name="Data" placeholder="Data"
-								min="2020-01-01" max="2020-12-31">
+								min="2020-01-01" max="2020-12-31" required>
 						</div>
 					</div>
 					<div class="w-100"></div>
 					<div class="form-row m-3">
 						<div class="form-group col-md-3">
 							<label for="inputEmail4">Fascia oraria</label> <select
-								id="fasciaOraria" name="fasciaOraria" class="form-control">
+								id="fasciaOraria" name="fasciaOraria" class="form-control" required>
 								<option selected>Scegli...</option>
 								<option>18:00/19:00</option>
 								<option>19:00/20:00</option>

@@ -57,7 +57,7 @@
 
 		<!-- inizio content principale-->
 		<div id="layoutSidenav_content">
-		<form action="ModificaDatiAccesso" method="post">
+		<form action="ModificaDatiAccesso" method="post" class="p-5">
 			<form class="p-5">
 				<h1>Modifica informazioni di accesso</h1>
 				<div class="form-row mt-4">

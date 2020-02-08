@@ -704,7 +704,7 @@ to {
 <body class="sb-nav-fixed">
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 		<a class="navbar-brand"
-			href="file:///C:/Users/Computer/Desktop/startbootstrap-sb-admin-gh-pages/dist/index.html">EL
+			href=".">EL
 			TANQUE <i class="fas fa-glass-cheers"></i>
 		</a>
 		<button class="btn btn-link btn-sm order-1 order-lg-0"
