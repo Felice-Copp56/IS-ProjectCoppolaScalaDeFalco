@@ -56,18 +56,30 @@ public class PrenotazioneDAO {
 
 		return prenotazioni;
 	}
-
-	public void update(PrenotazioneBean p, Date data, Time t1, Time t2) throws SQLException {
+	public void updateUsername(PrenotazioneBean p,String username) throws SQLException
+	{
+		Connection con = ConnectionPool.getConnection();
+		PreparedStatement ps = con.prepareStatement("update prenotazione set username=?, num_tavolo=?, data=?, ora_inizio=?, ora_fine=?;");
+		ps.setString(1,username);
+		ps.setInt(2, p.getNumTavolo());
+		ps.setDate(3, p.getData());
+		ps.setTime(4, p.getOraInizio());
+		ps.setTime(5, p.getOraFine());
+	
+		ps.execute();
+		
+	}
+	public void update(Date oldData,Time oldTime1,Time oldTime2,int nTavolo,Date data, Time t1, Time t2) throws SQLException {
 		Connection con = ConnectionPool.getConnection();
 		PreparedStatement ps = con.prepareStatement(
 				"update prenotazione set data = ?,ora_inizio = ?,ora_fine = ? where num_tavolo = ? and data = ?  and ora_inizio = ? and ora_fine = ?;");
 		ps.setDate(1, data);
 		ps.setTime(2, t1);
 		ps.setTime(3, t2);
-		ps.setInt(4, p.getNumTavolo());
-		ps.setDate(5, p.getData());
-		ps.setTime(6, p.getOraInizio());
-		ps.setTime(7, p.getOraFine());
+		ps.setInt(4, nTavolo);
+		ps.setDate(5, oldData);
+		ps.setTime(6, oldTime1);
+		ps.setTime(7, oldTime2);
 		ps.execute();
 	}
 

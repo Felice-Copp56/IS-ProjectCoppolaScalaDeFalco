@@ -49,7 +49,8 @@
 																	<td><%=p.getData()%></td>
 																	<td><%=p.getOraInizio()%></td>
 																	<td><%=p.getOraFine()%></td>
-																	<td><a href="ModificaPrenotazione" class="text-decoration-none text-danger"><i class="material-icons"> edit </i></a>
+										
+																	<td><a href="ModificaPrenotazione?nt=<%=p.getNumTavolo() %>&d=<%=p.getData().toString() %>&t1=<%=p.getOraInizio().toString() %>&t2=<%=p.getOraFine().toString() %>" class="text-decoration-none text-danger"><i class="material-icons"> edit </i></a>
 																	</button></td>
 																	<td><a href="RimuoviPrenotazione?nt=<%=p.getNumTavolo() %>&d=<%=p.getData() %>&t1=<%=p.getOraInizio().toString() %>&t2=<%=p.getOraFine().toString() %>" class="text-decoration-none text-danger" ><i class="material-icons"> cancel </i></a>
 																	</button></td>
