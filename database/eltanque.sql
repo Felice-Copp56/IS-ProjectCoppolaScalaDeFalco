@@ -1,4 +1,3 @@
-
 create database eltanque;
 use eltanque;
 
@@ -36,10 +35,10 @@ create table titolare
 create table prenotazione
 (
     num_tavolo int not null,
-    foreign key(num_tavolo) references tavolo(num_tavolo),
+    foreign key(num_tavolo) references tavolo(num_tavolo) on delete cascade on update cascade,
     
     username varchar(25) not null,
-    foreign key(username) references cliente(username),
+    foreign key(username) references cliente(username) on update cascade,
     
     
     data date,
@@ -51,6 +50,7 @@ create table prenotazione
     primary key(num_tavolo,data,ora_fine,ora_inizio)
 );
 select p.num_tavolo,p.username,p.data,p.ora_inizio,p.ora_fine from prenotazione p where p.data between "2020-01-01" and "2020-03-01";
+
 
 
 
