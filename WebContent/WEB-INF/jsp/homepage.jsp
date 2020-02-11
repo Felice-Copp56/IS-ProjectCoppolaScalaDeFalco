@@ -15,6 +15,9 @@
 <script src="src/js/TMGPrototype2.js"></script>
 <script src="src/js/jquery.equalheights.js"></script>
 <script src="src/js/jquery.easing.1.3.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 <script>
 $(window).load(function () {
     $('#TMGPrototype2').TMGPrototype2({});
@@ -33,9 +36,12 @@ $(window).load(function () {
       
         <nav>
           <ul class="sf-menu">
-            <li class="current"><a href=".">Home</a></li>
-            <li><a href="our-story.html">Our Story</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a class="navbar-brand"
+			href="file:///C:/Users/Computer/Desktop/startbootstrap-sb-admin-gh-pages/dist/index.html">EL
+			TANQUE <i class="fas fa-glass-cheers"></i>
+		</a></li>
+            
+            
           </ul>
         </nav>
         <div class="clear"></div>
