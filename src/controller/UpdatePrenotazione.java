@@ -56,7 +56,8 @@ public class UpdatePrenotazione extends HttpServlet {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			RequestDispatcher rq1 = request.getRequestDispatcher("WEB-INF/homepage.jsp");
+			RequestDispatcher rq1 = request.getRequestDispatcher("WEB-INF/jsp/formFiltraTavoli.jsp");
+			System.out.println("Errore");
 			rq1.forward(request, response);
 		}
 		
