@@ -121,14 +121,14 @@ public class ClienteDAO {
 		}
 		return clienti;
 	}
-	
+
 	public Boolean validateName(String s) {
-		String regex = "[a-zA-Z ‘àèìòù]{3,40}";
+		String regex = "[a-zA-Z â€˜Ã Ã¨Ã¬Ã²Ã¹]{3,40}";
 		return s.matches(regex);
 	}
 	
 	public Boolean validateSurname(String s) {
-		String regex = "[a-zA-Z ‘àèìòù]{3,40}";
+		String regex = "[a-zA-Z â€˜Ã Ã¨Ã¬Ã²Ã¹]{3,40}";
 		return s.matches(regex);
 	}
 	
@@ -148,14 +148,14 @@ public class ClienteDAO {
 	}
 	/*
 	public Boolean validateName(String s) {
-		String regex = "[a-zA-Z ‘àèìòù]{3,40}";
+		String regex = "[a-zA-Z â€˜Ã Ã¨Ã¬Ã²Ã¹]{3,40}";
 		pattern  = Pattern.compile(regex,Pattern.CASE_INSENSITIVE);
 		return pattern.matcher(s).matches();
 		ferrt
 	}
 	
 	public Boolean validateSurname(String s) {
-		String regex = "[a-zA-Z ‘àèìòù]{3,40}";
+		String regex = "[a-zA-Z â€˜Ã Ã¨Ã¬Ã²Ã¹]{3,40}";
 		pattern  = Pattern.compile(regex,Pattern.CASE_INSENSITIVE);
 		return pattern.matcher(s).matches();
 	}
@@ -177,4 +177,5 @@ public class ClienteDAO {
 		pattern  = Pattern.compile(regex,Pattern.CASE_INSENSITIVE);
 		return pattern.matcher(s).matches();
 	}*/
+
 }

@@ -201,7 +201,7 @@
 	<footer>
 		<div class="container_12">
 			<div class="grid_12">
-				<div class="copy">Copyright © ElTanque</div>
+				<div class="copy">Copyright Â© ElTanque</div>
 			</div>
 		</div>
 	</footer>
