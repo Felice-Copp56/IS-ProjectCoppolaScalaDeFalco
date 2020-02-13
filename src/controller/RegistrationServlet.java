@@ -19,50 +19,56 @@ import model.ClienteDAO;
 @WebServlet("/RegistrationServlet")
 public class RegistrationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public RegistrationServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public RegistrationServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String nome = request.getParameter("textnome");
 		String cognome = request.getParameter("textcognome");
 		String email = request.getParameter("textemail");
-		String  user = request.getParameter("textuser");
+		String user = request.getParameter("textuser");
 		String pasw = request.getParameter("textpass");
 		ClienteDAO dao = new ClienteDAO();
+		RequestDispatcher rd = null;
 		try {
-			if(dao.doRetrieveByUsernamePassword(user, pasw)==null)
-			{
-				dao.doSave(new ClienteBean(nome,cognome,user,email,pasw));
-				RequestDispatcher rq = request.getRequestDispatcher("WEB-INF/jsp/homepageRegistrazione.jsp");
-				rq.forward(request, response);
-				System.out.println("Creato "+nome);
+			if (!dao.validateEmail(email) || !dao.validateName(nome) || !dao.validatePassword(pasw)
+					|| !dao.validateSurname(cognome) || !dao.validateUsername(user)) {
+				request.setAttribute("ERRORMSG", "Dati registrazione cliente non validi");
+				rd = request.getRequestDispatcher("WEB-INF/jsp/homepage.jsp");
+			} else if (dao.existsEmail(email) || dao.existsUsername(user)) {
+				request.setAttribute("ERRORMSG", "Dati registrazione cliente non validi");
+				rd = request.getRequestDispatcher("WEB-INF/jsp/homepage.jsp");
+			} else {
+				dao.doSave(new ClienteBean(nome, cognome, user, email, pasw));
+				rd = request.getRequestDispatcher("WEB-INF/jsp/homepageRegistrazione.jsp");
 			}
-			else
-			{
-				
-				RequestDispatcher rq = request.getRequestDispatcher("WEB-INF/jsp/homepage.jsp");
-				rq.forward(request, response);
-			}
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			rd.forward(request, response);
 		}
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
