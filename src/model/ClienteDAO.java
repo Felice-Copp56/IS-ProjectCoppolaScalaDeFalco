@@ -174,6 +174,6 @@ public class ClienteDAO {
 	public Boolean validatePassword(String s) {
 		String regex = "[a-zA-Z0-9]{7,20}";
 		pattern  = Pattern.compile(regex,Pattern.CASE_INSENSITIVE);
-		return pattern.matcher(s).matches();d
+		return pattern.matcher(s).matches();
 	}*/
 }
