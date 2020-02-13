@@ -121,14 +121,14 @@ public class ClienteDAO {
 		}
 		return clienti;
 	}
-	
+
 	public Boolean validateName(String s) {
-		String regex = "[a-zA-Z ‘àèìòù]{3,40}";
+		String regex = "[a-zA-Z â€˜Ã Ã¨Ã¬Ã²Ã¹]{3,40}";
 		return s.matches(regex);
 	}
 	
 	public Boolean validateSurname(String s) {
-		String regex = "[a-zA-Z ‘àèìòù]{3,40}";
+		String regex = "[a-zA-Z â€˜Ã Ã¨Ã¬Ã²Ã¹]{3,40}";
 		return s.matches(regex);
 	}
 	
@@ -146,35 +146,4 @@ public class ClienteDAO {
 		String regex = "[a-zA-Z0-9]{7,20}";
 		return s.matches(regex);
 	}
-	/*pandev
-	public Boolean validateName(String s) {
-		String regex = "[a-zA-Z ‘àèìòù]{3,40}";
-		pattern  = Pattern.compile(regex,Pattern.CASE_INSENSITIVE);
-		return pattern.matcher(s).matches();
-		ferrt
-	}
-	
-	public Boolean validateSurname(String s) {
-		String regex = "[a-zA-Z ‘àèìòù]{3,40}";
-		pattern  = Pattern.compile(regex,Pattern.CASE_INSENSITIVE);
-		return pattern.matcher(s).matches();
-	}
-	
-	public Boolean validateUsername(String s) {
-		String regex = "[a-z0-9_-]{3,16}";
-		pattern  = Pattern.compile(regex,Pattern.CASE_INSENSITIVE);
-		return pattern.matcher(s).matches();
-	}
-	
-	public Boolean validateEmail(String s) {
-		String regex = "[a-zA-Z0-9][a-zA-Z0-9\\.]*@([a-zA-Z]+)\\.[a-zA-Z]+";
-		pattern  = Pattern.compile(regex,Pattern.CASE_INSENSITIVE);
-		return pattern.matcher(s).matches();
-	}
-	
-	public Boolean validatePassword(String s) {
-		String regex = "[a-zA-Z0-9]{7,20}";
-		pattern  = Pattern.compile(regex,Pattern.CASE_INSENSITIVE);
-		return pattern.matcher(s).matches();
-	}*/
 }
