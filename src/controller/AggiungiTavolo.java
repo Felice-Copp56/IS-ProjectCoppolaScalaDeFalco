@@ -35,7 +35,7 @@ public class AggiungiTavolo extends HttpServlet {
 		int numeroT = Integer.valueOf(request.getParameter("numeroT"));
 		int numeroP = Integer.valueOf(request.getParameter("numeroP"));
 		try {
-			dao.addTavolo(numeroT, numeroP);
+			dao.addTavolo(numeroT, numeroP, false);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

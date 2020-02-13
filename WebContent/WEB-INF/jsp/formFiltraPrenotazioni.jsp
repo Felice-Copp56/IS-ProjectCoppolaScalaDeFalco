@@ -22,7 +22,7 @@
 							onsubmit="/FiltraTavoli">
 							<label for="inputEmail4">1° Data</label> <input type="date"
 								class="form-control" id="Data1" name="Data1" placeholder="Data"
-								min="2020-01-01" max="2020-12-31" required>
+								min="2020-01-01" max="2020-12-31">
 						</div>
 					</div>
 					
@@ -32,7 +32,7 @@
 							onsubmit="/FiltraTavoli">
 							<label for="inputEmail4">2° Data</label> <input type="date"
 								class="form-control" id="Data2" name="Data2" placeholder="Data"
-								min="2020-01-01" max="2020-12-31" required>
+								min="2020-01-01" max="2020-12-31">
 						</div>
 					</div>
 					<div class="w-100"></div>

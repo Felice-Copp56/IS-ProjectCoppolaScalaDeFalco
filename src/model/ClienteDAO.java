@@ -7,10 +7,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.regex.Pattern;
 
 public class ClienteDAO {
-	private static Pattern pattern;
+	
 	public void doSave(ClienteBean c) throws SQLException {
 		
 			
@@ -26,20 +25,7 @@ public class ClienteDAO {
 			//Commento casuale
 			
 	}
-	public Boolean existsEmail(String e) throws SQLException {
-		Connection con = ConnectionPool.getConnection();
-		PreparedStatement ps = con.prepareStatement("Select * from cliente where email = ?");
-		ps.setString(1, e);
-		ResultSet res = ps.executeQuery();
-		return res.next();
-	}
-	public Boolean existsUsername(String u) throws SQLException {
-		Connection con = ConnectionPool.getConnection();
-		PreparedStatement ps = con.prepareStatement("Select * from cliente where username = ?");
-		ps.setString(1, u);
-		ResultSet res = ps.executeQuery();
-		return res.next();
-	}
+	
 	public ClienteBean doRetrieveByUsernamePassword(String username, String password) throws SQLException{
 		
 		Connection conn = ConnectionPool.getConnection();
@@ -121,59 +107,4 @@ public class ClienteDAO {
 		}
 		return clienti;
 	}
-	
-	public Boolean validateName(String s) {
-		String regex = "[a-zA-Z ‘אטלעש]{3,40}";
-		return s.matches(regex);
-	}
-	
-	public Boolean validateSurname(String s) {
-		String regex = "[a-zA-Z ‘אטלעש]{3,40}";
-		return s.matches(regex);
-	}
-	
-	public Boolean validateUsername(String s) {
-		String regex = "[a-z0-9_-]{3,16}";
-		return s.matches(regex);
-	}
-	
-	public Boolean validateEmail(String s) {
-		String regex = "[a-zA-Z0-9][a-zA-Z0-9\\.]*@([a-zA-Z]+)\\.[a-zA-Z]+";
-		return s.matches(regex);
-	}
-	
-	public Boolean validatePassword(String s) {
-		String regex = "[a-zA-Z0-9]{7,20}";
-		return s.matches(regex);
-	}
-	/*
-	public Boolean validateName(String s) {
-		String regex = "[a-zA-Z ‘אטלעש]{3,40}";
-		pattern  = Pattern.compile(regex,Pattern.CASE_INSENSITIVE);
-		return pattern.matcher(s).matches();
-	}
-	
-	public Boolean validateSurname(String s) {
-		String regex = "[a-zA-Z ‘אטלעש]{3,40}";
-		pattern  = Pattern.compile(regex,Pattern.CASE_INSENSITIVE);
-		return pattern.matcher(s).matches();
-	}
-	
-	public Boolean validateUsername(String s) {
-		String regex = "[a-z0-9_-]{3,16}";
-		pattern  = Pattern.compile(regex,Pattern.CASE_INSENSITIVE);
-		return pattern.matcher(s).matches();
-	}
-	
-	public Boolean validateEmail(String s) {
-		String regex = "[a-zA-Z0-9][a-zA-Z0-9\\.]*@([a-zA-Z]+)\\.[a-zA-Z]+";
-		pattern  = Pattern.compile(regex,Pattern.CASE_INSENSITIVE);
-		return pattern.matcher(s).matches();
-	}
-	
-	public Boolean validatePassword(String s) {
-		String regex = "[a-zA-Z0-9]{7,20}";
-		pattern  = Pattern.compile(regex,Pattern.CASE_INSENSITIVE);
-		return pattern.matcher(s).matches();
-	}*/
 }
