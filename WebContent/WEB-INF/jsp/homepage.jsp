@@ -303,6 +303,7 @@
 		</ul>
 	</div>
 	<footer>
+	<!-- dre -->
 		<div class="container_12">
 			<div class="grid_12">
 				<div class="copy">Copyright © ElTanque</div>
