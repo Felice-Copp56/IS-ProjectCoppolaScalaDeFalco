@@ -173,7 +173,7 @@
 					
 					%>
 					<ul class="sf-menu">
-						<li class="current"><a href=".">ELTANQUE <i
+						<li class="current"><a href=".">EL TANQUE <i
 								class="fas fa-wine-glass-alt"></i>
 						</a></li>
 					</ul>
