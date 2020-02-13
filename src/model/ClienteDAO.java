@@ -146,7 +146,7 @@ public class ClienteDAO {
 		String regex = "[a-zA-Z0-9]{7,20}";
 		return s.matches(regex);
 	}
-	/*
+	/*pandev
 	public Boolean validateName(String s) {
 		String regex = "[a-zA-Z ‘אטלעש]{3,40}";
 		pattern  = Pattern.compile(regex,Pattern.CASE_INSENSITIVE);
