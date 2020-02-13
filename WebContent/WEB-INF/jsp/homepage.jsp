@@ -26,11 +26,9 @@
 <script src="src/js/TMGPrototype2.js"></script>
 <script src="src/js/jquery.equalheights.js"></script>
 <script src="src/js/jquery.easing.1.3.js"></script>
-<<<<<<< HEAD
 <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-=======
 <script src="https://kit.fontawesome.com/812a03be35.js"
 	crossorigin="anonymous"></script>
 
@@ -39,7 +37,7 @@
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
 	crossorigin="anonymous">
 
->>>>>>> branch 'master' of https://github.com/Felice-Copp56/IS-ProjectElTanque.git
+
 <script>
 	$(window).load(function() {
 		$('#TMGPrototype2').TMGPrototype2({});
@@ -60,7 +58,6 @@
 <![endif]-->
 </head>
 <body class="page1">
-<<<<<<< HEAD
 <!-- Commento a caso per committare -->
 <header>
   <div class="menu_block">
@@ -73,7 +70,7 @@
 			TANQUE <i class="fas fa-glass-cheers"></i>
 		</a></li>
             
-            
+          
           </ul>
         </nav>
         <div class="clear"></div>
