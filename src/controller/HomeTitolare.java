@@ -34,16 +34,28 @@ public class HomeTitolare extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		String codiceTitolare = request.getParameter("textitolare");
+		RequestDispatcher rq = null;
 		TitolareDAO dao = new TitolareDAO();
 		try {
+			if(codiceTitolare.equals(" ")){
+					request.setAttribute("ERRORMSG", "Credenziali di accesso non valide");
+					rq = request.getRequestDispatcher("WEB-INF/jsp/homepages.jsp");
+			}
 			if(dao.doRetrieveByCode(codiceTitolare)!=null)
 			{
 				RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/homePageTitolare.jsp");
 				rd.forward(request, response);
 			}
+			else
+			{
+				request.setAttribute("ERRORMSG", "Credenziali di accesso non valide");
+				rq = request.getRequestDispatcher("WEB-INF/jsp/homepage.jsp");
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			rq.forward(request, response);
 		}
 		
 
