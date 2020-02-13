@@ -26,6 +26,7 @@
 <script src="src/js/TMGPrototype2.js"></script>
 <script src="src/js/jquery.equalheights.js"></script>
 <script src="src/js/jquery.easing.1.3.js"></script>
+
 <script src="https://kit.fontawesome.com/812a03be35.js"
 	crossorigin="anonymous"></script>
 
@@ -200,7 +201,7 @@
 	<footer>
 		<div class="container_12">
 			<div class="grid_12">
-				<div class="copy">Copyright © ElTanque</div>
+				<div class="copy">Copyright Â© ElTanque</div>
 			</div>
 		</div>
 	</footer>
