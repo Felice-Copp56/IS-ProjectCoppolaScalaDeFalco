@@ -62,7 +62,7 @@
 
 				<nav>
 					<%
-						String ERRORMSG = (String) request.getAttribute("ERRORMSG");
+						String ERRORMSG = (String) request.getAttribute("ERRORMSG");//
 					
 					%>
 					<ul class="sf-menu">
