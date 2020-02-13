@@ -7,9 +7,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 public class ClienteDAO {
-	
+	private static Pattern pattern;
 	public void doSave(ClienteBean c) throws SQLException {
 		
 			
@@ -25,7 +26,20 @@ public class ClienteDAO {
 			//Commento casuale
 			
 	}
-	
+	public Boolean existsEmail(String e) throws SQLException {
+		Connection con = ConnectionPool.getConnection();
+		PreparedStatement ps = con.prepareStatement("Select * from cliente where email = ?");
+		ps.setString(1, e);
+		ResultSet res = ps.executeQuery();
+		return res.next();
+	}
+	public Boolean existsUsername(String u) throws SQLException {
+		Connection con = ConnectionPool.getConnection();
+		PreparedStatement ps = con.prepareStatement("Select * from cliente where username = ?");
+		ps.setString(1, u);
+		ResultSet res = ps.executeQuery();
+		return res.next();
+	}
 	public ClienteBean doRetrieveByUsernamePassword(String username, String password) throws SQLException{
 		
 		Connection conn = ConnectionPool.getConnection();
@@ -107,13 +121,14 @@ public class ClienteDAO {
 		}
 		return clienti;
 	}
+
 	public Boolean validateName(String s) {
-		String regex = "[a-zA-Z ‘àèìòù]{3,40}";
+		String regex = "[a-zA-Z â€˜Ã Ã¨Ã¬Ã²Ã¹]{3,40}";
 		return s.matches(regex);
 	}
 	
 	public Boolean validateSurname(String s) {
-		String regex = "[a-zA-Z ‘àèìòù]{3,40}";
+		String regex = "[a-zA-Z â€˜Ã Ã¨Ã¬Ã²Ã¹]{3,40}";
 		return s.matches(regex);
 	}
 	
@@ -131,5 +146,4 @@ public class ClienteDAO {
 		String regex = "[a-zA-Z0-9]{7,20}";
 		return s.matches(regex);
 	}
-
 }
