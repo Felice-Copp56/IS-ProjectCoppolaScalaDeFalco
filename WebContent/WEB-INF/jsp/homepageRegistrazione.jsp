@@ -35,9 +35,7 @@ $(window).load(function () {
       
         <nav>
           <ul class="sf-menu">
-            <li class="current"><a href=".">Home</a></li>
-            <li><a href="our-story.html">Our Story</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li class="current"><a href=".">ELTANQUE <i class="fas fa-wine-glass-alt"></i> </a></li>
           </ul>
         </nav>
         <div class="clear"></div>
@@ -61,7 +59,7 @@ $(window).load(function () {
                 <li><span>Password: </span><input type=password name="textpass"></li>
                
               </ul>
-               <div class="alright"><button type="submit" class="btn">Login</button></div>
+               <div class="alright"><button type="submit" class="btn btn-danger">Login</button></div>
                
             </form>
             </div>
