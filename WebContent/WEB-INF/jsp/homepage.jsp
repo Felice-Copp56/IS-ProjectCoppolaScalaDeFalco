@@ -167,6 +167,7 @@
 				<nav>
 					<%
 						String ERRORMSG = (String) request.getAttribute("ERRORMSG");
+					//.
 					%>
 					<ul class="sf-menu">
 						<li class="current"><a href=".">ELTANQUE <i
