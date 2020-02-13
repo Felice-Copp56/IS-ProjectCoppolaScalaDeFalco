@@ -63,7 +63,7 @@
 				<nav>
 					<%
 						String ERRORMSG = (String) request.getAttribute("ERRORMSG");
-					f
+					//
 					%>
 					<ul class="sf-menu">
 						<li class="current"><a href=".">EL TANQUE <i
