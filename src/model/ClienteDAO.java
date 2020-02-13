@@ -107,4 +107,29 @@ public class ClienteDAO {
 		}
 		return clienti;
 	}
+	public Boolean validateName(String s) {
+		String regex = "[a-zA-Z ‘אטלעש]{3,40}";
+		return s.matches(regex);
+	}
+	
+	public Boolean validateSurname(String s) {
+		String regex = "[a-zA-Z ‘אטלעש]{3,40}";
+		return s.matches(regex);
+	}
+	
+	public Boolean validateUsername(String s) {
+		String regex = "[a-z0-9_-]{3,16}";
+		return s.matches(regex);
+	}
+	
+	public Boolean validateEmail(String s) {
+		String regex = "[a-zA-Z0-9][a-zA-Z0-9\\.]*@([a-zA-Z]+)\\.[a-zA-Z]+";
+		return s.matches(regex);
+	}
+	
+	public Boolean validatePassword(String s) {
+		String regex = "[a-zA-Z0-9]{7,20}";
+		return s.matches(regex);
+	}
+
 }
