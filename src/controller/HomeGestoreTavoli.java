@@ -33,16 +33,29 @@ public class HomeGestoreTavoli extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String codiceGestore = request.getParameter("textgestore");
+		RequestDispatcher rq = null;
 		GestoreTavoliDAO dao = new GestoreTavoliDAO();
 		try {
+			if(codiceGestore.equals(" "))
+			{
+				request.setAttribute("ERRORMSG", "Credenziali di accesso non valide");
+				rq = request.getRequestDispatcher("WEB-INF/jsp/homepage.jsp");
+			}
 			if(dao.doRetrieveByCode(codiceGestore)!=null)
 			{
-				RequestDispatcher requestDispatcher = request.getRequestDispatcher("WEB-INF/jsp/homeGestoreTavoli.jsp");
-				requestDispatcher.forward(request, response);
+				rq = request.getRequestDispatcher("WEB-INF/jsp/homeGestoreTavoli.jsp");
+				
+			}
+			else
+			{
+				request.setAttribute("ERRORMSG", "Credenziali di accesso non valide");
+				rq = request.getRequestDispatcher("WEB-INF/jsp/homepage.jsp");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			rq.forward(request, response);
 		}
 	}
 
