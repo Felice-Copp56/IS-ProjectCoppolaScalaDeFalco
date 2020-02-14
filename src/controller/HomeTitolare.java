@@ -18,7 +18,13 @@ import model.TitolareDAO;
 @WebServlet("/HomeTitolare")
 public class HomeTitolare extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	private TitolareDAO dao = new TitolareDAO();
+	
+	public void setTitolare1(TitolareDAO titolare) {
+		// TODO Auto-generated method stub
+		this.dao=titolare;
+	}
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -30,16 +36,16 @@ public class HomeTitolare extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
 		String codiceTitolare = request.getParameter("textitolare");
-		RequestDispatcher rq = null;
-		TitolareDAO dao = new TitolareDAO();
+		
+		//TitolareDAO dao = new TitolareDAO();
 		try {
 			if(codiceTitolare.equals(" ")){
 					request.setAttribute("ERRORMSG", "Credenziali di accesso non valide");
-					rq = request.getRequestDispatcher("WEB-INF/jsp/homepage.jsp");
+					request.getRequestDispatcher("WEB-INF/jsp/homepage.jsp").forward(request, response);
 			}
 			if(dao.doRetrieveByCode(codiceTitolare)!=null)
 			{
@@ -49,13 +55,11 @@ public class HomeTitolare extends HttpServlet {
 			else
 			{
 				request.setAttribute("ERRORMSG", "Credenziali di accesso non valide");
-				rq = request.getRequestDispatcher("WEB-INF/jsp/homepage.jsp");
+				request.getRequestDispatcher("WEB-INF/jsp/homepage.jsp").forward(request, response);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally {
-			rq.forward(request, response);
 		}
 		
 
@@ -68,6 +72,11 @@ public class HomeTitolare extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+	}
+
+	public void setTitolare(TitolareDAO dao) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

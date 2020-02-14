@@ -20,6 +20,11 @@ import model.ClienteDAO;
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private ClienteDAO dao = new ClienteDAO();
+
+	public void setCliente(ClienteDAO cliente) {
+		this.dao = cliente;
+	}
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -38,31 +43,30 @@ public class LoginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		RequestDispatcher rd = null;
+		
 		String user = request.getParameter("textuser");
 		String password = request.getParameter("textpass");
 		try {
-			ClienteDAO dao = new ClienteDAO();
+			//ClienteDAO dao = new ClienteDAO();
 			if (user.equals(" ") || password.equals(" ")) {
 				request.setAttribute("ERRORMSG", "Credenziali di accesso non valide");
 				System.out.println(request.getAttribute("ERRORMSG"));
-				rd = request.getRequestDispatcher("WEB-INF/jsp/homepage.jsp");
-			} else if (dao.doRetrieveByUsernamePassword(user, password) != null) {
+				request.getRequestDispatcher("WEB-INF/jsp/homepage.jsp").forward(request, response);
+			} else if (dao.checkUserExists(user, password)) {
 				ClienteBean bean = dao.doRetrieveByUsernamePassword(user, password);
-				rd = request.getRequestDispatcher("WEB-INF/jsp/formFiltraTavoli.jsp");
+				
+				request.getRequestDispatcher("WEB-INF/jsp/formFiltraTavoli.jsp").forward(request, response);
 				request.getSession().setAttribute("user", bean.getUsername());
 
 			} else {
 				request.setAttribute("ERRORMSG", "Credenziali di accesso non valide");
 				System.out.println(request.getAttribute("ERRORMSG"));
-				rd = request.getRequestDispatcher("WEB-INF/jsp/homepage.jsp");
+				request.getRequestDispatcher("WEB-INF/jsp/homepage.jsp").forward(request, response);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
-			rd.forward(request, response);
-		}
+		} 
 	}
 
 	/**

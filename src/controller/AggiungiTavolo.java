@@ -19,7 +19,13 @@ import model.TavoloDAO;
 public class AggiungiTavolo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        private TavoloDAO dao = new TavoloDAO();
+       
+       public void setTavolo(TavoloDAO dao)
+       {
+    	   this.dao=dao;
+       }
     /**
+     * 
      * @see HttpServlet#HttpServlet()
      */
     public AggiungiTavolo() {
@@ -30,12 +36,24 @@ public class AggiungiTavolo extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int numeroT = Integer.valueOf(request.getParameter("numeroT"));
-		int numeroP = Integer.valueOf(request.getParameter("numeroP"));
+		
+		String numeroT1 = request.getParameter("numeroT");
+		String numeroP1 = request.getParameter("numeroP");
 		try {
-			dao.addTavolo(numeroT, numeroP, false);
+			if(numeroT1.equals(" ")|| numeroP1.equals(" "))
+			{
+				
+			request.setAttribute("ERRORMSG", "Tavolo non aggiunto");
+			}			
+				else
+				{
+					int numeroT = Integer.valueOf(request.getParameter("numeroT"));
+					int numeroP = Integer.valueOf(request.getParameter("numeroP"));
+					dao.addTavolo(numeroT, numeroP);
+				}
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

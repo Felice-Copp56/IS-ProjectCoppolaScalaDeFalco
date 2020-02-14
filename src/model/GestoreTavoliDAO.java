@@ -20,4 +20,14 @@ public class GestoreTavoliDAO {
 		}
 		return null;
 	}
+	public Boolean checkExists(String code) throws SQLException {
+		Connection conn = ConnectionPool.getConnection();
+		PreparedStatement ps = conn.prepareStatement("SELECT CODICE_GESTORE_TAVOLI FROM GESTORE_TAVOLI WHERE CODICE_GESTORE_TAVOLI= ?");
+		ps.setString(1, code);
+		ResultSet res = ps.executeQuery();
+		if(res.next()) {
+			return true;
+		}
+		return false;
+	}
 }

@@ -26,6 +26,20 @@ public class ClienteDAO {
 			//Commento casuale
 			
 	}
+	public Boolean checkUserExists(String user,String password) throws SQLException
+	{
+		Connection con = ConnectionPool.getConnection();
+		PreparedStatement ps = con.prepareStatement("Select * from cliente where username=? and passwo=?;" );
+		ps.setString(1,user);
+		ps.setString(2, password);
+		ResultSet x = ps.executeQuery();
+
+		if (x.next()) {
+			return true;
+		}
+
+		return false;
+	}
 	public Boolean existsEmail(String e) throws SQLException {
 		Connection con = ConnectionPool.getConnection();
 		PreparedStatement ps = con.prepareStatement("Select * from cliente where email = ?");
