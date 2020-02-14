@@ -19,7 +19,11 @@ import model.ClienteDAO;
 @WebServlet("/ModificaInfoPersonali")
 public class ModificaInfoPersonali extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+       ClienteDAO dao = new ClienteDAO();
+       public void setCliente(ClienteDAO dao)
+       {
+    	   this.dao=dao;
+       }
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -31,24 +35,32 @@ public class ModificaInfoPersonali extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String user = (String) request.getSession().getAttribute("user");
 		String nome = request.getParameter("nome");
 		String cognome = request.getParameter("cognome");
-		ClienteDAO dao = new ClienteDAO();
+		//ClienteDAO dao = new ClienteDAO();
 		try {
 			ClienteBean bean = dao.doRetrieveByUsername(user);
-			
-			if(bean!=null)
+			if(nome.equals(" ")||cognome.equals(" ")) {
+				request.setAttribute("ERRORMSG", "Modifica non valida");
+			}
+			if(!dao.validateName(nome)||!dao.validateSurname(cognome))
 			{
-				dao.updatePersonalDetails(bean, nome, cognome);
-				RequestDispatcher rq = request.getRequestDispatcher("WEB-INF/jsp/formFiltraTavoli.jsp");
-				rq.forward(request, response);
-				System.out.println(bean.getNome()+bean.getCognome());
+				request.setAttribute("ERRORMSG", "Modifica non valida");
 			}
 			else
-				System.out.println(bean.getCognome());
+				if(bean!=null)
+				{
+					dao.updatePersonalDetails(bean, nome, cognome);
+					RequestDispatcher rq = request.getRequestDispatcher("WEB-INF/jsp/formFiltraTavoli.jsp");
+					rq.forward(request, response);
+					System.out.println(bean.getNome()+bean.getCognome());
+				}
+			
+			/*else
+				System.out.println(bean.getCognome());*/
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

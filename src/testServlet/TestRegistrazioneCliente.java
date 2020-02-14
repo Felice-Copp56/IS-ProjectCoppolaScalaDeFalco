@@ -2,8 +2,6 @@ package testServlet;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
-
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -15,7 +13,6 @@ import org.mockito.Mockito;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 
-import controller.LoginServlet;
 import controller.RegistrationServlet;
 import model.ClienteDAO;
 
