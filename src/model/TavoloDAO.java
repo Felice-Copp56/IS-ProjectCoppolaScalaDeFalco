@@ -21,6 +21,17 @@ public class TavoloDAO {
 		return 1;
 		
 	}
+	public Boolean getTable(int numeroT) throws SQLException
+	{
+		Connection con = ConnectionPool.getConnection();
+		PreparedStatement stm = con.prepareStatement("SELECT num_tavolo from tavolo where num_tavolo=?;");
+		ResultSet res = stm.executeQuery();
+		if(res.next())
+		{
+			return true;
+		}
+		return false;
+	}
 	public ArrayList<TavoloBean> filtraTavoliXCliente(Date d,Time t1,Time t2,int np) throws SQLException{
 		Connection con = ConnectionPool.getConnection();
 		PreparedStatement stm = con.prepareStatement("select * from tavolo t where t.num_posti = ? and not exists ( select * from prenotazione p where p.num_tavolo = t.num_tavolo and p.data = ? and ora_inizio = ? and ora_fine = ? );");
@@ -31,7 +42,7 @@ public class TavoloDAO {
 		ResultSet res = stm.executeQuery();
 		ArrayList<TavoloBean> arrayListTavolo = new ArrayList<TavoloBean>();
 		while(res.next()) {
-			TavoloBean t = new TavoloBean(res.getInt("t.num_tavolo"),res.getInt("t.num_posti"),res.getBoolean("t.stato_tavolo"));
+			TavoloBean t = new TavoloBean(res.getInt("t.num_tavolo"),res.getInt("t.num_posti"));
 			System.out.println(t.getNumTavolo()+" " +t.getNumPosti());
 			arrayListTavolo.add(t);
 		}
@@ -59,19 +70,19 @@ public class TavoloDAO {
 		ArrayList<TavoloBean> arrayListTavolo = new ArrayList<>();
 		while(res.next()) {
 			
-			TavoloBean tableBean = new TavoloBean(res.getInt("t.num_tavolo"),res.getInt("t.num_posti"),res.getBoolean("t.stato_tavolo"));
+			TavoloBean tableBean = new TavoloBean(res.getInt("t.num_tavolo"),res.getInt("t.num_posti"));
 			arrayListTavolo.add(tableBean);
 		}
 		return arrayListTavolo;
 	}
 	
-	public void addTavolo(int numTavolo,int numPosti,boolean statoTavolo) throws SQLException
+	public void addTavolo(int numTavolo,int numPosti) throws SQLException
 	{
 		Connection con = ConnectionPool.getConnection();
-		PreparedStatement stm = con.prepareStatement("INSERT INTO tavolo(num_tavolo,num_posti,stato_tavolo) VALUES(?,?,?);");
+		PreparedStatement stm = con.prepareStatement("INSERT INTO tavolo(num_tavolo,num_posti) VALUES(?,?);");
 		stm.setInt(1,numTavolo);
 		stm.setInt(2,numPosti);
-		stm.setBoolean(3,statoTavolo);
+		
 		
 		stm.execute();
 	}
@@ -91,7 +102,7 @@ public class TavoloDAO {
 		ResultSet rs = stm.executeQuery();
 		HashMap<TavoloBean,Integer> tavoli = new HashMap<TavoloBean, Integer>();
 		while(rs.next()) {
-			TavoloBean t = new TavoloBean(rs.getInt(1),rs.getInt(2),false);
+			TavoloBean t = new TavoloBean(rs.getInt(1),rs.getInt(2));
 			tavoli.put(t,rs.getInt(3));
 		}
 		return tavoli;

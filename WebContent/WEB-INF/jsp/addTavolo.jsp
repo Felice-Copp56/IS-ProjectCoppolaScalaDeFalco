@@ -23,7 +23,7 @@
 							<%int n = (int)request.getAttribute("n"); %>
 							<label for="inputEmail4">Numero</label> <input type="number"
 								class="form-control" id="numeroT" name="numeroT" placeholder="# tavolo"
-								min="<%=n+1 %>">
+								">
 						</div>
 					</div>
 					<div class="w-100"></div>

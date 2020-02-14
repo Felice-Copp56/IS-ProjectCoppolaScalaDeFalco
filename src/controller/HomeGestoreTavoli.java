@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.ClienteDAO;
 import model.GestoreTavoliDAO;
 
 /**
@@ -18,7 +19,11 @@ import model.GestoreTavoliDAO;
 @WebServlet("/HomeGestoreTavoli")
 public class HomeGestoreTavoli extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	private GestoreTavoliDAO dao = new GestoreTavoliDAO();
+
+	public void setGestore(GestoreTavoliDAO gestore) {
+		this.dao = gestore;
+	}
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -30,32 +35,29 @@ public class HomeGestoreTavoli extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String codiceGestore = request.getParameter("textgestore");
-		RequestDispatcher rq = null;
-		GestoreTavoliDAO dao = new GestoreTavoliDAO();
+		
+		//GestoreTavoliDAO dao = new GestoreTavoliDAO();
 		try {
 			if(codiceGestore.equals(" "))
 			{
 				request.setAttribute("ERRORMSG", "Credenziali di accesso non valide");
-				rq = request.getRequestDispatcher("WEB-INF/jsp/homepage.jsp");
+				request.getRequestDispatcher("WEB-INF/jsp/homepage.jsp").forward(request, response);
 			}
-			if(dao.doRetrieveByCode(codiceGestore)!=null)
+			if(dao.checkExists(codiceGestore))
 			{
-				rq = request.getRequestDispatcher("WEB-INF/jsp/homeGestoreTavoli.jsp");
-				
+				request.getRequestDispatcher("WEB-INF/jsp/homeGestoreTavoli.jsp").forward(request, response);
 			}
 			else
 			{
 				request.setAttribute("ERRORMSG", "Credenziali di accesso non valide");
-				rq = request.getRequestDispatcher("WEB-INF/jsp/homepage.jsp");
+				request.getRequestDispatcher("WEB-INF/jsp/homepage.jsp").forward(request, response);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally {
-			rq.forward(request, response);
 		}
 	}
 
