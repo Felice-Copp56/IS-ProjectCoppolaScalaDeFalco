@@ -89,17 +89,18 @@ public class TestLoginUtentiSistema extends Mockito {
 	@Test
 	public void LoginGestoreT_1() throws SQLException, ServletException, IOException {
 		GestoreTavoliDAO dao = mock(GestoreTavoliDAO.class);
-		String codiceGT = "GT-1";
-		when(dao.checkExists(codiceGT)).thenReturn(true);
+	
 		
 		servletGestore.setGestore(dao);
 		String errorMessage = ("Credenziali di accesso non valide");
 		
-		request.setParameter("textgestore", "GT-2");
+		request.setParameter("textgestore", " ");
+		
+		servletGestore.doGet(request,response);
 		String attribute = (String) request.getAttribute("ERRORMSG");
 		assertEquals(errorMessage, attribute);
 		
-		servletGestore.doGet(request,response);
+		
 		
 	}
 
@@ -117,17 +118,17 @@ public class TestLoginUtentiSistema extends Mockito {
 	@Test
 	public void LoginTitolare1() throws SQLException, ServletException, IOException {
 		TitolareDAO dao = mock(TitolareDAO.class);
-		String codiceT = "T-1";
-		when(dao.checkTitolareExists(codiceT)).thenReturn(true);
+		
 		
 		servletTitolare.setTitolare1(dao);
 		String errorMessage = ("Credenziali di accesso non valide");
-		request.setParameter("textitolare", "T-2");
+		request.setParameter("textitolare", " ");
 		
+		servletTitolare.doGet(request,response);
 		String attribute = (String) request.getAttribute("ERRORMSG");
 		assertEquals(errorMessage, attribute);
 		
-		servletTitolare.doGet(request,response);
+		
 		
 	}
 	@Test
