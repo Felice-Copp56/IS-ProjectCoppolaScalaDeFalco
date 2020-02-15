@@ -13,6 +13,10 @@ public class ClienteBean {
 		this.email = e;
 	}
 	
+	public ClienteBean() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getEmail() {
 		return email;
 	}

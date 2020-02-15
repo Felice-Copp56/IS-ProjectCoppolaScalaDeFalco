@@ -42,14 +42,14 @@ public class ClienteDAO {
 	}
 	public Boolean existsEmail(String e) throws SQLException {
 		Connection con = ConnectionPool.getConnection();
-		PreparedStatement ps = con.prepareStatement("Select * from cliente where email = ?");
+		PreparedStatement ps = con.prepareStatement("Select * from cliente where email = ?;");
 		ps.setString(1, e);
 		ResultSet res = ps.executeQuery();
 		return res.next();
 	}
 	public Boolean existsUsername(String u) throws SQLException {
 		Connection con = ConnectionPool.getConnection();
-		PreparedStatement ps = con.prepareStatement("Select * from cliente where username = ?");
+		PreparedStatement ps = con.prepareStatement("Select * from cliente where username = ?;");
 		ps.setString(1, u);
 		ResultSet res = ps.executeQuery();
 		return res.next();
@@ -62,27 +62,27 @@ public class ClienteDAO {
 		ps.setString(2, password);
 		ResultSet res = ps.executeQuery();
 		if(res.next()) {
-			ClienteBean cb=new ClienteBean(res.getString("nome"),res.getString("cognome"),res.getString("username"),res.getString("email"),res.getString("passwo"));
+			ClienteBean cb=new ClienteBean();
 			cb.setNome(res.getString(1));
 			cb.setCognome(res.getString(2));
-			cb.setEmail(res.getString(3));
+			cb.setUsername(res.getString(5));
 			cb.setEmail(res.getString(4));
-			cb.setPassword(res.getString(5));
+			cb.setPassword(res.getString(3));
 			
 		return cb;
 		
 		}
 		return null;
 	}
-	public ClienteBean doRetrieveByUsername(String user) throws SQLException
+	public ClienteBean doRetrieveByEmail(String email) throws SQLException
 	{
 		Connection conn = ConnectionPool.getConnection();
-		PreparedStatement ps = conn.prepareStatement("SELECT NOME, COGNOME, USERNAME, EMAIL, PASSWO FROM CLIENTE WHERE USERNAME = ?;");
-		ps.setString(1,user);
-		ResultSet res = ps.executeQuery();
+		PreparedStatement stm = conn.prepareStatement("SELECT NOME,COGNOME,USERNAME,EMAIL,PASSWO FROM CLIENTE WHERE EMAIL=?;");
+		stm.setString(1,email);
+		ResultSet res = stm.executeQuery();
 		if(res.next())
 		{
-			ClienteBean cb = new ClienteBean(res.getString("nome"),res.getString("cognome"),res.getString("username"),res.getString("email"),res.getString("passwo"));
+			ClienteBean cb = new ClienteBean();
 			cb.setNome(res.getString(1));
 			cb.setCognome(res.getString(2));
 			cb.setEmail(res.getString(3));
@@ -92,6 +92,26 @@ public class ClienteDAO {
 		return cb;
 		}
 		return null;
+	}
+	
+	public ClienteBean doRetrieveByUsername(String user) throws SQLException
+	{
+		Connection conn = ConnectionPool.getConnection();
+		ClienteBean cb=new ClienteBean();
+		PreparedStatement ps = conn.prepareStatement("SELECT NOME, COGNOME, USERNAME, EMAIL, PASSWO FROM CLIENTE WHERE USERNAME = ?;");
+		ps.setString(1,user);
+		ResultSet res = ps.executeQuery();
+		if(res.next())
+		{
+			
+			cb.setNome(res.getString(1));
+			cb.setCognome(res.getString(2));
+			cb.setEmail(res.getString(3));
+			cb.setEmail(res.getString(4));
+			cb.setPassword(res.getString(5));
+			
+		}
+		return cb;
 	}
 	public void updatePersonalDetails(ClienteBean c, String nome, String cognome) throws SQLException {
 		Connection conn=ConnectionPool.getConnection();
@@ -105,12 +125,12 @@ public class ClienteDAO {
 	
 	public void updateLoginData(ClienteBean c, String username, String password,String email) throws SQLException{
 		Connection conn=ConnectionPool.getConnection();
-		PreparedStatement ps=conn.prepareStatement("UPDATE CLIENTE SET USERNAME= ?, PASSWO= ?, EMAIL=? WHERE NOME= ? AND COGNOME= ? ;");
+		PreparedStatement ps=conn.prepareStatement("UPDATE CLIENTE SET USERNAME= ?, PASSWO= ?, EMAIL=? WHERE USERNAME=? ;");
 			ps.setString(1, username);
 			ps.setString(2, password);
 			ps.setString(3, email);
-			ps.setString(4, c.getNome());
-			ps.setString(5, c.getCognome());
+			ps.setString(4, c.getUsername());
+			
 			
 			ps.executeUpdate();
 			ps.close();

@@ -63,7 +63,7 @@ public class RegistrationServlet extends HttpServlet {
 				return;
 			} else {
 				dao.doSave(new ClienteBean(nome, cognome, user, email, pasw));
-				request.setAttribute("OKMSG", okRegister);
+				
 				request.getRequestDispatcher("WEB-INF/jsp/homepageRegistrazione.jsp").forward(request, response);
 				return;
 			}

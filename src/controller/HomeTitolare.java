@@ -47,10 +47,10 @@ public class HomeTitolare extends HttpServlet {
 					request.setAttribute("ERRORMSG", "Credenziali di accesso non valide");
 					request.getRequestDispatcher("WEB-INF/jsp/homepage.jsp").forward(request, response);
 			}
-			if(dao.doRetrieveByCode(codiceTitolare)!=null)
+			if(dao.checkTitolareExists(codiceTitolare))
 			{
-				RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/homePageTitolare.jsp");
-				rd.forward(request, response);
+				request.getRequestDispatcher("WEB-INF/jsp/homePageTitolare.jsp").forward(request, response);
+				
 			}
 			else
 			{

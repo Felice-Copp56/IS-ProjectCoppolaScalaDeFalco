@@ -17,7 +17,8 @@
 		 System.out.println(d+t1+t2);
 		 %>
 		<div class="row p-3 justify-content-center">
-		<%for(TavoloBean t:tavoli){ 
+		<%if(!tavoli.isEmpty()){
+		for(TavoloBean t:tavoli){ 
 		System.out.println(t);%>
 			<div class="col-sm-2 ml-2 mr-2">
 				<div class="card ">
@@ -27,6 +28,8 @@
 					</div>
 				</div>
 			</div>
+			<%} }else{%>
+			<div class="row"><div class="col-12"><h1>Nessun tavolo disponibile</h1></div></div>
 			<%} %>
 
 		</div>

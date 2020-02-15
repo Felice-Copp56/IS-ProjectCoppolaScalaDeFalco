@@ -55,6 +55,10 @@ public class LoginServlet extends HttpServlet {
 			} else if (dao.checkUserExists(user, password)) {
 				ClienteBean bean = dao.doRetrieveByUsernamePassword(user, password);
 				request.getSession().setAttribute("user", bean.getUsername());
+				request.getSession().setAttribute("password", bean.getPassword());
+				request.getSession().setAttribute("email", bean.getEmail());
+				request.getSession().setAttribute("nome", bean.getNome());
+				request.getSession().setAttribute("cognome", bean.getCognome());
 				request.getRequestDispatcher("WEB-INF/jsp/formFiltraTavoli.jsp").forward(request, response);
 				//request.getSession().setAttribute("user", bean.getUsername());
 

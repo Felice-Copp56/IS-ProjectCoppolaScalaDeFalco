@@ -45,15 +45,21 @@ public class ModificaInfoPersonali extends HttpServlet {
 			ClienteBean bean = dao.doRetrieveByUsername(user);
 			if(nome.equals(" ")||cognome.equals(" ")) {
 				request.setAttribute("ERRORMSG", "Modifica non valida");
+				request.getRequestDispatcher("WEB-INF/jsp/modificaInformazioniPersonali.jsp").forward(request, response);
+				return;
 			}
 			if(!dao.validateName(nome)||!dao.validateSurname(cognome))
 			{
 				request.setAttribute("ERRORMSG", "Modifica non valida");
+				request.getRequestDispatcher("WEB-INF/jsp/modificaInformazioniPersonali.jsp").forward(request, response);
+				return;
 			}
 			else
 				if(bean!=null)
 				{
 					dao.updatePersonalDetails(bean, nome, cognome);
+					request.getSession().setAttribute("nome", nome);
+					request.getSession().setAttribute("cognome", cognome);
 					RequestDispatcher rq = request.getRequestDispatcher("WEB-INF/jsp/formFiltraTavoli.jsp");
 					rq.forward(request, response);
 					System.out.println(bean.getNome()+bean.getCognome());

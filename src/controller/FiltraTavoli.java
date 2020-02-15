@@ -46,23 +46,29 @@ public class FiltraTavoli extends HttpServlet {
 		// TODO Auto-generated method stub
 		String data = request.getParameter("Data");
 		String fasciaOraria = request.getParameter("fasciaOraria");
-		int numeroPersone = Integer.parseInt(request.getParameter("numeroPersone"));
+		String numeroPersone = request.getParameter("numeroPersone");
 		ArrayList<TavoloBean> tavoli = new ArrayList<>();
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = new Date(System.currentTimeMillis());
 		System.out.println(dateFormat.format(date));
 		String dataCurrent = dateFormat.format(date);
 		
-		String t1 = fasciaOraria.split("/")[0]+":00";
-		String t2 = fasciaOraria.split("/")[1]+":00";
+		String t1="";
+		String t2="";
+		
 		try {
 			//Verificare modifiche
-			if(numeroPersone<0|| data.compareTo(dataCurrent)<0 || fasciaOraria.equals("Scegli..."))
+			if(numeroPersone.equals("") || Integer.parseInt(numeroPersone)<0 || data.compareTo(dataCurrent)<0 || data.equals("") || fasciaOraria.equals("Scegli..."))
 			{
-				request.setAttribute("ERRORMSG", "Errore");
-				
+				request.setAttribute("ERRORMSG", "Dati errati, reinserisci");
+				request.getRequestDispatcher("WEB-INF/jsp/formFiltraTavoli.jsp").forward(request, response);
+				return;
 			}
-			tavoli = tDao.filtraTavoliXCliente(Date.valueOf(data), Time.valueOf(t1), Time.valueOf(t2),numeroPersone);
+			else {
+			 t1 = fasciaOraria.split("/")[0]+":00";
+			 t2 = fasciaOraria.split("/")[1]+":00";
+			tavoli = tDao.filtraTavoliXCliente(Date.valueOf(data), Time.valueOf(t1), Time.valueOf(t2),Integer.parseInt(numeroPersone));
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
