@@ -54,9 +54,9 @@ public class LoginServlet extends HttpServlet {
 				request.getRequestDispatcher("WEB-INF/jsp/homepage.jsp").forward(request, response);
 			} else if (dao.checkUserExists(user, password)) {
 				ClienteBean bean = dao.doRetrieveByUsernamePassword(user, password);
-				
-				request.getRequestDispatcher("WEB-INF/jsp/formFiltraTavoli.jsp").forward(request, response);
 				request.getSession().setAttribute("user", bean.getUsername());
+				request.getRequestDispatcher("WEB-INF/jsp/formFiltraTavoli.jsp").forward(request, response);
+				//request.getSession().setAttribute("user", bean.getUsername());
 
 			} else {
 				request.setAttribute("ERRORMSG", "Credenziali di accesso non valide");
