@@ -42,24 +42,34 @@ public class AggiungiTavolo extends HttpServlet {
 		String numeroT1 = request.getParameter("numeroT");
 		String numeroP1 = request.getParameter("numeroP");
 		try {
-			if(numeroT1.equals(" ")|| numeroP1.equals(" "))
+			if(numeroT1.equals("")|| numeroP1.equals(""))
 			{
 				
 			request.setAttribute("ERRORMSG", "Tavolo non aggiunto");
+			request.getRequestDispatcher("WEB-INF/jsp/addTavolo.jsp").forward(request, response);
 			}			
 				else
 				{
 					int numeroT = Integer.valueOf(request.getParameter("numeroT"));
 					int numeroP = Integer.valueOf(request.getParameter("numeroP"));
-					dao.addTavolo(numeroT, numeroP);
+					if(dao.getTable(numeroT))
+					{
+						request.setAttribute("ERRORMSG", "Tavolo già presente");
+						request.getRequestDispatcher("WEB-INF/jsp/addTavolo.jsp").forward(request, response);
+					}
+					else
+					{
+						dao.addTavolo(numeroT, numeroP);
+						RequestDispatcher requestDispatcher = request.getRequestDispatcher("WEB-INF/jsp/formFiltraTavoliGestoreTavoli.jsp");
+						requestDispatcher.forward(request, response);
+					}
 				}
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("WEB-INF/jsp/formFiltraTavoliGestoreTavoli.jsp");
-		requestDispatcher.forward(request, response);
+	
 	}
 
 	/**

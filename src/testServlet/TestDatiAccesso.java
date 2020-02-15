@@ -29,5 +29,9 @@ public class TestDatiAccesso extends Mockito {
 		response = new MockHttpServletResponse();
 		servlet = new ModificaDatiAccesso();
 	}
-	
+	@Test
+	public void ModificaDatiAccesso1()
+	{
+		
+	}
 }

@@ -1,4 +1,4 @@
-<%@ page import="java.util.*,model.*"%>
+<%@ page import="java.util.*,model.*,java.text.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <jsp:include page="headerTitolare.jsp">
@@ -10,7 +10,10 @@
 	<main>
 	<div class="container-fluid">
 		<h1 class="mt-4">Cerca tavoli</h1>
-
+<%		Date date = new Date(System.currentTimeMillis());
+DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+String dataCurrent = dateFormat.format(date);
+ %>
 
 		<div class="row">
 			<div class="col">
@@ -22,7 +25,8 @@
 							onsubmit="/FiltraTavoli">
 							<label for="inputEmail4">1° Data</label> <input type="date"
 								class="form-control" id="Data1" name="Data1" placeholder="Data"
-								min="2020-01-01" max="2020-12-31">
+								value="<%=dataCurrent %>"
+								>
 						</div>
 					</div>
 					
@@ -32,7 +36,8 @@
 							onsubmit="/FiltraTavoli">
 							<label for="inputEmail4">2° Data</label> <input type="date"
 								class="form-control" id="Data2" name="Data2" placeholder="Data"
-								min="2020-01-01" max="2020-12-31">
+								value="<%=dataCurrent %>"
+								>
 						</div>
 					</div>
 					<div class="w-100"></div>

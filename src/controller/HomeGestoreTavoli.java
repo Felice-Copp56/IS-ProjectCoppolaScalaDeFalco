@@ -48,6 +48,7 @@ public class HomeGestoreTavoli extends HttpServlet {
 			}
 			if(dao.checkExists(codiceGestore))
 			{
+				
 				request.getRequestDispatcher("WEB-INF/jsp/homeGestoreTavoli.jsp").forward(request, response);
 			}
 			else

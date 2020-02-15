@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -32,6 +33,14 @@ public class StartModificaInfoPersonali extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		ClienteDAO dao = new ClienteDAO();
+		ClienteBean c = new ClienteBean();
+		try {
+			c = dao.doRetrieveByUsername((String)request.getSession().getAttribute("user"));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		RequestDispatcher rq = request.getRequestDispatcher("WEB-INF/jsp/modificaInformazioniPersonali.jsp");
 		rq.forward(request, response);

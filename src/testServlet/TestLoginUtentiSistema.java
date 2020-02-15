@@ -80,7 +80,7 @@ public class TestLoginUtentiSistema extends Mockito {
 		
 		servletCliente.setCliente(dao);
 		
-		String errorMessage = ("Login effettuato");
+		
 		request.setParameter("textuser"," felice23");
 		request.setParameter("textpass","Felice123");
 		servletCliente.doGet(request,response);		
@@ -120,9 +120,9 @@ public class TestLoginUtentiSistema extends Mockito {
 		String codiceT = "T-1";
 		when(dao.checkTitolareExists(codiceT)).thenReturn(true);
 		
-		servletTitolare.setTitolare(dao);
+		servletTitolare.setTitolare1(dao);
 		String errorMessage = ("Credenziali di accesso non valide");
-		request.setParameter("texttitolare", " T-2");
+		request.setParameter("textitolare", "T-2");
 		
 		String attribute = (String) request.getAttribute("ERRORMSG");
 		assertEquals(errorMessage, attribute);
@@ -136,11 +136,9 @@ public class TestLoginUtentiSistema extends Mockito {
 		String codiceT = "T-1";
 		when(dao.checkTitolareExists(codiceT)).thenReturn(true);
 		
-		servletTitolare.setTitolare(dao);
+		servletTitolare.setTitolare1(dao);
 		
-		request.setParameter("texttitolare", " T-1");
-		
-		
+		request.setParameter("textitolare", "T-1");
 		
 		servletTitolare.doGet(request,response);
 		

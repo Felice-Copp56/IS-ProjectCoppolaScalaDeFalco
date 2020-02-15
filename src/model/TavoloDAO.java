@@ -25,12 +25,9 @@ public class TavoloDAO {
 	{
 		Connection con = ConnectionPool.getConnection();
 		PreparedStatement stm = con.prepareStatement("SELECT num_tavolo from tavolo where num_tavolo=?;");
+		stm.setInt(1, numeroT);
 		ResultSet res = stm.executeQuery();
-		if(res.next())
-		{
-			return true;
-		}
-		return false;
+		return res.next();
 	}
 	public ArrayList<TavoloBean> filtraTavoliXCliente(Date d,Time t1,Time t2,int np) throws SQLException{
 		Connection con = ConnectionPool.getConnection();
