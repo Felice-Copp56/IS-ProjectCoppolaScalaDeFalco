@@ -223,7 +223,7 @@ class TestRegistrazioneCliente extends Mockito  {
 		String errorMessage = "Dati registrazione cliente non validi";
 		request.setParameter("textnome","Felice");
 		request.setParameter("textcognome","Coppola");
-		request.setParameter("textemail","Felice.1@gmail.com");
+		request.setParameter("textemail","Felice1@gmail.com");
 		request.setParameter("textuser","felicec");
 		request.setParameter("textpass","Felice123");
 		servlet.doGet(request,response);

@@ -110,14 +110,14 @@
 			<li data-setName="Cliente">
 				<ul>
 
-					<li data-srcPreview="src/images/red1.jpg">
+					<li data-srcPreview="src/images/whined.jpg">
 						<div>
 							<div class="content">
 								<img src="src/images/users.png" alt="">
-								<form action="LoginServlet" method="POST">
+								<form action="LoginServlet" method="POST" autocomplete="off">
 									<ul>
 										<li><span>Username: </span><input type=text
-											name="textuser"></li>
+											name="textuser" ></li>
 										<li><span>Password: </span><input type=password
 											name="textpass"></li>
 									</ul>
@@ -128,7 +128,7 @@
 							</div>
 						</div>
 					</li>
-					<li data-srcPreview="src/images/red1.jpg">
+					<li data-srcPreview="src/images/wine34.jpg">
 						<div>
 							<div class="content">
 								<img src="src/images/register1.png" alt="">
