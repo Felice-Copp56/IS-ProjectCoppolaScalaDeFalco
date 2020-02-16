@@ -47,7 +47,7 @@ public class ModificaDatiAccesso extends HttpServlet {
 		System.out.println(username);
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-		if(username.equals("")||email.equals("")||password.equals("")) {
+		if(username.equals("")||email.equals("")||password.equals("")||!dao.validateEmail(email)||!dao.validateUsername(username)||!dao.validatePassword(password)) {
 			request.setAttribute("ERRORMSG", "Credenziali non valide");
 			request.getRequestDispatcher("WEB-INF/jsp/modificaDatiAccesso.jsp").forward(request, response);
 			return;
