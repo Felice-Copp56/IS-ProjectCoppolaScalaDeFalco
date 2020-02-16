@@ -61,7 +61,7 @@ public class ModificaDatiAccesso extends HttpServlet {
 		{
 			if(user.equals(username))
 			{	
-				//CIAO ANDREA
+				
 				ClienteBean c;
 					try {
 						c = dao.doRetrieveByUsername(username);
