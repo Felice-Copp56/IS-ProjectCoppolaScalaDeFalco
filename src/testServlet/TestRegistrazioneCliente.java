@@ -71,7 +71,7 @@ class TestRegistrazioneCliente extends Mockito  {
 		request.setParameter("textuser","felice23");
 		request.setParameter("textpass","Felice23");
 		servlet.doGet(request,response);
-		String attribute = (String) request.getAttribute("ERRORMSGEX");
+		String attribute = (String) request.getAttribute("ERRORMSG");
 		assertEquals(errorMessage, attribute);
 	}
 	@Test
@@ -231,7 +231,26 @@ class TestRegistrazioneCliente extends Mockito  {
 		assertEquals(errorMessage, attribute);
 	}
 	@Test
-	public void RegistrazioneCliente_16() throws ServletException, IOException
+	public void RegistrazioneCliente_16() throws ServletException, IOException, SQLException
+	{
+		String u = "felice23";
+		ClienteDAO dao = mock(ClienteDAO.class);
+		when(dao.existsUsername(u)).thenReturn(true);
+		servlet.setCliente(dao);
+		
+		String errorMessage = "Username già presente";
+		
+		request.setParameter("textnome","Felice");
+		request.setParameter("textcognome","Coppola");
+		request.setParameter("textemail","Felic34@gmail.com");
+		request.setParameter("textuser","felice23");
+		request.setParameter("textpass","Felice123");
+		servlet.doGet(request,response);
+		String attribute = (String) request.getAttribute("ERRORMSG");
+		assertEquals(errorMessage, attribute);
+	}
+	@Test
+	public void RegistrazioneCliente_17() throws ServletException, IOException
 	{
 		ClienteDAO dao = mock(ClienteDAO.class);
 		servlet.setCliente(dao);

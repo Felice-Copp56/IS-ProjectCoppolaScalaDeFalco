@@ -11,7 +11,6 @@ public class TavoloBean {
 		this.numTavolo=numTavolo;
 		this.numPosti=numPosti;
 
-		
 	}
 
 	public int getNumTavolo() {
@@ -31,6 +30,5 @@ public class TavoloBean {
 	}
 
 
-	
-	
+
 }
