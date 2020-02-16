@@ -65,9 +65,9 @@
 						String ERRORMSG = (String) request.getAttribute("ERRORMSG");
 					//
 					%>
-					<ul class="sf-menu">
-						<li class="current"><a href=".">EL TANQUE <i
-								class="fas fa-wine-glass-alt"></i>
+					<ul class="sf-menu" style="margin-bottom:0; text-align:center;justify-content:center">
+						<li class="current"><a href="." style="font-size:30px!important">EL TANQUE <i
+								class="fas fa-wine-glass-alt" style="font-size:30px!important"></i>
 						</a></li>
 					</ul>
 				</nav>
@@ -79,6 +79,7 @@
 			if (ERRORMSG != null) {
 		%>
 		<div class="row ">
+		 
 			<div
 				class="col p-1 ml-4 mr-4 alert alert-danger alert-dismissable float-left "
 				style="background-color: #b71540 !important; color: white"
@@ -94,10 +95,7 @@
 
 			</div>
 		</div>
-		<div class="toast" role="alert" aria-live="polite" aria-atomic="true"
-			data-delay="10000">
-			<div role="alert" aria-live="assertive" aria-atomic="true">...</div>
-		</div>
+		
 		<%
 			}
 		%>
@@ -122,7 +120,7 @@
 											name="textpass"></li>
 									</ul>
 									<div class="alright">
-										<button type="submit" class="btn btn-danger">Login</button>
+										<button type="submit" class="btn btn-danger m-3">Login</button>
 									</div>
 								</form>
 							</div>
@@ -166,7 +164,7 @@
 														type="password" name="textitolare"></li>
 												</ul>
 												<div class="alright">
-													<button type="submit" class="btn btn-danger">Login</button>
+													<button type="submit" class="btn btn-danger m-3">Login</button>
 												</div>
 											</form>
 										</div>
@@ -184,7 +182,7 @@
 														name=textgestore></li>
 												</ul>
 												<div class="alright">
-													<button type="submit" class="btn btn-danger">Login</button>
+													<button type="submit" class="btn btn-danger m-3">Login</button>
 												</div>
 											</form>
 										</div>
