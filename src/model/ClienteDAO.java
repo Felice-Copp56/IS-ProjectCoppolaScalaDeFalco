@@ -124,6 +124,16 @@ public class ClienteDAO {
 			ps.close();
 	}
 	
+	public void updateLoginData2(String oldUser,String newUser,String newPass,String newEm) throws SQLException {
+		Connection conn=ConnectionPool.getConnection();
+		PreparedStatement ps=conn.prepareStatement("UPDATE CLIENTE SET USERNAME= ?, PASSWO= ?, EMAIL=? WHERE USERNAME=? ;");
+			ps.setString(1, newUser);
+			ps.setString(2, newPass);
+			ps.setString(3, newEm);
+			ps.setString(4, oldUser);
+			ps.executeUpdate();
+			ps.close();
+	}
 	public void updateLoginData(ClienteBean c, String username, String password,String email) throws SQLException{
 		Connection conn=ConnectionPool.getConnection();
 		PreparedStatement ps=conn.prepareStatement("UPDATE CLIENTE SET USERNAME= ?, PASSWO= ?, EMAIL=? WHERE USERNAME=? ;");

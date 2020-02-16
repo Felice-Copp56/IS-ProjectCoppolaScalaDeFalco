@@ -41,10 +41,93 @@ public class ModificaDatiAccesso extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String user = (String) request.getSession().getAttribute("user");
+		System.out.println(user);
+		String em =(String)request.getSession().getAttribute("email");
 		String username = request.getParameter("username");
+		System.out.println(username);
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
+		if(username.equals("")||email.equals("")||password.equals("")) {
+			request.setAttribute("ERRORMSG", "Credenziali non valide");
+			request.getRequestDispatcher("WEB-INF/jsp/modificaDatiAccesso.jsp").forward(request, response);
+			return;
+		}else {
+			if(user.equals(username)) {
+				if(em.equals(email)) {
+					try {
+						dao.updateLoginData2(user, username, password, email);
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					RequestDispatcher rq = request.getRequestDispatcher("WEB-INF/jsp/formFiltraTavoli.jsp");
+					rq.forward(request, response);
+				}
+				else {
+					if(dao.validateEmail(email))
+						try {
+							if(dao.existsEmail(email)) {
+								request.setAttribute("ERRORMSG", "Email già presente");
+								request.getRequestDispatcher("WEB-INF/jsp/modificaDatiAccesso.jsp").forward(request, response);
+								return;
+							}
+							else {
+								try {
+									dao.updateLoginData2(user, username, password, email);
+									request.getSession().setAttribute("user", username);
+									request.getSession().setAttribute("email", email);
+									request.getSession().setAttribute("password", password);
+								} catch (SQLException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+								RequestDispatcher rq = request.getRequestDispatcher("WEB-INF/jsp/formFiltraTavoli.jsp");
+								rq.forward(request, response);
+							}
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+				}
+			}else {
+				if(dao.validateUsername(username))
+					try {
+						if(dao.existsUsername(username)) {
+							request.setAttribute("ERRORMSG", "Username già presente");
+							request.getRequestDispatcher("WEB-INF/jsp/modificaDatiAccesso.jsp").forward(request, response);
+							return;
+						}else {
+							if(em.equals(email)) {
+								dao.updateLoginData2(user, username, password, email);
+								request.getSession().setAttribute("user", username);
+								request.getSession().setAttribute("email", email);
+								request.getSession().setAttribute("password", password);
+								RequestDispatcher rq = request.getRequestDispatcher("WEB-INF/jsp/formFiltraTavoli.jsp");
+								rq.forward(request, response);
+							}else {
+								if(dao.validateEmail(email))
+									if(dao.existsEmail(email)) {
+										request.setAttribute("ERRORMSG", "Email già presente");
+										request.getRequestDispatcher("WEB-INF/jsp/modificaDatiAccesso.jsp").forward(request, response);
+										return;
+									}else {
+										dao.updateLoginData2(user, username, password, email);
+										request.getSession().setAttribute("user", username);
+										request.getSession().setAttribute("email", email);
+										request.getSession().setAttribute("password", password);
+										RequestDispatcher rq = request.getRequestDispatcher("WEB-INF/jsp/formFiltraTavoli.jsp");
+										rq.forward(request, response);
+									}
+							}
+						}
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			}
+		}
 		
+		/*
 		if(username.equals("")|| email.equals("")||password.equals(""))
 		{
 			request.setAttribute("ERRORMSG", "Credenziali non valide");
@@ -129,7 +212,7 @@ public class ModificaDatiAccesso extends HttpServlet {
 					
 					}
 				}
-		
+		*/
 			} 
 			
 		

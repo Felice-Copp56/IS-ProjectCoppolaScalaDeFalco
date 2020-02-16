@@ -10,7 +10,7 @@ public class TavoloBean {
 	{
 		this.numTavolo=numTavolo;
 		this.numPosti=numPosti;
-		//stato mancante
+
 	}
 
 	public int getNumTavolo() {
@@ -28,6 +28,7 @@ public class TavoloBean {
 	public void setNumPosti(int numPosti) {
 		this.numPosti = numPosti;
 	}
+
 
 
 }
