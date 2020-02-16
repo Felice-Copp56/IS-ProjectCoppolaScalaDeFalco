@@ -232,14 +232,91 @@ public class TestDatiAccesso extends Mockito {
 	{
 		ClienteDAO dao = mock(ClienteDAO.class);
 		when(dao.existsEmail("Felice1.@gmail.com")).thenReturn(true);
+		
 		servlet.setCliente(dao);
 		String errMessage = ("Email già presente");
 		request.setParameter("username","andrea23");
 		request.setParameter("email", "Felice1.@gmail.com");
-		request.setParameter("password", "Scala");
+		request.setParameter("password", "Scala123");
 		
 		servlet.doGet(request,response);
 		String attribute = (String) request.getAttribute("ERRORMSG");
 		assertEquals(errMessage, attribute);
+	}
+	@Test
+	public void ModificaDatiAccesso16() throws ServletException, IOException, SQLException
+	{
+		ClienteDAO dao = mock(ClienteDAO.class);
+		when(dao.existsEmail("Felice1.@gmail.com")).thenReturn(true);
+		
+		servlet.setCliente(dao);
+		String errMessage = ("Email già presente");
+		request.setParameter("username","andrea47");
+		request.setParameter("email", "Felice1.@gmail.com");
+		request.setParameter("password", "Scala123");
+		
+		servlet.doGet(request,response);
+		String attribute = (String) request.getAttribute("ERRORMSG");
+		assertEquals(errMessage, attribute);
+	}
+	@Test
+	public void ModificaDatiAccesso17() throws ServletException, IOException, SQLException
+	{
+		ClienteDAO dao = mock(ClienteDAO.class);
+		
+		
+		servlet.setCliente(dao);
+		
+		request.setParameter("username","andrea23");
+		request.setParameter("email", "Scala1.@gmail.com");
+		request.setParameter("password", "Scala123");
+		
+		servlet.doGet(request,response);
+		
+	}
+	@Test
+	public void ModificaDatiAccesso18() throws ServletException, IOException, SQLException
+	{
+		ClienteDAO dao = mock(ClienteDAO.class);
+		
+		
+		servlet.setCliente(dao);
+		
+		request.setParameter("username","andrea47");
+		request.setParameter("email", "Scala1.@gmail.com");
+		request.setParameter("password", "Scala123");
+		
+		servlet.doGet(request,response);
+		
+	}
+	@Test
+	public void ModificaDatiAccesso19() throws ServletException, IOException, SQLException
+	{
+		ClienteDAO dao = mock(ClienteDAO.class);
+		
+		
+		servlet.setCliente(dao);
+		
+		request.setParameter("username","andrea23");
+		request.setParameter("email", "Scala17.@gmail.com");
+		request.setParameter("password", "Scala123");
+		
+		servlet.doGet(request,response);
+		
+	}
+	@Test
+	public void ModificaDatiAccesso20() throws ServletException, IOException, SQLException
+	{
+		ClienteDAO dao = mock(ClienteDAO.class);
+		
+		
+		servlet.setCliente(dao);
+		
+		request.setParameter("username","andrea47");
+		request.setParameter("email", "Scala17.@gmail.com");
+		request.setParameter("password", "Scala123");
+		
+		servlet.doGet(request,response);
+		
 	}
 }
