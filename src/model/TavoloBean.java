@@ -3,15 +3,14 @@ package model;
 public class TavoloBean {
 	
 	private int numTavolo,numPosti;
-	private boolean stato;
+
 	
 	
-	public TavoloBean(int numTavolo,int numPosti,boolean stato)
+	public TavoloBean(int numTavolo,int numPosti)
 	{
 		this.numTavolo=numTavolo;
 		this.numPosti=numPosti;
-		this.stato=stato;
-		
+		//stato mancante
 	}
 
 	public int getNumTavolo() {
@@ -30,13 +29,5 @@ public class TavoloBean {
 		this.numPosti = numPosti;
 	}
 
-	public boolean isStato() {
-		return stato;
-	}
 
-	public void setStato(boolean stato) {
-		this.stato = stato;
-	}
-	
-	
 }

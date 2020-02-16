@@ -44,7 +44,7 @@ public class RegistrationServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		String errMessage = ("Dati registrazione cliente non validi");
 		String errMessageExist = ("Email già presente");
-		String okRegister = ("Registrazione avvenuta");
+		String errMessageExistUsername = ("Username già presente");
 		String nome = request.getParameter("textnome");
 		String cognome = request.getParameter("textcognome");
 		String email = request.getParameter("textemail");
@@ -57,11 +57,18 @@ public class RegistrationServlet extends HttpServlet {
 				request.setAttribute("ERRORMSG", errMessage);
 				request.getRequestDispatcher("WEB-INF/jsp/homepage.jsp").forward(request, response);
 				return;
-			} else if (dao.existsEmail(email) || dao.existsUsername(user)) {
-				request.setAttribute("ERRORMSGEX", errMessageExist);
+			} else if (dao.existsEmail(email)) {
+				request.setAttribute("ERRORMSG", errMessageExist);
 				request.getRequestDispatcher("WEB-INF/jsp/homepage.jsp").forward(request,response);
 				return;
-			} else {
+			} 
+			else if(dao.existsUsername(user))
+			{
+				request.setAttribute("ERRORMSG", errMessageExistUsername);
+				request.getRequestDispatcher("WEB-INF/jsp/homepage.jsp").forward(request,response);
+				return;
+			}
+			else {
 				dao.doSave(new ClienteBean(nome, cognome, user, email, pasw));
 				
 				request.getRequestDispatcher("WEB-INF/jsp/homepageRegistrazione.jsp").forward(request, response);

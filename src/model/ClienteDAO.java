@@ -23,7 +23,8 @@ public class ClienteDAO {
 			ps.setString(5, c.getPassword());
 			
 			ps.executeUpdate();
-			//Commento casuale
+			//Esecuzione query
+			
 			
 	}
 	public Boolean checkUserExists(String user,String password) throws SQLException
