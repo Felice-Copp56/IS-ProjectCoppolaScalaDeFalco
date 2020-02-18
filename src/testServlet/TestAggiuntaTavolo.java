@@ -36,7 +36,7 @@ public class TestAggiuntaTavolo extends Mockito {
 	public void AggiuntaTavolo1() throws ServletException, IOException
 	{
 		String errorMessage = ("Tavolo non aggiunto");
-		request.setParameter("numeroT", " ");
+		request.setParameter("numeroT", "");
 		request.setParameter("numeroP", "4");
 		
 		gestore.doGet(request, response);

@@ -220,6 +220,8 @@ class TestRegistrazioneCliente extends Mockito  {
 	@Test
 	public void RegistrazioneCliente_15() throws ServletException, IOException
 	{
+		ClienteDAO dao = mock(ClienteDAO.class);
+		servlet.setCliente(dao);
 		String errorMessage = "Dati registrazione cliente non validi";
 		request.setParameter("textnome","Felice");
 		request.setParameter("textcognome","Coppola");
