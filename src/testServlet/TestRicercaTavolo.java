@@ -37,7 +37,7 @@ public class TestRicercaTavolo extends Mockito {
 		
 		TavoloDAO dao = mock(TavoloDAO.class);
 		servlet.setTavolo(dao);
-		String errorMessage = ("Errore");
+		String errorMessage = ("Dati errati, reinserisci");
 		
 		request.setParameter("numeroPersone", "-1");
 		request.setParameter("Data", "2020-02-16");
@@ -52,7 +52,7 @@ public class TestRicercaTavolo extends Mockito {
 		
 		TavoloDAO dao = mock(TavoloDAO.class);
 		servlet.setTavolo(dao);
-		String errorMessage = ("Errore");
+		String errorMessage = ("Dati errati, reinserisci");
 		
 		request.setParameter("numeroPersone", "3");
 		request.setParameter("Data", "2020-02-14");
@@ -68,7 +68,7 @@ public class TestRicercaTavolo extends Mockito {
 		
 		TavoloDAO dao = mock(TavoloDAO.class);
 		servlet.setTavolo(dao);
-		String errorMessage = ("Errore");
+		String errorMessage = ("Dati errati, reinserisci");
 		
 		request.setParameter("numeroPersone", "3");
 		request.setParameter("Data", "2020-02-16");
