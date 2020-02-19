@@ -1,6 +1,7 @@
 create database eltanque;
 use eltanque;
 
+
 #drop database eltanque;
 create table cliente
 (
@@ -15,7 +16,8 @@ create table cliente
     passwo varchar(25) not null
 );
 
-
+INSERT INTO `eltanque`.`cliente` (`nome`, `cognome`, `username`, `email`, `passwo`) VALUES ('Andrea', 'Scala', 'andreas', 'andrea@gmail.com', 'andrea');
+INSERT INTO `eltanque`.`cliente` (`nome`, `cognome`, `username`, `email`, `passwo`) VALUES ('Felice', 'Coppola', 'felicec', 'felice@gmail.com', 'felice');
 INSERT INTO `eltanque`.`cliente` (`nome`, `cognome`, `username`, `email`, `passwo`) VALUES ('Felice', 'Coppola', 'felice23', 'Felice1.@gmail.com', 'Felice123');
 
 
@@ -53,7 +55,8 @@ create table prenotazione
     
     username varchar(25) not null,
     foreign key(username) references cliente(username) on update cascade,
-
+    
+    
     data date,
     
     ora_inizio time,
@@ -63,7 +66,7 @@ create table prenotazione
     primary key(num_tavolo,data,ora_fine,ora_inizio)
 );
 
-INSERT INTO `eltanque`.`prenotazione` (`num_tavolo`, `username`, `data`, `ora_inizio`, `ora_fine`) VALUES ('1', 'felice23', '2020-01-01', '19:00:00', '20:00:00');
-INSERT INTO `eltanque`.`prenotazione` (`num_tavolo`, `username`, `data`, `ora_inizio`, `ora_fine`) VALUES ('1', 'felice23', '2020-01-01', '20:00:00', '21:00:00');
-
+INSERT INTO `eltanque`.`prenotazione` (`num_tavolo`, `username`, `data`, `ora_inizio`, `ora_fine`) VALUES ('1', 'andreas', '2020-01-01', '19:00:00', '20:00:00');
+INSERT INTO `eltanque`.`prenotazione` (`num_tavolo`, `username`, `data`, `ora_inizio`, `ora_fine`) VALUES ('1', 'felicec', '2020-01-01', '20:00:00', '21:00:00');
+INSERT INTO `eltanque`.`prenotazione` (`num_tavolo`, `username`, `data`, `ora_inizio`, `ora_fine`) VALUES ('3', 'felicec', '2020-03-03', '23:00:00', '24:00:00');
 
